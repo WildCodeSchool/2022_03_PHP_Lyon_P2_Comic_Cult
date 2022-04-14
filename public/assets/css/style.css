@@ -16,7 +16,7 @@
 
     --main_font_color: #FFFFFF;
     --main_bg_color: #353942;
-    --main_font: 'bangersregular';
+    --main_font: 'bangersregular', sans-serif;
 
     --second_font_color: #FFFFFF;
     --second_bg_color: #000000;
@@ -27,13 +27,4 @@
     --third_font: Basic, sans-serif;
 
     --main_border_color: #BEC222;
-}
-
-.title {
-    font-family: var(--main_font);
-    color: var(--main_font_color);
-    background-color: var(--main_bg_color);
-    font-size: 120px;
-    border-bottom: 8px solid;
-    border-color: var(--main_border_color);
 }
