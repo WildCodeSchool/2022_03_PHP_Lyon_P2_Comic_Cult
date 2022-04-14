@@ -157,7 +157,7 @@ CREATE TABLE comic_book (
     nb_pages INT,
     volume INT,
     price FLOAT,
-    cover BLOB,
+    cover VARCHAR(1000),
     author_name VARCHAR(100),
 	category_id INT NOT NULL,
 	CONSTRAINT fk_comic_book_category
