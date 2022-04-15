@@ -138,7 +138,7 @@ CREATE TABLE `user` (
 	user_name VARCHAR(80) NOT NULL,
     first_name VARCHAR(80) NOT NULL,
     last_name VARCHAR(80) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(320) NOT NULL,
     password VARCHAR(80) NOT NULL,
     birth_date DATE NOT NULL,
     is_admin BOOL NOT NULL
@@ -192,7 +192,7 @@ CREATE TABLE contact (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     firstname VARCHAR(80) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(320) NOT NULL,
     message TEXT NOT NULL
     );
 
