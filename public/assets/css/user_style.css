@@ -50,3 +50,20 @@ body {
     width: calc(25px + 1vw);
     height: calc(25px + 1vw);
 }
+
+/* FOOTER RESPONSIVE */
+footer {
+    font-family: var(--main_font);
+    border-top: 1px solid var(--main_border_color);
+    height: calc(4vh + 0.5vw);
+}
+
+footer a {
+    color: var(--main_font_color);
+    font-size: calc(12px + 0.5vw);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--second_font_color);
+}
