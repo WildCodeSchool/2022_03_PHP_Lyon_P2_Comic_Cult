@@ -60,6 +60,11 @@ header {
     height: calc(25px + 1vw);
 }
 
+#home_picture {
+    width: calc(150px + 20vw);
+    height: calc(50px + 20vw);
+}
+
 /* FOOTER RESPONSIVE */
 footer {
     font-family: var(--main_font);
