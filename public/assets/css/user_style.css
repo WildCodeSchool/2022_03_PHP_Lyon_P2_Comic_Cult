@@ -5,7 +5,7 @@ body {
 }
 
 /* USER HEADER RESPONSIVE */
-header {
+.home_header {
     height: 20vh;
 }
 
@@ -66,18 +66,18 @@ header {
 }
 
 /* FOOTER RESPONSIVE */
-footer {
+.home_footer {
     font-family: var(--main_font);
     border-top: 1px solid var(--main_border_color);
     height: calc(4vh + 0.5vw);
 }
 
-footer a {
+.home_footer a {
     color: var(--main_font_color);
     font-size: calc(12px + 0.5vw);
     text-decoration: none;
 }
 
-footer a:hover {
+.home_footer a:hover {
     color: var(--second_font_color);
 }
