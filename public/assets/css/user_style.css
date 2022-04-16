@@ -4,6 +4,15 @@ body {
     background-color: var(--main_bg_color);
 }
 
+/* USER HEADER RESPONSIVE */
+header {
+    height: 20vh;
+}
+
+#admin_icon {
+    width: calc(25px + 1vw);
+    height: calc(25px + 1vw);
+}
 
 /* WEBSITE TITLE RESPONSIVE */
 .website_title {
@@ -34,7 +43,7 @@ body {
     background: none;
     border: none;
     font-family: var(--main_font);
-    font-size: calc(14px + 0.5vw);
+    font-size: calc(13px + 0.5vw);
 }
 
 .search_input:focus {
