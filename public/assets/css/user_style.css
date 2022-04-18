@@ -1,0 +1,83 @@
+/* This CSS style file is only for user interface */
+
+body {
+    background-color: var(--main_bg_color);
+}
+
+/* USER HEADER RESPONSIVE */
+.home_header {
+    height: 20vh;
+}
+
+#admin_icon {
+    width: calc(25px + 1vw);
+    height: calc(25px + 1vw);
+}
+
+/* WEBSITE TITLE RESPONSIVE */
+.website_title {
+    font-size: calc(60px + 2vw);
+    font-family: var(--main_font);
+    color: #D80505;
+}
+
+.website_title span {
+    font-size: calc(50px + 2vw);
+    color: #EED706;
+}
+
+.website_title span:last-child {
+    color: #6AA3F9;
+}
+
+
+/* SEARCH BAR RESPONSIVE */
+.search_bar {
+    background-color: #e6e6e6;
+    height: calc(30px + 1vw);
+    border-radius: calc(30px + 1vw);
+    border: 2px solid var(--main_border_color);
+}
+
+.search_input {
+    background: none;
+    border: none;
+    font-family: var(--main_font);
+    font-size: calc(13px + 0.5vw);
+}
+
+.search_input:focus {
+    outline: none;
+}
+
+.search_button {
+    background: none;
+    border: none;
+}
+
+#snag_icon {
+    width: calc(25px + 1vw);
+    height: calc(25px + 1vw);
+}
+
+#home_picture {
+    width: calc(150px + 20vw);
+    height: calc(50px + 20vw);
+}
+
+/* FOOTER RESPONSIVE */
+.home_footer {
+    font-family: var(--main_font);
+    border-top: 1px solid var(--main_border_color);
+    height: calc(4vh + 0.5vw);
+}
+
+.home_footer a {
+    color: var(--main_font_color);
+    font-size: calc(12px + 0.5vw);
+    text-decoration: none;
+}
+
+.home_footer a:hover {
+    color: var(--second_font_color);
+}
