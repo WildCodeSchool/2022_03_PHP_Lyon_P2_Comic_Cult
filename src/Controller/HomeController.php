@@ -23,7 +23,7 @@ class HomeController extends AbstractController
                     $errors[] = "Merci de renseigner au minimum un mot dans le champ de recherche.";
                 }
                 if (strlen($keyword) > 80) {
-                    $errors[] = "Le mot : \"$keyword\" est trop long. Longueur maximale autorisée : 80 caractères.";
+                    $errors[] = "Un des mots-clés utilisé est trop long. Longueur maximale autorisée : 80 caractères.";
                 }
             }
             if (empty($errors)) {
