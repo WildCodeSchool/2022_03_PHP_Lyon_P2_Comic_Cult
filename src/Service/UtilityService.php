@@ -7,7 +7,7 @@ class UtilityService
     public function clearString(string $stringToClear): string
     {
         $characterToReplace = ['\'', '"', ',', '-', '.', ':', ';', '?', '!'];
-        $accentsToReplace = [['à' => 'a'],
+        $accentsToReplace = [['à' => 'a'], ['â', 'a'],
                             ['é' => 'e'], ['è' => 'e'], ['ê' => 'e'], ['ë' => 'e'],
                             ['î' => 'i'], ['ï' => 'i'],
                             ['ô' => 'o'], ['ö' => 'o'],
