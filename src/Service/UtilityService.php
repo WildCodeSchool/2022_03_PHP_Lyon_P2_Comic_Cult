@@ -11,7 +11,7 @@ class UtilityService
                             ['é' => 'e'], ['è' => 'e'], ['ê' => 'e'], ['ë' => 'e'],
                             ['î' => 'i'], ['ï' => 'i'],
                             ['ô' => 'o'], ['ö' => 'o'],
-                            ['ù' => 'u'], ['û' => 'u']];
+                            ['ù' => 'u'], ['û' => 'u'], ['ü', 'u']];
         $wordsToReplace = ['un', 'une', 'des', 'le', 'la', 'les', 'au', 'aux', 'du',
                             'mon', 'notre', 'votre', 'nos', 'vos', 'leur', 'leurs',
                             'ai', 'avons', 'avez', 'ont', 'suis', 'es', 'êtes', 'sont',
