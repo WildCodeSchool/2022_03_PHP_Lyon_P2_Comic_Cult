@@ -8,11 +8,23 @@ class UserManager extends AbstractManager
 
 
     /**
+     * list of user's keywords sent from home page.
+     */
+    public function keywordsList(): array
+    {
+        $query = 'SELECT * FROM `keywords_search`';
+        $statement = $this->pdo->query($query);
+        $keywords = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $keywords;
+    }
+
+    /**
      * Select results by title and description
      */
     public function listByKeywords(): array
     {
-        $query = 'SELECT DISTINCT * FROM comic_book
+        $query = 'SELECT DISTINCT comic_book.* FROM comic_book
                     INNER JOIN keywords_search
                     WHERE INSTR(comic_book.title, keywords_search.keyword)
                     OR INSTR(comic_book.pitch, keywords_search.keyword);';

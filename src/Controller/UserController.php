@@ -7,14 +7,40 @@ use App\Model\UserManager;
 class UserController extends AbstractController
 {
     /**
-     * Show list of comics by keywords
+     * Show list of comics sorted by title and description
      */
     public function list(): string
     {
         $userManager = new UserManager();
+        $keywords = $userManager->keywordsList();
         $comicBooks = $userManager->listByKeywords();
-        var_dump($comicBooks);
+        $finalList = [];
+        $characterToReplace = ['\'', '"', ',', '-', '.', ':', ';', '?', '!'];
 
-        return $this->twig->render('User/list.html.twig', ['comicBooks' => $comicBooks]);
+        foreach ($keywords as $keyword) {
+                $keyword['keyword'] = strtolower($keyword['keyword']);
+            foreach ($comicBooks as $comicBook) {
+                $splitTitle = [];
+                $comicTitle = str_replace($characterToReplace, ' ', $comicBook['title']);
+                $comicTitle = strtolower($comicTitle);
+                $splitTitle = explode(" ", $comicTitle);
+                $comicPitch = str_replace($characterToReplace, ' ', $comicBook['pitch']);
+                $comicPitch = strtolower($comicPitch);
+                $splitPitch = explode(" ", $comicPitch);
+                foreach ($splitTitle as $word) {
+                    if (strcmp($word, $keyword['keyword']) == 0) {
+                        $finalList[] = $comicBook;
+                    }
+                }
+                foreach ($splitPitch as $word) {
+                    if (strcmp($word, $keyword['keyword']) == 0) {
+                        $finalList[] = $comicBook;
+                    }
+                }
+            }
+        }
+        $finalList = array_unique($finalList, SORT_REGULAR);
+        var_dump($finalList);
+        return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 }
