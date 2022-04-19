@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\HomeManager;
+use App\Service\UtilityService;
 
 class HomeController extends AbstractController
 {
@@ -11,13 +12,16 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
+        $utilityService = new UtilityService();
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $keywords = trim($_POST['keywords']);
+            $keywords = $utilityService->clearString($keywords);
+            $keywords = trim($keywords);
+            // fonction used to clear all spaces between words.
             $keywords = preg_replace('/\s\s+/', ' ', $keywords);
             $keywords = explode(' ', $keywords);
-
             foreach ($keywords as $keyword) {
                 if (empty($keyword)) {
                     $errors[] = "Merci de renseigner au minimum un mot dans le champ de recherche.";
