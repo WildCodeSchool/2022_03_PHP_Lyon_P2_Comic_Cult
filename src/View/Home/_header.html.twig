@@ -2,14 +2,14 @@
     
     <!--<a class="position-absolute top-0 end-0" href=""><img id="admin_icon" src="/assets/images/admin_icon.png"></a>-->
     
-    <div class="position-absolute top-0 end-0 " style="margin-top:50px">
+    <div class="position-absolute top-0 end-0 ">
             <a herf="#" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img id="admin_icon" src="/assets/images/admin_icon.png"></a>
 
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Admin</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Connexion à l'espace Adminstrateur</h5>
 
 
 
@@ -18,14 +18,16 @@
                         </div>
                         <div class="modal-body" >
                             <form  action="">
-
-                                <label class="container" for="Name">Log in</label>
+                                <div id="spaceAdminConnexion">
+                            
+                                <label class="container" id="spaceAdminLogin" for="Name">Log in</label>
                                 <input type="text">
 
-                                <label class="container" or="Name"> Mot de passe</label>
+                                <label class="container" for="Name" id="spaceAdminMdp"> Mot de passe</label>
                                 <input type="text">
 
-                                <button class = "container btn btn-info " >SUBMIT</button>
+                                <button class = "container btn btn-secondary btn-lg mb-2" >SUBMIT</button>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
