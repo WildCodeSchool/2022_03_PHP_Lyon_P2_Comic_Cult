@@ -1,14 +1,19 @@
 <?php
 
 namespace App\Controller;
+use App\Model\AdminManager;
 
 class AdminController extends AbstractController
 {
+    
     /**
-     * Display home page
+     * Comics list
      */
     public function list(): string
     {
-        return $this->twig->render('Admin/admin.html.twig');
+        $adminManager = new AdminManager();
+        $comics = $adminManager->selectAll();
+
+        return $this->twig->render('Admin/admin.html.twig', ['comics' => $comics]);
     }
 }

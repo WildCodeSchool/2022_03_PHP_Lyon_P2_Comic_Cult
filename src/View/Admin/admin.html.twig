@@ -4,7 +4,7 @@
 {% block content %}
 	{% include "Admin/_header.html.twig" %}
 	<main>
-		<a href=""><img id="return_button" src="" alt="">Retour</a>
+		<a href="/"><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
 		<h1 id="dashboard_title">bande-dessinées</h1>
 		<div class="row justify-content-center table-responsive">
 			<div class="col-8">
@@ -12,21 +12,24 @@
 				<table class="table table-responsive">
 					<thead>
 						<tr>
-							<th style="width: 10%;">id</th>
-							<th style="width: 35%;">Titre</th>
-							<th style="width: 35%;">Auteur</th>
-							<th colspan="2">Modifier / Supprimer</th>
+							<th style="width: 8%;">id</th>
+							<th style="width: 40%;">Titre</th>
+							<th style="width: 25%;">Auteur</th>
+							<th colspan="2">Modif. / Suppr.</th>
 						</tr>
 					</thead>
 					<tbody>
+						{% for comic in comics %}
 						<tr>
-							<th>
-							
-							</th>
 							<td>
-								
+								{{ comic.id }}<br/>
 							</td>
-							<td></td>
+							<td>
+								{{ comic.title }}<br/>
+							</td>
+							<td>
+							
+							</td>
 							<td>
 								<button id="add_button" type="button" class="btn btn-dark">éditer</button>
 							</td>
@@ -34,6 +37,7 @@
 								<button id="add_button" type="button" class="btn btn-dark">Suppr.</button>
 							</td>
 						</tr>
+						{% endfor %}
 					</tbody>
 				</table>
 			</div>
