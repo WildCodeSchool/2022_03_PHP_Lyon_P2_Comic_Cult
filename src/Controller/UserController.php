@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\UserManager;
+use App\Service\UtilityService;
 
 class UserController extends AbstractController
 {
@@ -14,13 +15,15 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $keywords = $userManager->keywordsList();
         $comicBooks = $userManager->listByKeywords();
+        $splitTitle = [];
+        $splitPitch = [];
         $finalList = [];
         $characterToReplace = ['\'', '"', ',', '-', '.', ':', ';', '?', '!'];
 
         foreach ($keywords as $keyword) {
                 $keyword['keyword'] = strtolower($keyword['keyword']);
             foreach ($comicBooks as $comicBook) {
-                $splitTitle = [];
+                // $splitTitle = [];
                 $comicTitle = str_replace($characterToReplace, ' ', $comicBook['title']);
                 $comicTitle = strtolower($comicTitle);
                 $splitTitle = explode(" ", $comicTitle);
