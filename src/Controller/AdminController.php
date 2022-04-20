@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Controller;
+
 use App\Model\AdminManager;
 
 class AdminController extends AbstractController
 {
-    
     /**
      * Comics list
      */
