@@ -2,9 +2,9 @@
 {% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">
 {% endblock %}
 {% block content %}
-{% include "Admin/_header.html.twig" %}
+	{% include "Admin/_header.html.twig" %}
 	<main>
-		<a href=""><img id="return_button" src="assets/bouton-retour.png" alt=""></a>
+		<a href=""><img id="return_button" src="" alt="">Retour</a>
 		<h1 id="dashboard_title">bande-dessinées</h1>
 		<div class="row justify-content-center table-responsive">
 			<div class="col-8">
@@ -20,33 +20,19 @@
 					</thead>
 					<tbody>
 						<tr>
-							<th>1</th>
+							<th>
+							
+							</th>
+							<td>
+								
+							</td>
 							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>2</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-
-						</tr>
-						<tr>
-							<th>3</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>4</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td>
+								<button id="add_button" type="button" class="btn btn-dark">éditer</button>
+							</td>
+							<td>
+								<button id="add_button" type="button" class="btn btn-dark">Suppr.</button>
+							</td>
 						</tr>
 					</tbody>
 				</table>

@@ -14,4 +14,5 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'admin/list' => ['AdminController', 'list',],
+    'search' => ['UserController', 'list'],
 ];
