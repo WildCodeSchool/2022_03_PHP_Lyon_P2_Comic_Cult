@@ -27,7 +27,7 @@ class UserManager extends AbstractManager
         $query = 'SELECT DISTINCT comic_book.* FROM comic_book
                     INNER JOIN keywords_search
                     WHERE INSTR(comic_book.title, keywords_search.keyword)
-                    OR INSTR(comic_book.pitch, keywords_search.keyword);';
+                    OR INSTR(comic_book.keywords, keywords_search.keyword);';
         $statement = $this->pdo->query($query);
         $comicBooks = $statement->fetchAll(\PDO::FETCH_ASSOC);
 

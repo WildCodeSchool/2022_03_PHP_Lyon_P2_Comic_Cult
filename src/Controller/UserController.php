@@ -13,29 +13,28 @@ class UserController extends AbstractController
     public function list(): string
     {
         $userManager = new UserManager();
+        $utilityService = new UtilityService();
         $keywords = $userManager->keywordsList();
         $comicBooks = $userManager->listByKeywords();
         $splitTitle = [];
-        $splitPitch = [];
+        $splitKeywords = [];
         $finalList = [];
-        $characterToReplace = ['\'', '"', ',', '-', '.', ':', ';', '?', '!'];
 
         foreach ($keywords as $keyword) {
                 $keyword['keyword'] = strtolower($keyword['keyword']);
             foreach ($comicBooks as $comicBook) {
-                // $splitTitle = [];
-                $comicTitle = str_replace($characterToReplace, ' ', $comicBook['title']);
-                $comicTitle = strtolower($comicTitle);
+                $comicTitle = $utilityService->clearString($comicBook['title']);
+                $comicTitle = preg_replace('/\s\s+/', ' ', $comicTitle);
                 $splitTitle = explode(" ", $comicTitle);
-                $comicPitch = str_replace($characterToReplace, ' ', $comicBook['pitch']);
-                $comicPitch = strtolower($comicPitch);
-                $splitPitch = explode(" ", $comicPitch);
+                $comicKeywords = $utilityService->clearString($comicBook['keywords']);
+                $comicKeywords = preg_replace('/\s\s+/', ' ', $comicKeywords);
+                $splitKeywords = explode(" ", $comicKeywords);
                 foreach ($splitTitle as $word) {
                     if (strcmp($word, $keyword['keyword']) == 0) {
                         $finalList[] = $comicBook;
                     }
                 }
-                foreach ($splitPitch as $word) {
+                foreach ($splitKeywords as $word) {
                     if (strcmp($word, $keyword['keyword']) == 0) {
                         $finalList[] = $comicBook;
                     }
@@ -43,7 +42,6 @@ class UserController extends AbstractController
             }
         }
         $finalList = array_unique($finalList, SORT_REGULAR);
-        var_dump($finalList);
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 }
