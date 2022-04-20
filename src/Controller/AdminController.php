@@ -6,9 +6,6 @@ use App\Model\AdminManager;
 
 class AdminController extends AbstractController
 {
-    /**
-     * Comics list
-     */
     public function list(): string
     {
         $adminManager = new AdminManager();
