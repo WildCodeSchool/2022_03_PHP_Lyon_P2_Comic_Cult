@@ -24,6 +24,8 @@ class AdminController extends AbstractController
         $cleanComicBook = new UtilityService();
 
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
+            var_dump($_POST);
+            //die();
             $errors = [];
             //$arrayOfErrors = [];
             $comicBook = array_map('trim', $_POST);
