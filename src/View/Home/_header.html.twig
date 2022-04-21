@@ -1,5 +1,6 @@
+
 <header class="home_header position-relative mt-4 me-4">
-    
+
     <!--<a class="position-absolute top-0 end-0" href=""><img id="admin_icon" src="/assets/images/admin_icon.png"></a>-->
     
     <div class="position-absolute top-0 end-0 ">
@@ -17,14 +18,14 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" >
-                            <form  action="">
+                            <form  action="" method="POST">
                                 <div id="spaceAdminConnexion">
                             
                                 <label class="container" id="spaceAdminLogin" for="Name">Log in</label>
-                                <input type="text">
+                                <input type="text" name="login" required>
 
                                 <label class="container" for="Name" id="spaceAdminMdp"> Mot de passe</label>
-                                <input type="text">
+                                <input type="password" name= "password" required>
 
                                 <button class = "container btn btn-secondary btn-lg mb-2" >SUBMIT</button>
                                 </div>
