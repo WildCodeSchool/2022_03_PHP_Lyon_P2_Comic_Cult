@@ -46,6 +46,7 @@ class AdminController extends AbstractController
             if (empty($cleanComicBook->getCheckErrors())) {
                 move_uploaded_file($_FILES['cover']['tmp_name'], $uploadFile);
                 $adminManager->insert($comicBook);
+                header('Location: list');
             }
         }
 

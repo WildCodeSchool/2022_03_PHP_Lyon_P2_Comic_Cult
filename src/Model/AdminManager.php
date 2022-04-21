@@ -12,9 +12,10 @@ class AdminManager extends AbstractManager
     public function insert(array $comicBook): void
     {
         $query = 'INSERT INTO comic_book (`title`, `isbn`, `date_of_release`,
-                    `pitch`, `keywords`, `nb_pages`, `volume`, `price`, `cover`, `author_name`)
+                    `pitch`, `keywords`, `nb_pages`, `volume`, `price`,
+                    `cover`, `author_name`, `category_id`)
                     VALUES (:title, :isbn, :date_of_release, :pitch, :keywords, :nb_pages,
-                    :volume, :price, :cover, :author_name)';
+                    :volume, :price, :cover, :author_name, :category_id)';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':title', $comicBook['title'], \PDO::PARAM_STR);
         $statement->bindValue(':isbn', $comicBook['isbn'], \PDO::PARAM_INT);
@@ -26,6 +27,7 @@ class AdminManager extends AbstractManager
         $statement->bindValue(':price', $comicBook['price'], \PDO::PARAM_STR);
         $statement->bindValue(':cover', $comicBook['cover'], \PDO::PARAM_STR);
         $statement->bindValue(':author_name', $comicBook['author_name'], \PDO::PARAM_STR);
+        $statement->bindValue(':category_id', $comicBook['category_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
 }

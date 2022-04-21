@@ -21,7 +21,7 @@ class AddComicService extends UtilityService
     {
         if (
             empty($comicBook['title']) || empty($comicBook['date_of_release']) ||
-            empty($comicBook['category']) || empty($comicBook['author_name'])  ||
+            empty($comicBook['category_id']) || empty($comicBook['author_name'])  ||
             empty($comicBook['pitch'])
         ) {
             $this->checkErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
