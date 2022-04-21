@@ -17,10 +17,40 @@ class AdminController extends AbstractController
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
             $errors = [];
             $comicBook = array_map('trim', $_POST);
+            // Three function in UtilityService to clean comic book's datas.
             $errors[] = $cleanComicBook->comicBookEmptyVerify($comicBook);
             $errors[] = $cleanComicBook->comicBookNumberValidate($comicBook);
             $errors[] = $cleanComicBook->comicBookStringVerify($comicBook);
             $comicBook['keywords'] = $cleanComicBook->clearString($comicBook['pitch']);
+
+            $uploadDir = 'assets/images/comicUpload/';
+            $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
+            $comicBook['cover'] = $uploadFile;
+            // Function to verify integrity of uploaded file.
+            $errors[] = $cleanComicBook->coverIntegrityVerify($_FILES);
+            var_dump($errors);
+
+            /*
+            if (empty($errors)) {
+                move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadFile);
+            }*/
+
+            /*
+            $uploadDir = 'assets/images/comicUpload/';
+            $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
+            $comicBook['cover'] = $uploadFile;
+            $extension = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+            $authorizedExtensions = ['jpg','jpeg','png'];
+            $maxFileSize = 2000000;
+
+            if ((!in_array($extension, $authorizedExtensions))){
+                $errors[] = 'Veuillez sélectionner une image de type Jpg ou Jpeg ou Png !';
+            }
+            if (file_exists($_FILES['avatar']['tmp_name']) && filesize($_FILES['avatar']['tmp_name']) > $maxFileSize) {
+            $errors[] = "Votre fichier doit faire moins de 2M !";
+            }
+            */
+
             //var_dump($comicBook);
             /*
             if (empty($comicBook['title'])) {

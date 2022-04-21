@@ -100,4 +100,21 @@ class UtilityService
 
         return $numberErrors;
     }
+
+    public function coverIntegrityVerify(array $file): array
+    {
+        $coverErrors = [];
+        $extension = pathinfo($file['avatar']['name'], PATHINFO_EXTENSION);
+        $authorizedExtensions = ['jpg','jpeg','png'];
+        $maxFileSize = 2000000;
+
+        if ((!in_array($extension, $authorizedExtensions))) {
+            $coverErrors[] = 'Veuillez sélectionner une image de type Jpg ou Jpeg ou Png !';
+        }
+        if (file_exists($file['avatar']['tmp_name']) && filesize($file['avatar']['tmp_name']) > $maxFileSize) {
+            $coverErrors[] = "Votre fichier doit faire moins de 2M !";
+        }
+
+        return $coverErrors;
+    }
 }
