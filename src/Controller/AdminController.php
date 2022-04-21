@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Model\AdminManager;
-use App\Service\UtilityService;
+use App\Service\AddComicService;
 
 class AdminController extends AbstractController
 {
@@ -21,47 +21,34 @@ class AdminController extends AbstractController
      */
     public function add(): ?string
     {
-        $cleanComicBook = new UtilityService();
+        $cleanComicBook = new AddComicService();
+        $adminManager = new AdminManager();
+        $errors = [];
 
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
-            var_dump($_POST);
-            var_dump($_FILES);
-            //die();
-            $errors = [];
-            //$arrayOfErrors = [];
             $comicBook = array_map('trim', $_POST);
             // Three function in UtilityService to clean comic book's datas.
-            $errors[] = $cleanComicBook->comicBookEmptyVerify($comicBook);
-            $errors[] = $cleanComicBook->comicBookEmptyVerify($comicBook);
-            var_dump($errors);
-            /*
-            foreach ($errors as $key => $value) {
-                foreach ($value as $line) {
-                    if (!empty($line)) {
-                        $arrayOfErrors[] = $line;
-                    }
-                }
-            }
-
-            var_dump($arrayOfErrors);*/
-            //die();
-            $errors[] = $cleanComicBook->comicBookNumberValidate($comicBook);
-            $errors[] = $cleanComicBook->comicBookStringVerify($comicBook);
+            $cleanComicBook->comicBookEmptyVerify($comicBook);
+            $cleanComicBook->comicBookEmptyVerify($comicBook);
+            $cleanComicBook->comicBookNumberValidate($comicBook);
+            $cleanComicBook->comicBookStringVerify($comicBook);
             $comicBook['keywords'] = $cleanComicBook->clearString($comicBook['pitch']);
 
             $uploadDir = 'assets/images/comicUpload/';
             $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
             $comicBook['cover'] = $uploadFile;
+
             // Function to verify integrity of uploaded file.
-            $errors[] = $cleanComicBook->coverIntegrityVerify($_FILES);
+            $cleanComicBook->coverIntegrityVerify($_FILES);
 
+            $errors = $cleanComicBook->getCheckErrors();
 
-            /*
-            if (empty($arrayOfErrors)) {
-                move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadFile);
-            }*/
+            if (empty($cleanComicBook->getCheckErrors())) {
+                move_uploaded_file($_FILES['cover']['tmp_name'], $uploadFile);
+                $adminManager->insert($comicBook);
+            }
         }
 
-        return $this->twig->render('Admin/add.html.twig');
+        return $this->twig->render('Admin/add.html.twig', ['errors', $errors]);
     }
 }
