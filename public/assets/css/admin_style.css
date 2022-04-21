@@ -35,7 +35,7 @@ tbody, th, td {
     color: var(--main_font_color);
     border: 4px solid;
     border-color: var(--main_border_color);
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
 }
 #return_button {
@@ -43,4 +43,11 @@ tbody, th, td {
     height: auto;
     margin-top: 50px;
     margin-left: 50px;
+}
+#top_page_button {
+    width: 60px;
+    height: auto;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
 }
