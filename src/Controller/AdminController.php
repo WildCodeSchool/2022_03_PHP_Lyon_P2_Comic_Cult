@@ -15,6 +15,7 @@ class AdminController extends AbstractController
         return $this->twig->render('Admin/admin.html.twig', ['comics' => $comics]);
     }
 
+
     /**
      * Add a new item
      */
