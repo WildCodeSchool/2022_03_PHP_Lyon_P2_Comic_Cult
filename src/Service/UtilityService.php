@@ -39,4 +39,26 @@ class UtilityService
 
         return $clearedString;
     }
+
+    public function comicBookEmptyVerify(array $comicBook): array
+    {
+        $emptyErrors = [];
+        if (empty($comicBook['title'])) {
+            $emptyErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
+        }
+        if (empty($comicBook['date_of_release'])) {
+            $emptyErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
+        }
+        if (empty($comicBook['category'])) {
+            $emptyErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
+        }
+        if (empty($comicBook['author_name'])) {
+            $emptyErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
+        }
+        if (empty($comicBook['pitch'])) {
+            $emptyErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
+        }
+
+        return $emptyErrors;
+    }
 }
