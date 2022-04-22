@@ -8,6 +8,9 @@
 		<h1 id="dashboard_title">bandes dessinées</h1>
 		<div class="row justify-content-center table-responsive">
 			<div class="col-8">
+				<form method="POST" action="/admin/add">
+					<input type="submit" id="add_button" class="btn btn-dark" value="ajouter">
+				</form>
 				<table class="table table-responsive">
 					<thead>
 						<tr>
@@ -30,18 +33,21 @@
 									{{ comic.author_name }}
 
 								</td>
-								<td>
-									<input type="submit" id="edit_button" class="btn btn-dark" value="éditer.">
-								</td>
-								<td>
-									<input type="submit" id="delete_button" class="btn btn-dark" value="suppr.">
-								</td>
+								<form method="GET">
+									<td>
+										<input type="submit" id="edit_button" class="btn btn-dark" value="éditer">
+									</td>
+									<td>
+										<input type="submit" id="delete_button" class="btn btn-dark" value="suppr.">
+										<input type="hidden" name="id" value="<?= $comic['id'] ?>">
+									</td>
+								</form>
 							</tr>
-						{% endfor %}
+						</td>
 					</tbody>
-				</table>
-			</div>
-			<a href="/admin/list"><img id="top_page_button" src="/assets/images/top_page_button.png" alt=""></a>
-		</div>
-	</main>
-{% endblock %}
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+<a href="/admin/list"><img id="top_page_button" src="/assets/images/top_page_button.png" alt=""></a></div></main>{% endblock %}

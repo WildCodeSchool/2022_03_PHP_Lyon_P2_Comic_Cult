@@ -1,3 +1,5 @@
+/* Dashboard page and navbar style */
+
 header {
     font-family: var(--main_font);
     color: var(--main_font_color);
@@ -6,9 +8,6 @@ header {
 a {
     color: var(--main_font_color);
     text-decoration: none;
-}
-body {
-    background-color: var(--main_bg_color);
 }
 header {
     font-family: var(--main_font);
@@ -35,6 +34,8 @@ a {
     text-align: center;
     margin-bottom: 30px;
 }
+/* Table style */
+
 tbody, th, td {
     font-family: arial;
     font-weight: bolder;
@@ -56,4 +57,26 @@ tbody, th, td {
     position: fixed;
     bottom: 50px;
     right: 30px;
+}
+body {
+    background-color: var(--main_bg_color);
+    font-family: var(--main_font);
+    color: var(--main_font_color);
+    --bg_input_color: #c9c3c3;
+}
+/* add BD page style */
+
+.label_form_add_BD {
+    font-size: x-large;
+}
+.asterisk {
+    color: var(--main_border_color);
+}
+.input-bg {
+    background-color: var(--bg_input_color);
+}
+.choose_pic_btn {
+    margin: -35px 5px  0px 0px;
+    align-items: center;
+    float: right;
 }
