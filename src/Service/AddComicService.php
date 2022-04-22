@@ -49,7 +49,7 @@ class AddComicService extends UtilityService
         if (!filter_var($comicBook['isbn'], FILTER_VALIDATE_INT)) {
             $this->checkErrors[] = 'L\'ISBN est obligatoirement composé de chiffres.';
         }
-        if ($comicBook['isbn'] < 9780000000000 && $comicBook['isbn'] > 9799999999999) {
+        if ($comicBook['isbn'] < 9780000000000 || $comicBook['isbn'] > 9799999999999) {
             $this->checkErrors[] = 'L\'ISBN est composé de 13 chiffres commençant par 978 ou 979.';
         }
         if (!filter_var($comicBook['volume'], FILTER_VALIDATE_INT)) {

@@ -2,7 +2,7 @@
 {% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_add_style.css">{% endblock %}
 
 {% block title %}
-   {{ parent() }} - Add BD
+    Add BD{{ parent() }}
 {% endblock %}
 
 
@@ -22,7 +22,7 @@
             <div class='row'>
                 <div class="col-lg-6">
                     <div class="form-group row mt-5">
-                        <label for="title" class="label_form_add_BD col-sm-2 control-label text-right">TITRE <span class="asterisk">*</span></label>
+                        <label for="title" class="label_form_add_BD col-sm-2 control-label text-right">TITRE</label>
                         <div class="col-sm-8">
                             <input type="text" class="input-bg form-control" name="title" id="form_title" required>
                         </div>
@@ -36,14 +36,14 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="date_of_release" class="label_form_add_BD col-sm-3 control-label">DATE DE SORTIE <span class="asterisk">*</span></label>
+                        <label for="date_of_release" class="label_form_add_BD col-sm-3 control-label">DATE DE SORTIE</label>
                         <div class="col-sm-7">
                             <input type="date" class="input-bg form-control" name="date_of_release" id="release_date" required>
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="category_id" class="label_form_add_BD col-sm-2 control-label ">GENRE<span class="asterisk">*</span></label>
+                        <label for="category_id" class="label_form_add_BD col-sm-2 control-label ">GENRE</label>
                             <div class="col-sm-8">
                                 <select class="form-select input-bg" name="category_id" id="gender_select" aria-label="Example select with button addon" required>
                                     <option value=""></option>
@@ -57,7 +57,7 @@
 
                 <div class="col-lg-6">
                     <div class="form-group row mt-5">
-                        <label for="author_name" class="label_form_add_BD col-sm-2 control-label">AUTEUR<span class="asterisk">*</span></label>
+                        <label for="author_name" class="label_form_add_BD col-sm-2 control-label">AUTEUR</label>
                         <div class="col-sm-8">
                             <input type="text" class="input-bg form-control" name="author_name" id="author" required>
                         </div>
@@ -66,36 +66,36 @@
                     <div class="form-group row mt-3">
                         <label for="volume" class="label_form_add_BD col-sm-2 control-label">TOME</label>
                         <div class="col-sm-8">
-                            <input type="text" class="input-bg form-control" name="volume" id="tome">
+                            <input type="text" class="input-bg form-control" name="volume" id="tome" required>
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
                         <label for="nb_pages" class="label_form_add_BD col-sm-2 control-label">NB PAGES</label>
                         <div class="col-sm-8">
-                            <input type="text" class="input-bg form-control" name="nb_pages" id="number_pages">
+                            <input type="text" class="input-bg form-control" name="nb_pages" id="number_pages" required>
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
                         <label for="price" class="label_form_add_BD col-sm-2 control-label">PRIX</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control input-bg" name="price" id="price">
+                            <input type="text" class="form-control input-bg" name="price" id="price" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-12">
                     <div class="form-group row mt-3">
-                        <label for="pitch" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé<span class="asterisk">*</span></label>
+                        <label for="pitch" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé</label>
                         <div class="col-sm-8 col-lg-10 col-md-8">
-                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4"></textarea>
+                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4" required></textarea>
                         </div>
                     </div>
                 
                 <div class="col-lg-8 col-md-8 col-sm-10 col-xs-6">
                     <div class="form-group row mt-5">
-                        <label for="cover" class="label_form_add_BD col-sm-3 col-md-3 col-lg-2 control-label">Couverture </label>
+                        <label for="cover" class="label_form_add_BD col-sm-3 col-md-3 col-lg-2 control-label">Couverture</label>
                         <div class="col-sm-9 col-md-7 mb-5">
                             <input type="file" class="input-bg form-control" name="cover" id="cover" required>
                         </div>
@@ -112,9 +112,16 @@
 
         <div class="container">
             <div class="row text-center mt-5">
-                <h1> LES CHAMPS <small class="asterisk">(*)</small> SONT OBLIGATOIRES.</h1>
+                <h1> TOUS LES CHAMPS SONT OBLIGATOIRES.</h1>
             </div>
         </div>
+
+        <div class="container text-center">
+            {% for error in errors %}
+                <p class="text-warning fs-6 lh-1">{{ error }}</p>
+            {% endfor %}
+        </div>
+
 
     {% endblock %}
 
