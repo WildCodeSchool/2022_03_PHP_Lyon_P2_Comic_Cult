@@ -19,6 +19,8 @@ class AdminController extends AbstractController
     {
         return $this->twig->render('Admin/add.html.twig');
     }
+    public function delete(): ?string
+    {
+        return $this->twig->render('Admin/admin.html.twig');
+    }
 }
-
-
