@@ -8,7 +8,7 @@
 
 
 {% block content %}
-    {% include "Admin/_header_add.html.twig" %}
+    {% include "Admin/_header.html.twig" %}
 
 
     <div class="container-fluid">
@@ -24,21 +24,21 @@
                     <div class="form-group row mt-5">
                         <label for="title" class="label_form_add_BD col-sm-2 control-label text-right">TITRE <span class="asterisk">*</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="input-bg form-control" name="title" id="form_title" required>
+                            <input type="text" class="input-bg form-control" name="title" id="form_title" value="{{ comicBook.title }}" required>
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
                         <label for="isbn" class="label_form_add_BD col-sm-2 control-label">ISBN</label>
                         <div class="col-sm-8">
-                            <input type="text" class="input-bg form-control" name="isbn" id="isbn">
+                            <input type="text" class="input-bg form-control" name="isbn" id="isbn" value="{{ comicBook.isbn }}">
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
                         <label for="date_of_release" class="label_form_add_BD col-sm-3 control-label">DATE DE SORTIE <span class="asterisk">*</span></label>
                         <div class="col-sm-7">
-                            <input type="date" class="input-bg form-control" name="date_of_release" id="release_date" required>
+                            <input type="date" class="input-bg form-control" name="date_of_release" id="release_date" value="{{ comicBook.date_of_release }}" required>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
                         <label for="category_id" class="label_form_add_BD col-sm-2 control-label ">GENRE<span class="asterisk">*</span></label>
                             <div class="col-sm-8">
                                 <select class="form-select input-bg" name="category_id" id="gender_select" aria-label="Example select with button addon" required>
-                                    <option value=""></option>
+                                    <option value="{{ comicBook.category_id }}">{{ comicBook.category }}</option>
                                     <option value="1">Education</option>
                                     <option value="2">Polar</option>
                                     <option value="3">Science-fiction</option>
@@ -59,28 +59,28 @@
                     <div class="form-group row mt-5">
                         <label for="author_name" class="label_form_add_BD col-sm-2 control-label">AUTEUR<span class="asterisk">*</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="input-bg form-control" name="author_name" id="author" required>
+                            <input type="text" class="input-bg form-control" name="author_name" id="author" value="{{ comicBook.author_name }}" required>
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
                         <label for="volume" class="label_form_add_BD col-sm-2 control-label">TOME</label>
                         <div class="col-sm-8">
-                            <input type="text" class="input-bg form-control" name="volume" id="tome">
+                            <input type="text" class="input-bg form-control" name="volume" id="tome" value="{{ comicBook.volume }}">
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
                         <label for="nb_pages" class="label_form_add_BD col-sm-2 control-label">NB PAGES</label>
                         <div class="col-sm-8">
-                            <input type="text" class="input-bg form-control" name="nb_pages" id="number_pages">
+                            <input type="text" class="input-bg form-control" name="nb_pages" id="number_pages" value="{{ comicBook.nb_pages }}">
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
                         <label for="price" class="label_form_add_BD col-sm-2 control-label">PRIX</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control input-bg" name="price" id="price">
+                            <input type="text" class="form-control input-bg" name="price" id="price" value="{{ comicBook.price }}">
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                     <div class="form-group row mt-3">
                         <label for="pitch" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé<span class="asterisk">*</span></label>
                         <div class="col-sm-8 col-lg-10 col-md-8">
-                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4"></textarea>
+                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4">{{ comicBook.pitch }}</textarea>
                         </div>
                     </div>
                 
@@ -97,7 +97,7 @@
                     <div class="form-group row mt-5">
                         <label for="cover" class="label_form_add_BD col-sm-3 col-md-3 col-lg-2 control-label">Couverture </label>
                         <div class="col-sm-9 col-md-7 mb-5">
-                            <input type="file" class="input-bg form-control" name="cover" id="cover" disabled>
+                            <input type="file" class="input-bg form-control" name="cover" id="cover">
                         </div>
                         
                         

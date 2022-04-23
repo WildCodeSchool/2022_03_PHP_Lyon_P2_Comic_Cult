@@ -56,27 +56,12 @@ class AdminController extends AbstractController
     /**
      * Edit a specific item
      */
-    public function edit(): ?string
+    public function edit($id): ?string
     {
-        /*
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $adminManager = new AdminManager();
+        $comicBook = $adminManager->selectOneById($id);
+        var_dump($comicBook);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $item = array_map('trim', $_POST);
-
-            // TODO validations (length, format...)
-
-            // if validation is ok, update and redirection
-            $itemManager->update($item);
-
-            header('Location: /items/show?id=' . $id);
-
-            // we are redirecting so we don't want any content rendered
-            return null;
-        }
-        */
-        return $this->twig->render('Admin/edit.html.twig');
+        return $this->twig->render('Admin/edit.html.twig', ['comicBook' => $comicBook]);
     }
 }

@@ -30,4 +30,19 @@ class AdminManager extends AbstractManager
         $statement->bindValue(':category_id', $comicBook['category_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    /**
+     * Get one comic from database by ID.
+     */
+    public function selectOneById(int $id): array|false
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT * FROM comic_book
+                                            INNER JOIN category ON category.id=comic_book.category_id
+                                            WHERE comic_book.id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
 }
