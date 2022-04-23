@@ -31,4 +31,10 @@ class AdminManager extends AbstractManager
         $statement->bindValue(':category_id', $comicBook['category_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectAllGenre(): array
+    {
+        $query = 'SELECT * FROM category';
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
