@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig'%}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/search_style.css" >{% endblock %}
+
+{% block title %}
+   {{ parent() }} - Search BD
+{% endblock %}
+
+{% block content %}
+{% include "Home/_footer.html.twig" %}
+
+<header class="container-fluid header_search mb-4">
+    <div class="row">
+        <div class="col-md-3 col-12 d-flex justify-content-center justify-content-lg-start">
+            <h1 class="website_title ">B<span>d</span> C<span>ult'</span></h1>
+        </div>
+        <div class="col-md-7 col-10 ">
+            <form class="search_bar w-85 ps-3 pe-2 d-flex mt-2 mt-md-4" method="POST">
+                <input class="search_input w-100 h-100 me-2 d-flex" type="search" name="keywords" placeholder="Rechercher une BD..." aria-label="Search" required>
+                <button class="search_button" type="submit"><img id="snag_icon" src="/assets/images/snag_icon.png" alt=""></button>
+            </form>
+        </div>
+        <div class="col-md-2 col-2 p-3 d-flex justify-content-center align-items-center">
+            <img src="assets/images/admin_icon.png" id="admin_icon" alt="" class="justify-content-center">
+        </div>
+    </div>
+</header>
+
+<ul>
+    {% for comicBook in comicBooks %}
+        <div class="row mb-3">
+            <li class="col-3 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
+                <img src="{{comicBook.cover}}" class="img-fluid-search " alt="">
+            </li>
+            <div class="col-8 col-sm-6 mb-3 p-2">
+                <div class="infos-bd-truncated align-self-center">
+                    <li> <span class="bd-description fs-4 mb-2"> {{comicBook.title}} {{comicBook.author_name}} | T {{comicBook.volume}}<span></li>
+                    <li> <small class= "fs-6">{{comicBook.pitch}} </li>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</ul>
+
+{% endblock %}
