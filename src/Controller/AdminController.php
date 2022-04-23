@@ -24,12 +24,11 @@ class AdminController extends AbstractController
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $errors = [];
-
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
             $comicBook = array_map('trim', $_POST);
             // Three function in UtilityService to clean comic book's datas.
             $cleanComicBook->comicBookEmptyVerify($comicBook);
-            $cleanComicBook->comicBookEmptyVerify($comicBook);
+            $cleanComicBook->comicIsbnValidate($comicBook);
             $cleanComicBook->comicBookNumberValidate($comicBook);
             $cleanComicBook->comicBookStringVerify($comicBook);
             $comicBook['keywords'] = $cleanComicBook->clearString($comicBook['pitch']);

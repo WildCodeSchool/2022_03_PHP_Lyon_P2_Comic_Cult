@@ -24,7 +24,7 @@ class AdminManager extends AbstractManager
         $statement->bindValue(':pitch', $comicBook['pitch'], \PDO::PARAM_STR);
         $statement->bindValue(':keywords', $comicBook['keywords'], \PDO::PARAM_STR);
         $statement->bindValue(':nb_pages', $comicBook['nb_pages'], \PDO::PARAM_INT);
-        $statement->bindValue(':volume', $comicBook['volume'], \PDO::PARAM_STR);
+        $statement->bindValue(':volume', $comicBook['volume'], \PDO::PARAM_INT);
         $statement->bindValue(':price', $comicBook['price'], \PDO::PARAM_STR);
         $statement->bindValue(':cover', $comicBook['cover'], \PDO::PARAM_STR);
         $statement->bindValue(':author_name', $comicBook['author_name'], \PDO::PARAM_STR);

@@ -44,21 +44,27 @@ class AddComicService extends UtilityService
     /**
      * Function only usefull for a comic book INSERT or UPDATE request
      */
-    public function comicBookNumberValidate(array $comicBook): void
+    public function comicIsbnValidate(array $comicBook): void
     {
-        if (!filter_var($comicBook['isbn'], FILTER_VALIDATE_INT)) {
+        if (!empty($comicBook['isbn']) && !filter_var($comicBook['isbn'], FILTER_VALIDATE_INT)) {
             $this->checkErrors[] = 'L\'ISBN est obligatoirement composé de chiffres.';
         }
-        if ($comicBook['isbn'] < 9780000000000 || $comicBook['isbn'] > 9799999999999) {
+        if (!empty($comicBook['isbn']) && ($comicBook['isbn'] < 9780000000000 || $comicBook['isbn'] > 9799999999999)) {
             $this->checkErrors[] = 'L\'ISBN est composé de 13 chiffres commençant par 978 ou 979.';
         }
-        if (!filter_var($comicBook['volume'], FILTER_VALIDATE_INT)) {
+    }
+    /**
+     * Function only usefull for a comic book INSERT or UPDATE request
+     */
+    public function comicBookNumberValidate(array $comicBook): void
+    {
+        if (!empty($comicBook['volume']) && !filter_var($comicBook['volume'], FILTER_VALIDATE_INT)) {
             $this->checkErrors[] = 'Le nombre de tomes doit être composé de chiffres.';
         }
-        if (!filter_var($comicBook['nb_pages'], FILTER_VALIDATE_INT)) {
+        if (!empty($comicBook['nb_pages']) && !filter_var($comicBook['nb_pages'], FILTER_VALIDATE_INT)) {
             $this->checkErrors[] = 'Le nombre de pages ne peut pas être écrit avec des lettres.';
         }
-        if (!filter_var($comicBook['price'], FILTER_VALIDATE_FLOAT)) {
+        if (!empty($comicBook['price']) && !filter_var($comicBook['price'], FILTER_VALIDATE_FLOAT)) {
             $this->checkErrors[] = 'Le prix doit contenir obligatoirement deux chiffres après la virgule.';
         }
     }

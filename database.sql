@@ -158,7 +158,7 @@ CREATE TABLE comic_book (
 	keywords TEXT,
     nb_pages INT,
     volume INT,
-    price FLOAT,
+    price VARCHAR(10),
     cover VARCHAR(1000),
     author_name VARCHAR(100),
 	category_id INT NOT NULL,
