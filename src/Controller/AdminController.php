@@ -19,4 +19,14 @@ class AdminController extends AbstractController
     {
         return $this->twig->render('Admin/add.html.twig');
     }
+
+    public function authorList(): string
+    {
+        $adminManager = new AdminManager();
+        $authors = $adminManager->selectAllAuthors();
+        //var_dump($authors);
+        //die();
+
+        return $this->twig->render('Admin/author.html.twig', ['authors' => $authors]);
+    }
 }
