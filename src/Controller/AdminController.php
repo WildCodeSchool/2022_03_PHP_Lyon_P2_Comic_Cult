@@ -18,7 +18,6 @@ class AdminController extends AbstractController
     {
         return $this->twig->render('Admin/add.html.twig');
     }
-    
     public function delete(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -26,7 +25,7 @@ class AdminController extends AbstractController
             $adminManager = new AdminManager();
             $adminManager->delete((int)$id);
 
-            header('Location:/admin/list.html.twig');
+            header('Location:/admin/list');
         }
     }
 }

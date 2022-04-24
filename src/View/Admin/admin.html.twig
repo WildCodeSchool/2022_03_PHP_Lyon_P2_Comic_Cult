@@ -31,12 +31,15 @@
 										{{ comic.author_name }}
 									</td>
 									<td>
-										<a href=""><input type="submit" id="edit_btn" class="btn btn-dark" value="éditer"><a/>
+										<a href=""><input type="submit" id="edit_btn" class="btn btn-dark" value="éditer"><a/></td>
 									</td>
 									<td>
-										<a href=""><input type="submit" id="delete_btn" class="btn btn-dark" value="suppr."></a>
-									</form>
-									</td>								
+										<form action="/admin/delete" method="POST">
+											<input type="hidden" name="id" value="{{ comic.id }}">
+											<button type="submit" id="delete_btn" class="btn btn-dark">suppr.
+											</button>
+										</form>
+									</td>
 								</tr>
 							</td>
 						</tbody>
