@@ -151,6 +151,7 @@ CREATE TABLE `user` (
 CREATE TABLE comic_book (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
+	title_keywords VARCHAR(255),
     isbn BIGINT,
     date_of_release DATE,
     pitch TEXT NOT NULL,
