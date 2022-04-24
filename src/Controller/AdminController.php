@@ -58,10 +58,37 @@ class AdminController extends AbstractController
      */
     public function edit($id): ?string
     {
+        $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
-        $comicBook = $adminManager->selectOneById($id);
-        var_dump($comicBook);
+        $comicGenres = $adminManager->selectAllGenre();
+        $comicById = $adminManager->selectOneById($id);
+        $errors = [];
+        if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
+            $comicBook = array_map('trim', $_POST);
+            // Three function in UtilityService to clean comic book's datas.
+            $cleanComicBook->comicBookEmptyVerify($comicBook);
+            $cleanComicBook->comicIsbnValidate($comicBook);
+            $cleanComicBook->comicBookNumberValidate($comicBook);
+            $cleanComicBook->comicBookStringVerify($comicBook);
+            $comicBook['keywords'] = $cleanComicBook->clearString($comicBook['pitch']);
+            $comicBook['title_keywords'] = $cleanComicBook->clearString($comicBook['title']);
 
-        return $this->twig->render('Admin/edit.html.twig', ['comicBook' => $comicBook]);
+            $uploadDir = 'assets/images/comicUpload/';
+            $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
+            $comicBook['cover'] = $uploadFile;
+
+            // Function to verify integrity of uploaded file.
+            $cleanComicBook->coverIntegrityVerify($_FILES);
+
+            $errors = $cleanComicBook->getCheckErrors();
+            if (empty($cleanComicBook->getCheckErrors())) {
+                move_uploaded_file($_FILES['cover']['tmp_name'], $uploadFile);
+                $adminManager->update($comicBook, $id);
+                header('Location: list');
+            }
+        }
+
+        return $this->twig->render('Admin/edit.html.twig', array('errors' => $errors, 'comicBook' => $comicById,
+                                    'comicGenres' => $comicGenres));
     }
 }
