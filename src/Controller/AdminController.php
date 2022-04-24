@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Model\AdminManager;
-use App\Service\UtilityService;
 
 class AdminController extends AbstractController
 {
@@ -19,8 +18,15 @@ class AdminController extends AbstractController
     {
         return $this->twig->render('Admin/add.html.twig');
     }
-    public function delete(): ?string
+    
+    public function delete(): void
     {
-        return $this->twig->render('Admin/admin.html.twig');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = trim($_POST['id']);
+            $adminManager = new AdminManager();
+            $adminManager->delete((int)$id);
+
+            header('Location:/admin/list.html.twig');
+        }
     }
 }

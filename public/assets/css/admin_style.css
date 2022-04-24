@@ -31,7 +31,7 @@ header {
 /* Table style */
 
 tbody, th, td {
-    font-family: arial;
+    font-family: var(--main_font);
     font-weight: bolder;
     color: var(--main_font_color);
     border: 4px solid;
