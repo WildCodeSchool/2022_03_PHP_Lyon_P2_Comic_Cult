@@ -18,6 +18,7 @@ class AdminController extends AbstractController
     {
         return $this->twig->render('Admin/add.html.twig');
     }
+
     public function delete(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
