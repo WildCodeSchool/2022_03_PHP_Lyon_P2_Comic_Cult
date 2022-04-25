@@ -13,22 +13,18 @@
 				<table class="table table-responsive">
 					<thead>
 						<tr>
-							<th class="id_column">id</th>
-							<th class="title_column">Titre</th>
-							<th class="author_column">Auteur</th>
+							<th class="first_column">Titre</th>
+							<th class="second_column">Auteur</th>
 							<th class="add_suppr_column" colspan="2">Modif. / Suppr.</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for comic in comics %}
 							<tr>
-								<td>
-									{{ comic.id }}
-								</td>
-								<td>
+								<td class="table_line">
 									{{ comic.title }}
 								</td>
-								<td>
+								<td class="table_line">
 									{{ comic.author_name }}
 								</td>
 								<td>
