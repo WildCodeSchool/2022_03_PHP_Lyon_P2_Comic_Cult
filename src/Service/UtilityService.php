@@ -4,6 +4,9 @@ namespace App\Service;
 
 class UtilityService
 {
+    /**
+     * Function used to clean a string when a user make a search request
+     */
     public function clearString(string $stringToClear): string
     {
         $characterToReplace = ['\'', '"', ',', '-', '.', ':', ';', '?', '!'];
