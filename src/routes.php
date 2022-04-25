@@ -16,4 +16,5 @@ return [
     'search' => ['UserController', 'list'],
     'admin/list' => ['AdminController', 'list',],
     'admin/add' => ['AdminController', 'add'],
+    'admin/delete' => ['AdminController', 'delete',],
 ];

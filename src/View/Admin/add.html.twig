@@ -1,5 +1,5 @@
 {% extends 'layout.html.twig'%}
-{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_add_style.css">{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">{% endblock %}
 
 {% block title %}
    {{ parent() }} - Add BD
@@ -8,12 +8,15 @@
 
 
 {% block content %}
-    {% include "Admin/_header_add.html.twig" %}
+    {% include "Admin/_header.html.twig" %}
 
+<div class="container-fluid return">
+    <a class="white_link" href="/admin/list"><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
+</div>
 
     <div class="container-fluid">
         <div class="row p-3 mt-5 text-center">
-            <h1 id="add_bd_title"> AJOUTER UNE BANDE DESSINÉE</h1>
+            <h1 id="add_bd_title">AJOUTER UNE BANDE DESSINÉE</h1>
         </div>
     </div>
     
