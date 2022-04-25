@@ -151,6 +151,7 @@ CREATE TABLE `user` (
 CREATE TABLE comic_book (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
+	title_keywords VARCHAR(255),
     isbn BIGINT,
     date_of_release DATE,
     pitch TEXT NOT NULL,
@@ -396,7 +397,6 @@ INSERT INTO comic_cult.comic_book (title,title_keywords,isbn,date_of_release,pit
 	 ('Xoco - Cycle 1','xoco cycle 1',9782749304793,'2008-12-02','Un tueur en série terrorise la ville et l''enquête policière piétine. Les chargés de l''affaire ne savent plus quelle piste suivre. Celle d''un détraqué qui tue par folie ou celle d''un homme se livrant à des sacrifices rituels. Ou peut-être bien les deux à la fois...','un tueur en serie terrorise la ville et l enquete policiere pietine  les charges de l affaire ne savent plus quelle piste suivre  celle d un detraque qui tue par folie ou celle d un homme se livrant a des sacrifices rituels  ou peut etre bien les deux a la fois',58,1,'25.5','assets/images/30_xoco_cycle_1.jpeg','Thomas Mosdi',18,NULL);
 INSERT INTO comic_cult.comic_book (title,title_keywords,isbn,date_of_release,pitch,keywords,nb_pages,volume,price,cover,author_name,category_id,user_id) VALUES
 	 ('Je suis toujours vivant','je suis toujours vivant',9782075096966,'2022-01-18','Des chambres d''hôtel anonymes, sept gardes du corps, deux voitures blindées. C''est le quotidien sous haute protection de l''auteur napolitain depuis le succès phénoménal de Gomorra, son roman-enquête sur la mafia locale -la Camorra- publié en 2006. Depuis lors, sa vie a radicalement changé, mais celui qui n''est jamais plus rentré chez lui a choisi son camp:il ne se taira pas. De la crainte des voitures piégées à celle des pizzas empoisonnées, il imagine les divers scénarios de son assassinat et, évoquant son enfance, sa famille, ses ennemis, il livre un récit intime et saisissant. Le récit inédit d''une vie en sursis.','chambres d hotel anonymes  sept gardes du corps  deux voitures blindees  c est le quotidien sous haute protection de l auteur napolitain depuis le succes phenomenal de gomorra  son roman enquete sur la mafia locale  la camorra  publie en 2ââ6  depuis lors  sa vie a radicalement change  mais celui qui n est jamais plus rentre chez lui a choisi son camp il ne se taira pas  de la crainte des voitures piegees a celle des pizzas empoisonnees  il imagine les divers scenarios de son assassinat',148,1,'14.99','assets/images/31_toujours_vivant.jpeg','Roberto Saviano',16,NULL);
-
 
 ---------------------------------------------------------
 -- INSERT VALUES REQUEST FOR 'comic_book_author' TABLE --
