@@ -12,24 +12,19 @@
 				<table class="table table-responsive">
 					<thead>
 						<tr>
-							<th style="width: 8%;">id</th>
-							<th style="width: 40%;">Auteur</th>
-							<th style="width: 25%;">Rôle</th>
-							<th colspan="2">Modif. / Suppr.</th>
+							<th class="first_column">Auteur</th>
+							<th class="second_column">Rôle</th>
+							<th class="add_suppr_column" colspan="2">Modif. / Suppr.</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for author in authors %}
 						<tr>
-							<td>
-								{{ author.author_id }}
-							</td>
-							<td>
+							<td class="table_line">
 								{{ author.first_name ~ ' ' ~ author.last_name }} 
 							</td>
-							<td>
+							<td class="table_line">
 								{{ author.role }}
-
 							</td>
 							<td>
 								<button id="add_button" type="button" class="btn btn-dark">éditer</button>
