@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig' %}
-{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/admin_style.css">
 {% endblock %}
 {% block content %}
 	{% include "Admin/_header.html.twig" %}
@@ -31,7 +32,7 @@
 									{{ comic.author_name }}
 								</td>
 								<td>
-									<button id="add_button" type="button" class="btn btn-dark"><a href="edit?id={{ comic.id }}">éditer</a></button>
+									<a href="edit?id={{ comic.id }}"><input type="submit" id="edit_btn" class="btn btn-dark" value="éditer"></a>
 								</td>
 								<td>
 									<form action="/admin/delete" method="POST">
