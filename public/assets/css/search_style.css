@@ -77,8 +77,6 @@ body {
     height: calc(270px);
 }
 
-
-
 .infos-bd-truncated {
     min-width: 0;
     margin-right: 2vh;
@@ -105,16 +103,8 @@ body {
     color: #EED706;
 }
 
-#scrollUp {
-  position: fixed;
-  opacity: 0.9;
-  bottom : 1vh;
-  right: -8vh;
-}
-
-#scrollup_img {
-    width: calc(35px + 1vw);
-    height: calc(35px + 1vw);
+.infos-bd-truncated li>span>a {
+    color: #EED706;
 }
 
 .card {
@@ -139,9 +129,25 @@ body {
     border-bottom-left-radius: 5%;
 }
 
-.color-edition {
+.color-author {
     color: green;
 }
+
+/* Scroll btn JS */
+
+
+#scrollUp {
+    position: fixed;
+    opacity: 0.9;
+    bottom : 1vh;
+    right: -8vh;
+  }
+  
+  #scrollup_img {
+      width: calc(35px + 1vw);
+      height: calc(35px + 1vw);
+  }
+  
 
 /* Footer Twig */
 .home_footer {
