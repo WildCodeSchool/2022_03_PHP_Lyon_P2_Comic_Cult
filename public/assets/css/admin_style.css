@@ -1,0 +1,89 @@
+/* Dashboard page and navbar style */
+
+header {
+    font-family: var(--main_font);
+    color: var(--main_font_color);
+    border-bottom: 3px solid var(--main_border_color);
+}
+.white_link {
+    color: var(--main_font_color);
+    text-decoration: none;
+}
+#add_btn {
+    font-family: var(--main_font);
+    color: var(--main_font_color);
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+#edit_btn,
+#delete_btn {
+    font-family: var(--main_font);
+    color: var(--main_font_color);
+    font-size: 20px;
+}
+#dashboard_title {
+    font-family: var(--main_font);
+    color: var(--main_font_color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Table style */
+
+tbody, th, td {
+    font-family: var(--main_font);
+    font-weight: bolder;
+    color: var(--main_font_color);
+    border: 4px solid;
+    border-color: var(--main_border_color);
+    font-size: 22px;
+    text-align: center;
+}
+.id_column {
+    width: 8%;
+}
+.title_column {
+    width: 40%;
+}
+.author_column {
+    width: 25%;
+}
+.add_suppr_column {
+    width: 8%;
+}
+#return_button {
+    width: 60px;
+    height: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+#top_page_button {
+    width: 60px;
+    height: auto;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+}
+body {
+    background-color: var(--main_bg_color);
+    font-family: var(--main_font);
+    color: var(--main_font_color);
+    --bg_input_color: #c9c3c3;
+}
+
+/* add BD page style */
+
+.label_form_add_BD {
+    font-size: x-large;
+}
+.asterisk {
+    color: var(--main_border_color);
+}
+.input-bg {
+    background-color: var(--bg_input_color);
+}
+.choose_pic_btn {
+    margin: -35px 5px  0px 0px;
+    align-items: center;
+    float: right;
+}

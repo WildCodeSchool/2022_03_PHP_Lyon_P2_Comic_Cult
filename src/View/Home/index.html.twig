@@ -1,5 +1,14 @@
 {% extends 'layout.html.twig' %}
 
+{% block title %}Accueil{{ parent() }}{% endblock %}
+
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/user_style.css">{% endblock %}
+
+
 {% block content %}
-    <h1>Hello Wilder !</h1>
+    {% include 'Home/_header.html.twig' %}
+
+    {% include 'Home/_search_bar.html.twig' %}
+
+    {% include 'Home/_footer.html.twig' %}
 {% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'layout.html.twig'%}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">{% endblock %}
+
+{% block title %}
+   {{ parent() }} - Add BD
+{% endblock %}
+
+
+
+{% block content %}
+    {% include "Admin/_header.html.twig" %}
+
+<div class="container-fluid return">
+    <a class="white_link" href="/admin/list"><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row p-3 mt-5 text-center">
+            <h1 id="add_bd_title">AJOUTER UNE BANDE DESSINÉE</h1>
+        </div>
+    </div>
+    
+     <form class="form-horizontal" role="form">
+        <div class='container'>
+            <div class='row'>
+                <div class="col-lg-6">
+                    <!--<form class="form-horizontal" role="form">-->
+                    <div class="form-group row mt-5">
+                        <label for="title" class="label_form_add_BD col-sm-2 control-label text-right">TITRE <span class="asterisk">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="input-bg form-control" lname="form_title;" id="form_title" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="ISBN" class="label_form_add_BD col-sm-2 control-label">ISBN</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="input-bg form-control" name="isbn" id="isbn">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="release_date" class="label_form_add_BD col-sm-3 control-label">DATE DE SORTIE <span class="asterisk">*</span></label>
+                        <div class="col-sm-7">
+                            <input type="date" class="input-bg form-control" name="release_date" id="release_date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="genre" class="label_form_add_BD col-sm-2 control-label ">GENRE<span class="asterisk">*</span></label>
+                            <div class="col-sm-8">
+                                <select class="form-select input-bg" id="gender_select" aria-label="Example select with button addon" required>
+                                    <option value=""></option>
+                                    <option value="education">Éducation</option>
+                                    <option value="polar">Polar</option>
+                                    <option value="science-fiction">Science-fiction</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group row mt-5">
+                        <label for="societe" class="label_form_add_BD col-sm-2 control-label">AUTEUR<span class="asterisk">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="input-bg form-control" name="author" id="author" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="adresse" class="label_form_add_BD col-sm-2 control-label">TOME</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="input-bg form-control" name="tome" id="tome">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="nb_pages" class="label_form_add_BD col-sm-2 control-label">NB PAGES</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="input-bg form-control" name="number_pages" id="number_pages">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="prix" class="label_form_add_BD col-sm-2 control-label">PRIX</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input-bg" name="price" id="price">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <!--<form class="form-horizontal" role="form">-->
+                    <div class="form-group row mt-3">
+                        <label for="resume" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé<span class="asterisk">*</span></label>
+                        <div class="col-sm-8 col-lg-10 col-md-8">
+                        <textarea class="form-control input-bg" id="resume_text_area" rows="4"></textarea>
+                        </div>
+                    </div>
+                
+                <div class="col-lg-8 col-md-8 col-sm-10 col-xs-6">
+                    <div class="form-group row mt-5">
+                        <label for="cover" class="label_form_add_BD col-sm-3 col-md-3 col-lg-2 control-label">Couverture </label>
+                        <div class="col-sm-9 col-md-7 mb-5">
+                            <input type="text" class="input-bg form-control" name="Author" id="Author" required>
+                                <span class="input-group-btn justify-content-end">
+                                    <button class="choose_pic_btn row-sm-2 btn-sm btn-dark" type="button">Choisir une image</button>
+                                </span>
+                        </div>
+                        
+                        
+                            <div class='col-sm-1 col-md-1'>
+                                <button type="button" class="btn send_btn btn-dark">Envoyer</button>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+        </form>
+
+        <div class="container">
+            <div class="row text-center mt-5">
+                <h1> LES CHAMPS <small class="asterisk">(*)</small> SONT OBLIGATOIRES.</h1>
+            </div>
+        </div>
+
+    {% endblock %}

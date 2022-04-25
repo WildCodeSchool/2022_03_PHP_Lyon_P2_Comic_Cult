@@ -13,6 +13,7 @@ abstract class AbstractManager
     protected PDO $pdo;
 
     public const TABLE = '';
+    public const TABLE2 = '';
 
     public function __construct()
     {
@@ -52,6 +53,9 @@ abstract class AbstractManager
     public function delete(int $id): void
     {
         // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE2 . " WHERE comic_book_id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
         $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
