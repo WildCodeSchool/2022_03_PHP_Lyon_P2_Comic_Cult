@@ -41,7 +41,7 @@ class UserController extends AbstractController
                 }
             }
         }
-        $finalList = array_unique($finalList, SORT_REGULAR);     
+        $finalList = array_unique($finalList, SORT_REGULAR);
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 }
