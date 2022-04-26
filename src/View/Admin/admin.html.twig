@@ -2,6 +2,7 @@
 {% block stylesheet %}
 <link rel="stylesheet" href="/assets/css/admin_style.css">
 {% endblock %}
+{% block title %}Admin{{ parent() }}{% endblock %}
 {% block content %}
 	{% include "Admin/_header.html.twig" %}
 	<main>
@@ -9,7 +10,7 @@
 		<h1 id="dashboard_title">bandes dessinées</h1>
 		<div class="row justify-content-center table-responsive">
 			<div class="col-8">
-				<a class="white_link" href="/admin/add"><input type="submit" id="add_btn" class="btn btn-dark" value="ajouter">
+				<a class="white_link" href="/admin/add"><input type="submit" id="add_btn" class="btn btn-dark" value="ajouter"></a>
 				<table class="table table-responsive">
 					<thead>
 						<tr>
@@ -32,9 +33,9 @@
 								</td>
 								<td>
 									<form action="/admin/delete" method="POST">
-										<input type="hidden" name="id" value="{{ comic.id }}">
-										<button type="submit" id="delete_btn" class="btn btn-dark">suppr.</button>
-									</form>
+											<input type="hidden" name="id" value="{{ comic.id }}">
+											<button type="submit" id="delete_btn" class="btn btn-dark" onclick= "return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
+										</form>
 								</td>
 							</tr>
 						{% endfor %}
@@ -45,4 +46,3 @@
 		</div>
 	</main>
 {% endblock %}
-

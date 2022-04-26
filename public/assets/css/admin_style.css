@@ -9,6 +9,11 @@ header {
     color: var(--main_font_color);
     text-decoration: none;
 }
+
+.white_link:hover {
+    color: var(--second_font_color);
+}
+
 #add_btn {
     font-family: var(--main_font);
     color: var(--main_font_color);
