@@ -37,7 +37,7 @@
 		{% set counter = counter + 1 %}
 		{% if counter == 1 %}
 			<div class=" container-fluid row mb-4 d-none d-md-flex ">
-				<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-end div-test p-md-5 p-lg-2">
+				<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-end p-md-5 p-lg-2">
 					<div class=" row justify-content-lg-end justify-content-md-center m-4 p-md-4 p-lg-1">
 						<div class=" col-md-5 col-lg-4 p-1 div-img-card">
 							<img src="{{comicBook.cover}}" alt="comic-book-cover" class=" py-2 img-fluid img_search_big ">
@@ -82,7 +82,7 @@
 		{% for comicBook in comicBooks %}
 			{% set counter = counter + 1 %}
 			{% if counter == 2 %}
-				<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-start div-test p-md-5 p-lg-2">
+				<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-start p-md-5 p-lg-2">
 					<div class="row justify-content-lg-end justify-content-md-center m-4 p-md-4 p-lg-1">
 						<div class=" col-md-5 col-lg-4 p-1 div-img-card">
 							<img src="{{comicBook.cover}}" alt="" srcset="" class=" py-2 img-fluid img_search_big ">
@@ -132,7 +132,7 @@
 		{% if counter == 1 %}
 			<div class="container-fluid">
 				<ul>
-					<div class="row no-gutters mb-3 col-lg-6 d-flex d-md-none">
+					<div class="row col-lg-6 d-flex d-md-none">
 						<li class="col-3 col-md-3 d-flex align-items-center justify-content-center justify-content-md-end">
 							<img src="{{comicBook.cover}}" class="img-fluid-search h-100 " alt="">
 						</li>
@@ -143,7 +143,6 @@
 										{{comicBook.title}}
 										{{comicBook.author_name}}
 										| T
-										{{comicBook.volume}}<span></li>
 										<li>
 											<small class="fs-6">{{comicBook.pitch}}</li>
 										</li>
@@ -222,8 +221,8 @@
 		<!--button top of the page -->
 
 		<div class=" d-flex justify-content-end fixed-bottom mb-5" id="scrollUp">
-			<a href="#top"><img id="scrollup_img" src="assets/images/bouton-retour-haut.png"/></a>
-		</div>
+			<a href="#top"><img id="scrollup_img" src="assets/images/bouton-retour-haut.png" onclick="scroll(0, 100);"/></a>
+		</div> -->
 
 
 	{% endblock %}
@@ -231,5 +230,5 @@
 	{% block javascript %}
 
 		<script src="/assets/JS/script.js"></script>
-
+		
 	{% endblock %}

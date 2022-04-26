@@ -140,12 +140,13 @@ body {
     position: fixed;
     opacity: 0.9;
     bottom : 1vh;
-    right: -8vh;
+    right: 1vh;
   }
   
   #scrollup_img {
       width: calc(35px + 1vw);
       height: calc(35px + 1vw);
+      display: none;
   }
   
 
