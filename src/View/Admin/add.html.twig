@@ -1,13 +1,13 @@
 {% extends 'layout.html.twig'%}
-{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">{% endblock %}
-
-{% block title %}
-    Add BD{{ parent() }}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">
 {% endblock %}
 
-
+{% block title %}
+	Add BD{{ parent() }}
+{% endblock %}
 
 {% block content %}
+
     {% include "Admin/_header.html.twig" %}
 
 <div class="container-fluid return">
@@ -115,7 +115,7 @@
 
         <div class="container">
             <div class="row text-center mt-5">
-                <h1> TOUS LES CHAMPS SONT OBLIGATOIRES.</h1>
+                <h1>LES CHAMPS (<span class="asterisk">*</span>) SONT OBLIGATOIRES.</h1>
             </div>
         </div>
 
@@ -125,6 +125,4 @@
             {% endfor %}
         </div>
 
-
     {% endblock %}
-
