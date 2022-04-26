@@ -67,8 +67,6 @@ class AdminController extends AbstractController
     {
         $adminManager = new AdminManager();
         $authors = $adminManager->selectAllAuthors();
-        //var_dump($authors);
-        //die();
 
         return $this->twig->render('Admin/author.html.twig', ['authors' => $authors]);
     }

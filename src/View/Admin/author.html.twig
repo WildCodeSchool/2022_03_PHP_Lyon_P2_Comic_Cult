@@ -12,8 +12,8 @@
 				<table class="table table-responsive">
 					<thead>
 						<tr>
-							<th class="first_column">Auteur</th>
-							<th class="second_column">Rôle</th>
+							<th class="first_column">Prénom</th>
+							<th class="second_column">Nom</th>
 							<th class="add_suppr_column" colspan="2">Modif. / Suppr.</th>
 						</tr>
 					</thead>
@@ -21,10 +21,10 @@
 						{% for author in authors %}
 						<tr>
 							<td class="table_line">
-								{{ author.first_name ~ ' ' ~ author.last_name }} 
+								{{ author.first_name  }} 
 							</td>
 							<td class="table_line">
-								{{ author.role }}
+								{{ author.last_name }}
 							</td>
 							<td>
 								<button id="add_button" type="button" class="btn btn-dark">éditer</button>
