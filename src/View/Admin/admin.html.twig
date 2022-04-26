@@ -12,7 +12,6 @@
 					<table class="table table-responsive">
 						<thead>
 							<tr>
-								<th class="id_column">id</th>
 								<th class="title_column">Titre</th>
 								<th class="author_column">Auteur</th>
 								<th class="add_suppr_column" colspan="2">Modif. / Suppr.</th>
@@ -21,13 +20,10 @@
 						<tbody>
 							{% for comic in comics %}
 								<tr>
-									<td>
-										{{ comic.id }}
-									</td>
-									<td>
+									<td class="title_line">
 										{{ comic.title }}
 									</td>
-									<td>
+									<td class="author_line">
 										{{ comic.author_name }}
 									</td>
 									<td>
@@ -36,8 +32,7 @@
 									<td>
 										<form action="/admin/delete" method="POST">
 											<input type="hidden" name="id" value="{{ comic.id }}">
-											<button type="submit" id="delete_btn" class="btn btn-dark">suppr.
-											</button>
+											<button type="submit" id="delete_btn" class="btn btn-dark" onclick= "return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
 										</form>
 									</td>
 								</tr>
