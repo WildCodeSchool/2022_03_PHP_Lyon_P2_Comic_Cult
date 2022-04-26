@@ -15,7 +15,6 @@ class AdminController extends AbstractController
         return $this->twig->render('Admin/admin.html.twig', ['comics' => $comics]);
     }
 
-
     /**
      * Add a new item
      */
@@ -52,6 +51,7 @@ class AdminController extends AbstractController
 
         return $this->twig->render('Admin/add.html.twig', array('errors' => $errors, 'comicGenres' => $comicGenres));
     }
+
     public function delete(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

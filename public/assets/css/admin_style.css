@@ -9,6 +9,11 @@ header {
     color: var(--main_font_color);
     text-decoration: none;
 }
+
+.white_link:hover {
+    color: var(--second_font_color);
+}
+
 #add_btn {
     font-family: var(--main_font);
     color: var(--main_font_color);
@@ -39,8 +44,10 @@ tbody, th, td {
     font-size: 22px;
     text-align: center;
 }
-.id_column {
-    width: 8%;
+.title_line, .author_line
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
 }
 .title_column {
     width: 40%;
