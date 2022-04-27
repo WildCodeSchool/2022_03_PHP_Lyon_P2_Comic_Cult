@@ -83,14 +83,6 @@ CREATE DATABASE comic_cult;
 
 USE comic_cult;
 
-------------------------------------------------------
--- REQUEST FOR 'role' TABLE CREATION                --
-------------------------------------------------------
-
-CREATE TABLE role (
-	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    role VARCHAR(80) NOT NULL
-    );
 
 ------------------------------------------------------
 -- REQUEST FOR 'author' TABLE CREATION              --
@@ -104,21 +96,6 @@ CREATE TABLE author (
     editor VARCHAR(100),
     biography TEXT
     );
-
--------------------------------------------------------
--- REQUEST FOR 'role_author' JUNCTION TABLE CREATION --
--------------------------------------------------------
-    
-CREATE TABLE role_author (
-	author_id INT NOT NULL,
-	CONSTRAINT fk_role_author
-		FOREIGN KEY (author_id)
-		REFERENCES author(id),
-	role_id INT NOT NULL,
-	CONSTRAINT fk_author_role
-		FOREIGN KEY (role_id)
-		REFERENCES role(id)
-	);
 
 ------------------------------------------------------
 -- REQUEST FOR 'category' TABLE CREATION            --
@@ -212,15 +189,6 @@ CREATE TABLE keywords_search (
 -- SQL REQUEST TO INSERT SOME VALUES INTO TABLES --
 
 ------------------------------------------------------
--- INSERT VALUES REQUEST FOR 'role' TABLE           --
-------------------------------------------------------
-
-INSERT INTO comic_cult.`role` (`role`) VALUES
-	 ('Dessinateur'),
-	 ('Scénariste'),
-	 ('Coloriste');
-
-------------------------------------------------------
 -- INSERT VALUES REQUEST FOR 'category' TABLE       --
 ------------------------------------------------------
 
@@ -308,55 +276,6 @@ INSERT INTO comic_cult.author (first_name,last_name,birth_date,editor,biography)
 
 INSERT INTO comic_cult.`user` (user_name,first_name,last_name,email,password,birth_date,is_admin) VALUES
 	 ('Toto_69','Toto','Leclient','toto.leclient@bdcult.fr','TotoKiffLaBd69002!','1983-07-23',1);
-
-------------------------------------------------------
--- INSERT VALUES REQUEST FOR 'role_author' TABLE    --
-------------------------------------------------------
-
-INSERT INTO comic_cult.role_author (author_id,role_id) VALUES
-	 (2,2),
-	 (3,1),
-	 (4,2),
-	 (5,1),
-	 (6,2),
-	 (7,1),
-	 (1,1),
-	 (8,1),
-	 (10,1),
-	 (9,2);
-INSERT INTO comic_cult.role_author (author_id,role_id) VALUES
-	 (11,1),
-	 (12,2),
-	 (13,1),
-	 (14,2),
-	 (15,1),
-	 (16,1),
-	 (19,1),
-	 (20,2),
-	 (21,3),
-	 (17,2);
-INSERT INTO comic_cult.role_author (author_id,role_id) VALUES
-	 (18,1),
-	 (23,1),
-	 (22,1),
-	 (24,2),
-	 (25,1),
-	 (26,1),
-	 (27,1),
-	 (28,2),
-	 (29,1),
-	 (30,3);
-INSERT INTO comic_cult.role_author (author_id,role_id) VALUES
-	 (33,1),
-	 (31,1),
-	 (32,2),
-	 (34,1),
-	 (35,2),
-	 (36,1),
-	 (37,1),
-	 (38,1),
-	 (39,2),
-	 (40,1);
 
 ------------------------------------------------------
 -- INSERT VALUES REQUEST FOR 'comic_book' TABLE     --
