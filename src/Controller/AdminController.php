@@ -106,7 +106,7 @@ class AdminController extends AbstractController
      * List authors
     **/
     public function authorList(): string
-     {
+    {
         $adminManager = new AdminManager();
         $authors = $adminManager->selectAllAuthors();
 
