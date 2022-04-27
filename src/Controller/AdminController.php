@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Model\AdminManager;
+use App\Model\AuthorManager;
+use App\Model\GenreManager;
 use App\Service\AddComicService;
 
 class AdminController extends AbstractController
@@ -22,7 +24,8 @@ class AdminController extends AbstractController
     {
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
-        $comicGenres = $adminManager->selectAllGenre();
+        $genreManager = new GenreManager();
+        $comicGenres = $genreManager->selectAll();
         $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
             $comicBook = array_map('trim', $_POST);
@@ -70,7 +73,8 @@ class AdminController extends AbstractController
     {
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
-        $comicGenres = $adminManager->selectAllGenre();
+        $genreManager = new GenreManager();
+        $comicGenres = $genreManager->selectAll();
         $comicById = $adminManager->selectOneById($id);
         $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
@@ -102,7 +106,15 @@ class AdminController extends AbstractController
                                     'comicGenres' => $comicGenres));
     }
 
-    public function addAuthor(): string
+    public function authorList(): string
+    {
+        $authorManager = new AuthorManager();
+        $authors = $authorManager->selectAll();
+
+        return $this->twig->render('Admin/author.html.twig', ['authors' => $authors]);
+    }
+  
+     public function addAuthor(): string
     {
         return $this->twig->render('Admin/add_author.html.twig');
     }

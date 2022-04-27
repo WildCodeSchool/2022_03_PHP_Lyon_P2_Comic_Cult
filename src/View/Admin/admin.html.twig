@@ -33,9 +33,9 @@
 								</td>
 								<td>
 									<form action="/admin/delete" method="POST">
-											<input type="hidden" name="id" value="{{ comic.id }}">
-											<button type="submit" id="delete_btn" class="btn btn-dark" onclick= "return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
-										</form>
+										<input type="hidden" name="id" value="{{ comic.id }}">
+										<button type="submit" id="delete_btn" class="btn btn-dark" onclick= "return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
+									</form>
 								</td>
 							</tr>
 						{% endfor %}
