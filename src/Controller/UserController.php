@@ -15,7 +15,9 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $utilityService = new UtilityService();
         $keywords = $userManager->keywordsList();
-        $comicBooks = $userManager->listByKeywords();
+        $comicByTitleAndPitch = $userManager->listByKeywords();
+        $comicByAuthor = $userManager->listByAuthor();
+        $comicBooks = array_merge($comicByTitleAndPitch, $comicByAuthor);
         $splitTitle = [];
         $splitKeywords = [];
         $finalList = [];
