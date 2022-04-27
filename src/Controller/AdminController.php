@@ -105,11 +105,11 @@ class AdminController extends AbstractController
     /**
      * List authors
     **/
-     public function authorList(): string
+    public function authorList(): string
      {
         $adminManager = new AdminManager();
         $authors = $adminManager->selectAllAuthors();
 
         return $this->twig->render('Admin/author.html.twig', ['authors' => $authors]);
-     }
+    }
 }
