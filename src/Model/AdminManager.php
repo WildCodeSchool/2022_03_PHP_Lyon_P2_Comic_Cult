@@ -48,23 +48,6 @@ class AdminManager extends AbstractManager
     }
 
     /**
-     * Get all authors from database.
-     */
-    public function selectAllAuthors(): array
-    {
-        $query = 'SELECT * FROM `author`;';
-
-        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    public function selectAllGenre(): array
-    {
-        $query = 'SELECT * FROM category';
-
-        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    /**
      * Get one comic from database by ID.
      */
     public function selectOneById(int $id): array|false
