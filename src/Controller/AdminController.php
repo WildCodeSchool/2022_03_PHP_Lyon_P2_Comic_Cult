@@ -101,4 +101,9 @@ class AdminController extends AbstractController
         return $this->twig->render('Admin/edit.html.twig', array('errors' => $errors, 'comicBook' => $comicById,
                                     'comicGenres' => $comicGenres));
     }
+
+    public function addAuthor(): string
+    {
+        return $this->twig->render('Admin/add_author.html.twig');
+    }
 }
