@@ -101,15 +101,15 @@ class AdminController extends AbstractController
         return $this->twig->render('Admin/edit.html.twig', array('errors' => $errors, 'comicBook' => $comicById,
                                     'comicGenres' => $comicGenres));
     }
-    
+
     /**
      * List authors
     **/
      public function authorList(): string
-    {
+     {
         $adminManager = new AdminManager();
         $authors = $adminManager->selectAllAuthors();
 
         return $this->twig->render('Admin/author.html.twig', ['authors' => $authors]);
-    }
+     }
 }
