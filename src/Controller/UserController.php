@@ -8,40 +8,30 @@ use App\Service\UtilityService;
 class UserController extends AbstractController
 {
     /**
-     * Show list of comics sorted by title and description
+     * Show list of comics sorted by title, description or author
      */
     public function list(): string
     {
         $userManager = new UserManager();
         $utilityService = new UtilityService();
         $keywords = $userManager->keywordsList();
-        $comicBooks = $userManager->listByKeywords();
-        $splitTitle = [];
-        $splitKeywords = [];
-        $finalList = [];
+        $comicByTitleAndPitch = $userManager->listByKeywords();
+        $comicByAuthor = $userManager->listByAuthor();
 
-        foreach ($keywords as $keyword) {
-                $keyword['keyword'] = strtolower($keyword['keyword']);
-            foreach ($comicBooks as $comicBook) {
-                $comicTitle = $utilityService->clearString($comicBook['title']);
-                $comicTitle = preg_replace('/\s\s+/', ' ', $comicTitle);
-                $splitTitle = explode(" ", $comicTitle);
-                $comicKeywords = $utilityService->clearString($comicBook['keywords']);
-                $comicKeywords = preg_replace('/\s\s+/', ' ', $comicKeywords);
-                $splitKeywords = explode(" ", $comicKeywords);
-                foreach ($splitTitle as $word) {
-                    if (strcmp($word, $keyword['keyword']) == 0) {
-                        $finalList[] = $comicBook;
-                    }
-                }
-                foreach ($splitKeywords as $word) {
-                    if (strcmp($word, $keyword['keyword']) == 0) {
-                        $finalList[] = $comicBook;
-                    }
-                }
-            }
-        }
-        $finalList = array_unique($finalList, SORT_REGULAR);
+        // Use this function to merge an array in an other one.
+        $comicBooks = array_merge($comicByTitleAndPitch, $comicByAuthor);
+
+        // Use this new method to sort comics by an attribute.
+        $splitAuthorFirstName = $utilityService->sortByWords($keywords, $comicBooks, 'first_name');
+        $splitAuthorLastName = $utilityService->sortByWords($keywords, $comicBooks, 'last_name');
+        $splitTitle = $utilityService->sortByWords($keywords, $comicBooks, 'title');
+        $splitKeywords = $utilityService->sortByWords($keywords, $comicBooks, 'keywords');
+
+        $finalList = array_merge($splitAuthorFirstName, $splitAuthorLastName, $splitTitle, $splitKeywords);
+
+        // Use this method to delete duplicates (for ex: One comic may have 2 or 3 authors).
+        $finalList = $utilityService->arrayUnique($finalList, 'title');
+
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 }

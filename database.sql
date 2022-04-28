@@ -91,7 +91,9 @@ USE comic_cult;
 CREATE TABLE author (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	first_name VARCHAR(80) NOT NULL,
+    first_name_keyword VARCHAR(80),
     last_name VARCHAR(100) NOT NULL,
+    last_name_keyword VARCHAR(100),
     birth_date DATE,
     editor VARCHAR(100),
     biography TEXT
@@ -225,50 +227,50 @@ INSERT INTO comic_cult.category (category) VALUES
 -- INSERT VALUES REQUEST FOR 'author' TABLE         --
 ------------------------------------------------------
 
-INSERT INTO comic_cult.author (first_name,last_name,birth_date,editor,biography) VALUES
-	 ('Eric','Buche','1965-05-12','Éditions Glénat',''),
-	 ('Jean','Van Hamme','1939-01-16','',''),
-	 ('Grzegorz','Rosinski','1947-08-02','',''),
-	 ('Raoul','Cauvin','1921-08-18','',''),
-	 ('Louis','Salvérius','1933-12-04','',''),
-	 ('Juan','Diaz Canalès','1971-12-31','',''),
-	 ('Juanjo','Guarnido','1966-12-31','',''),
-	 ('Jean','Giraud / Moebius / Gir','1938-05-07','',''),
-	 ('Jean-Michel','Charlier','1924-10-30','',''),
-	 ('Georges','Rémi / Hergé','1907-05-01','Casterman','');
-INSERT INTO comic_cult.author (first_name,last_name,birth_date,editor,biography) VALUES
-	 ('Albert','Uderzo','1927-04-24','',''),
-	 ('André','Goscinny','1926-08-13','',''),
-	 ('Maurice','de Bevere / Morris','1923-12-01','',''),
-	 ('Xavier','Dorison','1972-10-07','',''),
-	 ('Ralph','Meyer','1971-08-10','',''),
-	 ('Marion','Montaigne','1980-04-07','Sarbacane',''),
-	 ('Arnaud','Le Gouëfflec','1974-03-24','',''),
-	 ('Nicolas','Moog','1978-08-08','',''),
-	 ('Jean-Pierre','Pécau','1955-07-26','',''),
-	 ('Stefano','Martino','1970-04-21','','');
-INSERT INTO comic_cult.author (first_name,last_name,birth_date,editor,biography) VALUES
-	 ('Elmer','Santos','1991-01-04','',''),
-	 ('Yoon','Jeong','1999-12-31','',''),
-	 ('Joaquin','Tejon / Quino','1932-07-16','',''),
-	 ('Christophe','Bec','1969-08-23','',''),
-	 ('Stefano','Raffaele','1970-03-14','',''),
-	 ('Marjane','Satrapi','1969-11-21','',''),
-	 ('Othon','Aristides / Fred','1931-03-05','',''),
-	 ('Christophe','Arleston','1962-12-31','',''),
-	 ('Adrien','Floch','1977-03-16','',''),
-	 ('Claude','Guth','1962-02-28','','');
-INSERT INTO comic_cult.author (first_name,last_name,birth_date,editor,biography) VALUES
-	 ('Adrien','Martin','1977-06-01','',''),
-	 ('Ludovic','Danjou','1977-06-01','',''),
-	 ('Renaud','Dillies','1972-10-12','',''),
-	 ('Jun','Jung-sik','1965-12-01','',''),
-	 ('Catel','Muller','1964-08-26','',''),
-	 ('Jean-Louis','Boquet','1962-08-27','',''),
-	 ('Philippe','Aymont','1968-02-02','',''),
-	 ('Thomas','Mosdi','1961-12-31','',''),
-	 ('Roberto','Saviano','1979-07-21','',''),
-	 ('Asaf','Hanuka','1973-12-31','','');
+INSERT INTO comic_cult.author (first_name,first_name_keyword,last_name,last_name_keyword,birth_date,editor,biography) VALUES
+	 ('Eric','eric','Buche','buche','1965-05-12','Éditions Glénat',''),
+	 ('Jean','jean','Van Hamme','van hamme','1939-01-16','',''),
+	 ('Grzegorz','grzegorz','Rosinski','rosinski','1947-08-02','',''),
+	 ('Raoul','raoul','Cauvin','cauvin','1921-08-18','',''),
+	 ('Louis','louis','Salvérius','salverius','1933-12-04','',''),
+	 ('Juan','juan','Diaz Canalès','diaz canales','1971-12-31','',''),
+	 ('Juanjo','juanjo','Guarnido','guarnido','1966-12-31','',''),
+	 ('Jean','jean','Giraud / Moebius / Gir','giraud moebius gir','1938-05-07','',''),
+	 ('Jean-Michel','jean michel','Charlier','charlier','1924-10-30','',''),
+	 ('Georges','georges','Rémi / Hergé','remi herge','1907-05-01','Casterman','');
+INSERT INTO comic_cult.author (first_name,first_name_keyword,last_name,last_name_keyword,birth_date,editor,biography) VALUES
+	 ('Albert','albert','Uderzo','uderzo','1927-04-24','',''),
+	 ('André','andre','Goscinny','goscinny','1926-08-13','',''),
+	 ('Maurice','maurice','de Bevere / Morris','de bevere morris','1923-12-01','',''),
+	 ('Xavier','xavier','Dorison','dorison','1972-10-07','',''),
+	 ('Ralph','ralph','Meyer','meyer','1971-08-10','',''),
+	 ('Marion','marion','Montaigne','montaigne','1980-04-07','Sarbacane',''),
+	 ('Arnaud','arnaud','Le Gouëfflec','le gouefflec','1974-03-24','',''),
+	 ('Nicolas','nicolas','Moog','moog','1978-08-08','',''),
+	 ('Jean-Pierre','jean pierre','Pécau','pecau','1955-07-26','',''),
+	 ('Stefano','stefano','Martino','martino','1970-04-21','','');
+INSERT INTO comic_cult.author (first_name,first_name_keyword,last_name,last_name_keyword,birth_date,editor,biography) VALUES
+	 ('Elmer','elmer','Santos','santos','1991-01-04','',''),
+	 ('Yoon','yoon','Jeong','jeong','1999-12-31','',''),
+	 ('Joaquin','joaquin','Tejon / Quino','tejon','1932-07-16','',''),
+	 ('Christophe','christophe','Bec','bec','1969-08-23','',''),
+	 ('Stefano','stefano','Raffaele','raffaele','1970-03-14','',''),
+	 ('Marjane','marjane','Satrapi','satrapi','1969-11-21','',''),
+	 ('Othon','othon','Aristides / Fred','aristides fred','1931-03-05','',''),
+	 ('Christophe','christophe','Arleston','arleston','1962-12-31','',''),
+	 ('Adrien','adrien','Floch','floch','1977-03-16','',''),
+	 ('Claude','claude','Guth','guth','1962-02-28','','');
+INSERT INTO comic_cult.author (first_name,first_name_keyword,last_name,last_name_keyword,birth_date,editor,biography) VALUES
+	 ('Adrien','adrien','Martin','martin','1977-06-01','',''),
+	 ('Ludovic','ludovic','Danjou','danjou','1977-06-01','',''),
+	 ('Renaud','renaud','Dillies','dillies','1972-10-12','',''),
+	 ('Jun','jun','Jung-sik','jung sik','1965-12-01','',''),
+	 ('Catel','catel','Muller','muller','1964-08-26','',''),
+	 ('Jean-Louis','jean louis','Boquet','boquet','1962-08-27','',''),
+	 ('Philippe','philippe','Aymont','aymont','1968-02-02','',''),
+	 ('Thomas','thomas','Mosdi','mosdi','1961-12-31','',''),
+	 ('Roberto','roberto','Saviano','saviano','1979-07-21','',''),
+	 ('Asaf','asaf','Hanuka','hanuka','1973-12-31','','');
 
 ------------------------------------------------------
 -- INSERT VALUES REQUEST FOR 'user' TABLE           --
