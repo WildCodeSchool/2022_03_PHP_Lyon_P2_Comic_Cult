@@ -8,17 +8,7 @@
 
 {% block content %}
 
-<header>
-	<nav class="d-flex bg-dark justify-content-between fs-2 ps-3 py-1">
-		<h1>DASHBOARD ADMINISTRATEUR</h1>
-		<div class="d-flex align-items-center fs-4">
-			<a class="white_link px-5" href="../list">Bandes Dessinées</a>
-			<a class="white_link px-5" href="/admin/author">Auteurs</a>
-			<a class="white_link px-5" href="">Genres</a>
-			<a class="white_link px-5" href="">Contacts</a>
-		</div>
-	</nav>
-</header>
+{% include "Admin/_header.html.twig" %}
 
 <div class="container-fluid mt-5">
     <div class="row p-3 p-lg-5 text-center">
@@ -49,7 +39,7 @@
                 <div class="form-group  row mt-sm-3 mt-lg-5 mt-5">
                     <label for="author_name" class=" label_form_add_BD col-sm-5 col-md-4 col-lg-5 col-xl-5 col-4 d-flex justify-content-end control-label">Date de naissance<span class="asterisk">*</span></label>
                     <div class="col-sm-6 col-lg-7">
-                        <input type="date" class="input-bg form-control" name="birth_date" id="birth_date">
+                        <input type="date" class="input-bg form-control" name="birth_date" id="birth_date" required>
                     </div>
                 </div>
 
@@ -83,7 +73,7 @@
 
     <div class="container text-center">
         {% for error in errors %}
-            <p class="text-warning fs-6 lh-1">{{ error }}</p>
+            <p class="text-warning fs-3 mt-3 lh-1">{{ error }}</p>
         {% endfor %}
     </div>
 

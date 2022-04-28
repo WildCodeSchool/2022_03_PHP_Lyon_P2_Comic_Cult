@@ -119,16 +119,22 @@ class AdminController extends AbstractController
     {
         $authorManager = new AuthorManager();
         $cleanComicAuthor = new AddAuthorService();
+        $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
             $comicAuthor = array_map('trim', $_POST);
             $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
             $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
             $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
             $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
-            $authorManager->insertAuthor($comicAuthor);
-            var_dump($comicAuthor);
+
+            $errors = $cleanComicAuthor->getCheckErrors();
+
+            if (empty($cleanComicAuthor->getCheckErrors())) {
+                $authorManager->insertAuthor($comicAuthor);
+                header('Location:/admin/author');
+            }
         }
 
-        return $this->twig->render('Admin/add_author.html.twig');
+        return $this->twig->render('Admin/add_author.html.twig', array('errors' => $errors));
     }
 }

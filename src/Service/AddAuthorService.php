@@ -18,8 +18,7 @@ class AddAuthorService extends UtilityService
     {
         if (
             empty($comicAuthor['first_name']) || empty($comicAuthor['last_name']) ||
-            empty($comicAuthor['birth_date']) || empty($comicAuthor['biography']) ||
-            empty($comicAuthor['editor'])
+            empty($comicAuthor['birth_date']) || empty($comicAuthor['biography'])
         ) {
             $this->checkErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
         }
