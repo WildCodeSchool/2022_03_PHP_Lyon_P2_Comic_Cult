@@ -47,12 +47,6 @@ class AdminManager extends AbstractManager
         $statement->execute();
     }
 
-    public function selectAllGenre(): array
-    {
-        $query = 'SELECT * FROM category';
-        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
     /**
      * Get one comic from database by ID.
      */
