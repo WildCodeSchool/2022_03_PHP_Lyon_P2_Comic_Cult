@@ -21,4 +21,5 @@ return [
     'admin/author' => ['AdminController', 'authorList'],
     'admin/author/add' => ['AdminController', 'addAuthor'],
     'auth' => ['UserController', 'login'],
+    'logout' => ['UserController', 'logout',],
 ];

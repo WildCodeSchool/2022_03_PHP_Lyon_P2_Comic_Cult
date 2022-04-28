@@ -43,7 +43,7 @@ class UserController extends AbstractController
             $userManager = new UserManager();
             $user = $userManager->selectOneByUser($credentials['user_name']);
             if ($credentials['password'] === $user['password']) {
-                $_SESSION['user_name'] = $user['user_name'];
+                $_SESSION['user_id'] = $user['id'];
                 header('Location: admin/list');
             }
         }
