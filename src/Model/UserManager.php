@@ -5,6 +5,7 @@ namespace App\Model;
 class UserManager extends AbstractManager
 {
     public const TABLE = 'comic_book';
+    public const TABLE2 = 'user';
 
 
     /**
@@ -51,5 +52,15 @@ class UserManager extends AbstractManager
         $comicBooks = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $comicBooks;
+    }
+
+    public function selectOneByUser(string $user)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE2 . " WHERE user_name=:user_name");
+        $statement->bindValue('user_name', $user, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 }
