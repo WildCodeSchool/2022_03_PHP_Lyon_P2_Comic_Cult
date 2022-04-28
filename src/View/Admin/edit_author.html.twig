@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig'%}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">
+{% endblock %}
+
+{% block title %}
+   Ajouter un auteur {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+{% include "Admin/add_author.html.twig" %}
+
+{% endblock %}

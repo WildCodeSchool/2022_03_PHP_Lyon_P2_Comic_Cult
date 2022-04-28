@@ -137,4 +137,9 @@ class AdminController extends AbstractController
 
         return $this->twig->render('Admin/add_author.html.twig', array('errors' => $errors));
     }
+
+    public function authorEdit(): string
+    {
+        return $this->twig->render('Admin/edit_author.html.twig');
+    }
 }
