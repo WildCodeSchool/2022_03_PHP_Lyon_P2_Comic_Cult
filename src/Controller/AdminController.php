@@ -7,6 +7,7 @@ use App\Model\AuthorManager;
 use App\Model\GenreManager;
 use App\Service\AddComicService;
 use Exception;
+use App\Service\AddAuthorService;
 
 class AdminController extends AbstractController
 {
@@ -134,6 +135,24 @@ class AdminController extends AbstractController
 
     public function addAuthor(): string
     {
-        return $this->twig->render('Admin/add_author.html.twig');
+        $authorManager = new AuthorManager();
+        $cleanComicAuthor = new AddAuthorService();
+        $errors = [];
+        if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
+            $comicAuthor = array_map('trim', $_POST);
+            $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
+            $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
+            $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
+            $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
+
+            $errors = $cleanComicAuthor->getCheckErrors();
+
+            if (empty($cleanComicAuthor->getCheckErrors())) {
+                $authorManager->insertAuthor($comicAuthor);
+                header('Location:/admin/author');
+            }
+        }
+
+        return $this->twig->render('Admin/add_author.html.twig', array('errors' => $errors));
     }
 }
