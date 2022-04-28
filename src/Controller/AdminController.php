@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Model\AuthorManager;
 use App\Model\AdminManager;
 use App\Service\AddComicService;
+use App\Service\AddAuthorService;
 
 class AdminController extends AbstractController
 {
@@ -104,6 +106,18 @@ class AdminController extends AbstractController
 
     public function addAuthor(): string
     {
+        $authorManager = new AuthorManager();
+        $cleanComicAuthor = new AddAuthorService();
+        if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
+            $comicAuthor = array_map('trim', $_POST);
+            $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
+            $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
+            $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
+            $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
+            $authorManager->insertAuthor($comicAuthor);
+            var_dump($comicAuthor);
+        }
+
         return $this->twig->render('Admin/add_author.html.twig');
     }
 }
