@@ -14,15 +14,11 @@ class AdminController extends AbstractController
         if (!$this->user) {
             echo 'Unauthorized access';
             header('Location: /');
-            
         }
 
         $adminManager = new AdminManager();
         $comics = $adminManager->selectAll();
-
         return $this->twig->render('Admin/admin.html.twig', ['comics' => $comics]);
-
-       
     }
 
     /**
@@ -34,7 +30,6 @@ class AdminController extends AbstractController
         if (!$this->user) {
             echo 'Unauthorized access';
             header('Location: /');
-            
         }
 
         $cleanComicBook = new AddComicService();
@@ -75,7 +70,6 @@ class AdminController extends AbstractController
         if (!$this->user) {
             echo 'Unauthorized access';
             header('Location: /');
-            
         }
 
 
@@ -96,7 +90,6 @@ class AdminController extends AbstractController
         if (!$this->user) {
             echo 'Unauthorized access';
             header('Location: /');
-            
         }
 
 
@@ -140,7 +133,6 @@ class AdminController extends AbstractController
         if (!$this->user) {
             echo 'Unauthorized access';
             header('Location: /');
-            
         }
         $authorManager = new AuthorManager();
         $authors = $authorManager->selectAll();
@@ -153,7 +145,6 @@ class AdminController extends AbstractController
         if (!$this->user) {
             echo 'Unauthorized access';
             header('Location: /');
-            
         }
         return $this->twig->render('Admin/add_author.html.twig');
     }

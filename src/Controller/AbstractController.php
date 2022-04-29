@@ -30,5 +30,4 @@ abstract class AbstractController
         $this->user = isset($_SESSION['user_id']) ? $userManager->selectOneById($_SESSION['user_id']) : false;
         $this->twig->addGlobal('user', $this->user);
     }
-    
 }
