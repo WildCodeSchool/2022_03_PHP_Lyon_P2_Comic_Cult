@@ -75,7 +75,7 @@ class AdminController extends AbstractController
             $authorId = trim($_POST['id']);
             $authorManager = new AuthorManager();
             try {
-                $authorManager->deleteAuthor((int)$authorId);
+                $authorManager->delete((int)$authorId);
             } catch (Exception $error) {
                 $error = 'Cet auteur est lié à une BD. Vous ne pouvez pas le supprimer.';
                 return $this->twig->render('Admin/delete.html.twig', ['error' => $error]);
