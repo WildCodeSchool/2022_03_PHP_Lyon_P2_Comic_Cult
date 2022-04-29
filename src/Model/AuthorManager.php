@@ -6,7 +6,7 @@ class AuthorManager extends AbstractManager
 {
     public const TABLE = 'author';
 
-    public function selectAuthorById(int $id):array|false
+    public function selectAuthorById(int $id): array|false
     {
         $statement = $this->pdo->prepare("SELECT * FROM author
                                         WHERE author.id=:id");

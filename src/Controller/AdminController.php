@@ -135,7 +135,7 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/add_author.html.twig');
+        return $this->twig->render('Admin/add_author.html.twig', ['errors' => $errors]);
     }
 
     /**
@@ -164,6 +164,7 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/edit_author.html.twig', array('errors' => $errors, 'comicAuthor' => $authorById));
+        return $this->twig->render('Admin/edit_author.html.twig', array('errors' => $errors,
+                                    'comicAuthor' => $authorById));
     }
 }
