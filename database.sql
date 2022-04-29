@@ -375,4 +375,5 @@ INSERT INTO comic_cult.comic_book_author (comic_book_id,author_id) VALUES
 	 (28,35),
 	 (28,36),
 	 (29,37),
-	 (30,38);
+	 (30,38),
+	 (31,40);
