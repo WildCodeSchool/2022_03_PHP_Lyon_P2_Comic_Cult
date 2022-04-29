@@ -5,6 +5,7 @@ body {
 }
 
 /* USER HEADER RESPONSIVE */
+
 .home_header {
     height: 20vh;
 }
@@ -15,6 +16,7 @@ body {
 }
 
 /* WEBSITE TITLE RESPONSIVE */
+
 .website_title {
     font-size: calc(60px + 2vw);
     font-family: var(--main_font);
@@ -30,8 +32,8 @@ body {
     color: #6AA3F9;
 }
 
-
 /* SEARCH BAR RESPONSIVE */
+
 .search_bar {
     background-color: #e6e6e6;
     height: calc(30px + 1vw);
@@ -66,6 +68,7 @@ body {
 }
 
 /* FOOTER RESPONSIVE */
+
 .home_footer {
     font-family: var(--main_font);
     border-top: 1px solid var(--main_border_color);
@@ -82,7 +85,7 @@ body {
     color: var(--second_font_color);
 }
 
-/* button admin connexion modal */
+/* Button admin connexion modal */
 
 #spaceAdminLogin{
    font-size: 25px;
@@ -94,9 +97,7 @@ body {
     font-size: 25px;
     padding-bottom: 10px;
     font-family: sans-serif;
-
 }
-
 
 #spaceAdminConnexion{
     display: flex;
@@ -104,4 +105,74 @@ body {
     align-items: center;
     text-align: center;
     background-color:#e6e6e6;
+}
+
+#return_button_user_contact {
+    width: 60px;
+    height: auto;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+/* Contact page css */
+
+.contact-page {
+    justify-content: center;
+    height: 94vh;
+}
+
+.white_link {
+    margin-left: 0px;
+}
+
+.card {
+    background-color: #dbdbdb;
+    border-radius: 8%;
+    width: 80%;
+}
+
+.card-img-top {
+    width: 60%;
+}
+
+.card-text {
+    font-family: var(--second_font);
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.row {
+    color: black;
+    font-size: 25px;
+}
+ 
+.team_title {
+    font-size: 85px;
+    color: white;
+    justify-content: center;
+}
+
+.form_title {
+    font-size: 65px;
+    color: white;
+}
+
+.form-label {
+    font-size: 30px;
+}
+
+.form-control {
+    border-radius: 10px;
+    font-family: var(--second_font);
+    font-weight: bolder;
+}
+
+.contact-form {
+    border-radius: 8%;
+    background-color: #dbdbdb;
+    height: 70vh;
+}
+
+.split-container {
+    border-left: solid 3px var(--main_border_color);
 }

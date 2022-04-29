@@ -17,4 +17,5 @@ return [
     'admin/list' => ['AdminController', 'list',],
     'admin/add' => ['AdminController', 'add'],
     'admin/delete' => ['AdminController', 'delete', ['id']],
+    'user_contacts' => ['UserController', 'userContacts'],
 ];

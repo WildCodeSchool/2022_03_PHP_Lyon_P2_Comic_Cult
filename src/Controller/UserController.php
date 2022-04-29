@@ -21,7 +21,7 @@ class UserController extends AbstractController
         $finalList = [];
 
         foreach ($keywords as $keyword) {
-                $keyword['keyword'] = strtolower($keyword['keyword']);
+            $keyword['keyword'] = strtolower($keyword['keyword']);
             foreach ($comicBooks as $comicBook) {
                 $comicTitle = $utilityService->clearString($comicBook['title']);
                 $comicTitle = preg_replace('/\s\s+/', ' ', $comicTitle);
@@ -43,5 +43,9 @@ class UserController extends AbstractController
         }
         $finalList = array_unique($finalList, SORT_REGULAR);
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
+    }
+    public function userContacts()
+    {
+        return $this->twig->render('User/user_contacts.html.twig');
     }
 }
