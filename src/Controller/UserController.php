@@ -46,12 +46,17 @@ class UserController extends AbstractController
                 $_SESSION['user_id'] = $user['id'];
                 header('Location: admin/list');
             }
+
         }
-        return $this->twig->render('Admin/verifConnection.html.twig');
+        return $this->twig->render('Home/index.html.twig',);
+
+
+        
     }
     public function logout(): void
     {
         session_destroy();
         header('Location: /');
+        
     }
 }
