@@ -91,7 +91,7 @@ class AdminController extends AbstractController
             $uploadDir = 'assets/images/comicUpload/';
             $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
             $comicBook['cover'] = $uploadFile;
-            $
+            
             // Function to verify integrity of uploaded file.
             $cleanComicBook->coverIntegrityVerify($_FILES);
 
