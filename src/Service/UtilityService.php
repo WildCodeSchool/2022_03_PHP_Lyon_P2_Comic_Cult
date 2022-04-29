@@ -5,7 +5,7 @@ namespace App\Service;
 class UtilityService
 {
     /**
-     * Function used to clean a string when a user make a search request
+     * Method used to clean a string when a user make a search request
      */
     public function clearString(string $stringToClear): string
     {
@@ -41,5 +41,49 @@ class UtilityService
         $clearedString = implode(' ', $stringToClear);
 
         return $clearedString;
+    }
+
+    /**
+     * Method used to csort temporary array of comics by keywords
+     */
+    public function sortByWords(array $keywords, array $comicBooks, string $option): array
+    {
+        $splitOption = [];
+        $finalList = [];
+
+        foreach ($keywords as $keyword) {
+            $keyword['keyword'] = strtolower($keyword['keyword']);
+            foreach ($comicBooks as $comicBook) {
+                $comicOption = $this->clearString($comicBook[$option]);
+                $comicOption = preg_replace('/\s\s+/', ' ', $comicOption);
+                $splitOption = explode(" ", $comicOption);
+
+                foreach ($splitOption as $word) {
+                    if (strcmp($word, $keyword['keyword']) == 0) {
+                        $finalList[] = $comicBook;
+                    }
+                }
+            }
+        }
+        return $finalList;
+    }
+
+    /**
+     * Method used to clean comic's duplicates
+     */
+    public function arrayUnique(array $comicBooks, string $key): array
+    {
+        $finalList = [];
+        $arrayKey = 0;
+        $temporaryArray = [];
+
+        foreach ($comicBooks as $comicBook) {
+            if (!in_array($comicBook[$key], $temporaryArray)) {
+                $temporaryArray[$arrayKey] = $comicBook[$key];
+                $finalList[$arrayKey] = $comicBook;
+            }
+            $arrayKey++;
+        }
+        return $finalList;
     }
 }
