@@ -25,28 +25,28 @@
             <div class='row'>
                 <div class="col-lg-6">
                     <div class="form-group row mt-5">
-                        <label for="title" class="label_form_add_BD col-sm-2 control-label text-right">TITRE</label>
+                        <label for="title" class="label_form_add_BD col-sm-2 control-label text-right">TITRE <span class="asterisk">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" class="input-bg form-control" name="title" id="form_title" required>
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="isbn" class="label_form_add_BD col-sm-2 control-label">ISBN</label>
+                        <label for="isbn" class="label_form_add_BD col-sm-2 control-label">ISBN <span class="asterisk">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" class="input-bg form-control" name="isbn" id="isbn">
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="date_of_release" class="label_form_add_BD col-sm-3 control-label">DATE DE SORTIE</label>
+                        <label for="date_of_release" class="label_form_add_BD col-sm-3 control-label">DATE DE SORTIE <span class="asterisk">*</span></label>
                         <div class="col-sm-7">
                             <input type="date" class="input-bg form-control" name="date_of_release" id="release_date" required>
                         </div>
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="category_id" class="label_form_add_BD col-sm-2 control-label ">GENRE</label>
+                        <label for="category_id" class="label_form_add_BD col-sm-2 control-label ">GENRE  <span class="asterisk">*</span></label>
                             <div class="col-sm-8">
                                 <select class="form-select input-bg" name="category_id" id="gender_select" aria-label="Example select with button addon" required>
                                     <option value="">Sélectionner un genre</option>
@@ -60,7 +60,7 @@
 
                 <div class="col-lg-6">
                     <div class="form-group row mt-5">
-                        <label for="author_name" class="label_form_add_BD col-sm-2 control-label">AUTEUR</label>
+                        <label for="author_name" class="label_form_add_BD col-sm-2 control-label">AUTEUR <span class="asterisk">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" class="input-bg form-control" name="author_name" id="author" required>
                         </div>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group row mt-3">
-                        <label for="price" class="label_form_add_BD col-sm-2 control-label">PRIX</label>
+                        <label for="price" class="label_form_add_BD col-sm-2 control-label">PRIX <span class="asterisk">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control input-bg" name="price" id="price">
                         </div>
@@ -90,7 +90,7 @@
 
                 <div class="col-lg-12">
                     <div class="form-group row mt-3">
-                        <label for="pitch" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé</label>
+                        <label for="pitch" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé <span class="asterisk">*</span></label>
                         <div class="col-sm-8 col-lg-10 col-md-8">
                         <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4" required></textarea>
                         </div>
@@ -115,7 +115,7 @@
 
         <div class="container">
             <div class="row text-center mt-5">
-                <h1> TOUS LES CHAMPS SONT OBLIGATOIRES.</h1>
+                <h1> TOUS LES CHAMPS  (<span class="asterisk">*</span>) SONT OBLIGATOIRES.</h1>
             </div>
         </div>
 
