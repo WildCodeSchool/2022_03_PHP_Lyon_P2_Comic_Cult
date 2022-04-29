@@ -91,7 +91,7 @@ class AdminController extends AbstractController
             $uploadDir = 'assets/images/comicUpload/';
             $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
             $comicBook['cover'] = $uploadFile;
-
+            $
             // Function to verify integrity of uploaded file.
             $cleanComicBook->coverIntegrityVerify($_FILES);
 
@@ -135,11 +135,35 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/add_author.html.twig', array('errors' => $errors));
+        return $this->twig->render('Admin/add_author.html.twig');
     }
 
-    public function authorEdit(): string
+    /**
+     * Update author table.
+     */
+
+    public function authorEdit($id)
     {
-        return $this->twig->render('Admin/edit_author.html.twig');
+
+        $authorManager = new AuthorManager();
+        $cleanComicAuthor = new AddAuthorService();
+        $authorById = $authorManager->selectAuthorById($id);
+        $errors = [];
+        if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
+            $comicAuthor = array_map('trim', $_POST);
+            $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
+            $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
+            $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
+            $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
+            var_dump($comicAuthor);
+
+            $errors = $cleanComicAuthor->getCheckErrors();
+            if (empty($cleanComicAuthor->getCheckErrors())) {
+                $authorManager->updateAuthor($comicAuthor, $id);
+                header('Location:/admin/author/');
+            }
+        }
+
+        return $this->twig->render('Admin/edit_author.html.twig', array('errors' => $errors, 'comicAuthor' => $authorById));
     }
 }
