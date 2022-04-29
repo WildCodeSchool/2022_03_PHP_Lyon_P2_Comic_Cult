@@ -34,4 +34,9 @@ class UserController extends AbstractController
 
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
+
+    public function details(): string
+    {
+        return $this->twig->render('User/details.html.twig');
+    }
 }
