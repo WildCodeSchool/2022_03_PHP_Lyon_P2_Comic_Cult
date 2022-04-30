@@ -96,4 +96,14 @@ class AdminManager extends AbstractManager
         $statement->bindValue(':category_id', $comicBook['category_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectAllComicsAndAuthors(): array
+    {
+        $query = 'SELECT comic_book.*, author.* FROM comic_book
+                    INNER JOIN comic_book_author ON comic_book_author.comic_book_id=comic_book.id
+                    INNER JOIN author ON author.id=comic_book_author.author_id
+                    ORDER BY comic_book.id;';
+
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

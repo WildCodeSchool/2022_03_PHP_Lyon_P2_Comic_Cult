@@ -26,7 +26,7 @@
 									{{ comic.title }}
 								</td>
 								<td class="table_line">
-									{{ comic.author_name }}
+									{{ comic.first_name ~ ' ' ~ comic.last_name }}
 								</td>
 								<td>
 									<a href="edit?id={{ comic.id }}"><input type="submit" id="edit_btn" class="btn btn-dark" value="éditer"></a>
