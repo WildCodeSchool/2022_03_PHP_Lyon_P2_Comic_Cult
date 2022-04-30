@@ -28,9 +28,9 @@ class AdminManager extends AbstractManager
     {
         $query = 'INSERT INTO comic_book (`title`, `title_keywords`, `isbn`, `date_of_release`,
                     `pitch`, `keywords`, `nb_pages`, `volume`, `price`,
-                    `cover`, `author_name`, `category_id`)
+                    `cover`, `category_id`)
                     VALUES (:title, :title_keywords, :isbn, :date_of_release, :pitch, :keywords, :nb_pages,
-                    :volume, :price, :cover, :author_name, :category_id)';
+                    :volume, :price, :cover, :category_id)';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':title', $comicBook['title'], \PDO::PARAM_STR);
         $statement->bindValue(':title_keywords', $comicBook['title_keywords'], \PDO::PARAM_STR);
@@ -42,8 +42,16 @@ class AdminManager extends AbstractManager
         $statement->bindValue(':volume', $comicBook['volume'], \PDO::PARAM_INT);
         $statement->bindValue(':price', $comicBook['price'], \PDO::PARAM_STR);
         $statement->bindValue(':cover', $comicBook['cover'], \PDO::PARAM_STR);
-        $statement->bindValue(':author_name', $comicBook['author_name'], \PDO::PARAM_STR);
         $statement->bindValue(':category_id', $comicBook['category_id'], \PDO::PARAM_INT);
+        $statement->execute();
+
+        $query = 'SELECT comic_book.id FROM comic_book ORDER BY id DESC LIMIT 0, 1;';
+        $comicBookId = $this->pdo->query($query)->fetch();
+
+        $query = 'INSERT INTO comic_book_author (`comic_book_id`, `author_id`)
+                    VALUES (' . $comicBookId['id'] . ', :author_id);';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':author_id', $comicBook['author_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
 

@@ -26,6 +26,8 @@ class AdminController extends AbstractController
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
+        $authorManager = new AuthorManager();
+        $comicAuthors = $authorManager->selectAll();
         $comicGenres = $genreManager->selectAll();
         $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
@@ -53,7 +55,9 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/add.html.twig', array('errors' => $errors, 'comicGenres' => $comicGenres));
+        return $this->twig->render('Admin/add.html.twig', array('errors' => $errors,
+                                                                'comicGenres' => $comicGenres,
+                                                                'comicAuthors' => $comicAuthors));
     }
 
     public function delete(): void
