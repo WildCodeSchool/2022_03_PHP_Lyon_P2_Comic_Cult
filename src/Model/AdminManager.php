@@ -97,12 +97,22 @@ class AdminManager extends AbstractManager
         $statement->execute();
     }
 
-    public function selectAllComicsAndAuthors(): array
+    public function selectAllComicsInJunction(): array
     {
-        $query = 'SELECT comic_book.*, author.* FROM comic_book
-                    INNER JOIN comic_book_author ON comic_book_author.comic_book_id=comic_book.id
+        $query = 'SELECT DISTINCT comic_book.*
+                    FROM comic_book_author
+                    INNER JOIN comic_book ON comic_book.id=comic_book_author.comic_book_id
                     INNER JOIN author ON author.id=comic_book_author.author_id
                     ORDER BY comic_book.id;';
+
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function selectAllAuthorsInJunction(): array
+    {
+        $query = 'SELECT comic_book_id, author.*
+                    FROM comic_book_author
+                    INNER JOIN author ON author.id=comic_book_author.author_id';
 
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }

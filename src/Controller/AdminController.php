@@ -13,9 +13,11 @@ class AdminController extends AbstractController
     public function list(): string
     {
         $adminManager = new AdminManager();
-        $comics = $adminManager->selectAllComicsAndAuthors();
+        $comics = $adminManager->selectAllComicsInJunction();
+        $authors = $adminManager->selectAllAuthorsInJunction();
 
-        return $this->twig->render('Admin/admin.html.twig', ['comics' => $comics]);
+        return $this->twig->render('Admin/admin.html.twig', array('comics' => $comics,
+                                                                    'authors' => $authors));
     }
 
     /**
