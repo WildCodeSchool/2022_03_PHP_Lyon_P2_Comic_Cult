@@ -23,12 +23,4 @@ class AuthorManager extends AbstractManager
             $statement->bindValue(':biography', $comicAuthor['biography'], \PDO::PARAM_STR);
             $statement->execute();
     }
-    /*
-    public function deleteAuthor(int $authorId)
-    {
-        $query = 'DELETE FROM ' . self::TABLE . ' WHERE id=:id;';
-        $statement = $this->pdo->prepare($query);
-        $statement->bindValue(':id', $authorId, \PDO::PARAM_INT);
-        $statement->execute();
-    }*/
 }
