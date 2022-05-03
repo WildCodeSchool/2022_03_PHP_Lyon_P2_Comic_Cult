@@ -107,11 +107,11 @@
 						<h1 class="accordion-header justify-content-center d-flex p-2">Informations  ▼ </h1>
 						<div class=" accordion-content fs-3">
 							<p class = "text-truncate p-0 px-2"> 
-								<span class="detail_title_mobile fs-1">{{comics.title}}</span> <br>
-								<span class="detail_author_mobile fs-3">Par {{comics.author_name}} {{comicsAuthor.lastname}} </span><br>
-								<span class="detail_global_infos_mobile fs-4">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
-								<span class="detail_global_infos_mobile fs-4">{{comics.category}} <br></span>
-								<span class="detail_global_infos_mobile detail_isbn_mobile fs-5">isbn : {{comics.isbn}}<span>
+								<span class="detail_title_mobile detail_title fs-1">{{comics.title}}</span> <br>
+								Par <span class="detail_author_mobile author_name_details fs-3">{{comics.author_name}} {{comicsAuthor.lastname}} </span><br>
+								<span class="detail_global_infos_mobile fs-4">{{comics.category}} | chez <br></span>
+								<span class="detail_global_infos_mobile detail_tome_date fs-4">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
+								<span class="detail_global_infos_mobile detail_isbn fs-5">isbn : {{comics.isbn}}<span>
 							</p>
 						</div>
 					</div>
@@ -127,12 +127,7 @@
 		</div>
 	</div>
 
-<footer class="mt-5 home_footer d-md-none d-flex justify-content-between align-items-center bg-dark px-3">
-	<a href="">Team Bd Cult'</a>
-	<a href="">2022 - Wild Code School</a>
-</footer>
-
-<footer class="mt-5 fixed-bottom d-none home_footer d-md-flex justify-content-between align-items-center bg-dark px-3">
+<footer class="mt-5 fixed-bottom home_footer d-md-flex justify-content-between align-items-center bg-dark px-3">
     <a href="">Team Bd Cult'</a>
     <a href="">2022 - Wild Code School</a>
 </footer>
