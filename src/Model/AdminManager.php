@@ -61,7 +61,7 @@ class AdminManager extends AbstractManager
     public function selectOneById(int $id): array|false
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM comic_book
+        $statement = $this->pdo->prepare("SELECT comic_book.*, category.category FROM comic_book
                                             INNER JOIN category ON category.id=comic_book.category_id
                                             WHERE comic_book.id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);

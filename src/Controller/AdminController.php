@@ -99,8 +99,10 @@ class AdminController extends AbstractController
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
+        $authorManager = new AuthorManager();
         $comicGenres = $genreManager->selectAll();
         $comicAuthors = $adminManager->selectAllAuthorsInJunction();
+        $authorList = $authorManager->selectAll();
         $comicById = $adminManager->selectOneById($id);
         $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
@@ -129,7 +131,8 @@ class AdminController extends AbstractController
         }
 
         return $this->twig->render('Admin/edit.html.twig', array('errors' => $errors, 'comicBook' => $comicById,
-                                    'comicGenres' => $comicGenres, 'comicAuthors' => $comicAuthors));
+                                    'comicGenres' => $comicGenres, 'comicAuthors' => $comicAuthors,
+                                    'authorList' => $authorList));
     }
 
     public function authorList(): string
