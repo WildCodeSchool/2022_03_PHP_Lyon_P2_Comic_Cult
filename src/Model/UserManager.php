@@ -4,8 +4,7 @@ namespace App\Model;
 
 class UserManager extends AbstractManager
 {
-    public const TABLE = 'comic_book';
-    public const TABLE2 = 'user';
+    public const TABLE = 'user';
 
 
     /**
@@ -57,7 +56,7 @@ class UserManager extends AbstractManager
     public function selectOneByUser(string $user)
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE2 . " WHERE user_name=:user_name");
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE user_name=:user_name");
         $statement->bindValue('user_name', $user, \PDO::PARAM_STR);
         $statement->execute();
 
