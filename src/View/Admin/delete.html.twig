@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/admin_style.css">
+{% endblock %}
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="text-warning fs-3 mt-5 mb-3">{{ error }}<h1>
+        <a href="../author"><input type="submit" id="edit_btn" class="btn btn-dark" value="Retour"></a>
+    <div>
+{% endblock %}
