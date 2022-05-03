@@ -128,11 +128,11 @@ body {
 .card {
     background-color: #dbdbdb;
     border-radius: 8%;
-    width: 80%;
+    width: 90%;
 }
 
 .card-img-top {
-    width: 60%;
+    width: 30%;
 }
 
 .card-text {

@@ -21,7 +21,8 @@ header {
     font-size: 20px;
 }
 #edit_btn,
-#delete_btn {
+#delete_btn,
+#view_btn {
     font-family: var(--main_font);
     color: var(--main_font_color);
     font-size: 20px;
@@ -43,6 +44,7 @@ tbody, th, td {
     border-color: var(--main_border_color);
     font-size: 22px;
     text-align: center;
+    vertical-align: middle;
 }
 .table_line
 {
@@ -50,14 +52,19 @@ tbody, th, td {
     font-size: 18px;
 }
 .first_column {
-    width: 40%;
+    width: 35%;
 }
 .second_column {
-    width: 25%;
+    width: 23%;
 }
 .add_suppr_column {
-    width: 8%;
+    width: 5%;
 }
+
+.detail_column {
+    width: 5%;
+}
+
 #return_button {
     width: 60px;
     height: auto;
@@ -93,4 +100,19 @@ body {
     margin: -35px 5px  0px 0px;
     align-items: center;
     float: right;
+}
+
+/* Scroll btn JS */
+
+#scrollUp {
+    position: fixed;
+    opacity: 0.9;
+    bottom : 1vh;
+    right: 1vh;
+}
+  
+#scrollup_img {
+      width: calc(35px + 1vw);
+      height: calc(35px + 1vw);
+      display: none;
 }
