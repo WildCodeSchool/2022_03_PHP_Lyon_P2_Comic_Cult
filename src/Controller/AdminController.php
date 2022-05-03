@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\AdminManager;
 use App\Model\AuthorManager;
 use App\Model\GenreManager;
+use App\Model\AbstractManager;
 use App\Service\AddComicService;
 use Exception;
 use App\Service\AddAuthorService;
@@ -191,6 +192,36 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/add_author.html.twig', array('errors' => $errors));
+        return $this->twig->render('Admin/add_author.html.twig', ['errors' => $errors]);
+    }
+
+    /**
+     * Update author table.
+     */
+
+    public function authorEdit($id)
+    {
+
+        $authorManager = new AuthorManager();
+        $cleanComicAuthor = new AddAuthorService();
+        $authorById = $authorManager->selectOneById($id);
+        $errors = [];
+        if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
+            $comicAuthor = array_map('trim', $_POST);
+            $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
+            $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
+            $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
+            $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
+            var_dump($comicAuthor);
+
+            $errors = $cleanComicAuthor->getCheckErrors();
+            if (empty($cleanComicAuthor->getCheckErrors())) {
+                $authorManager->updateAuthor($comicAuthor, $id);
+                header('Location:/admin/author/');
+            }
+        }
+
+        return $this->twig->render('Admin/edit_author.html.twig', array('errors' => $errors,
+                                    'comicAuthor' => $authorById));
     }
 }
