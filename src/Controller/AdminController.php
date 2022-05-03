@@ -7,6 +7,7 @@ use App\Model\AuthorManager;
 use App\Model\GenreManager;
 use App\Model\AbstractManager;
 use App\Service\AddComicService;
+use Exception;
 use App\Service\AddAuthorService;
 
 class AdminController extends AbstractController
@@ -14,9 +15,11 @@ class AdminController extends AbstractController
     public function list(): string
     {
         $adminManager = new AdminManager();
-        $comics = $adminManager->selectAll();
+        $comics = $adminManager->selectAllComicsInJunction();
+        $authors = $adminManager->selectAllAuthorsInJunction();
 
-        return $this->twig->render('Admin/admin.html.twig', ['comics' => $comics]);
+        return $this->twig->render('Admin/admin.html.twig', array('comics' => $comics,
+                                                                    'authors' => $authors));
     }
 
     /**
@@ -27,6 +30,8 @@ class AdminController extends AbstractController
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
+        $authorManager = new AuthorManager();
+        $comicAuthors = $authorManager->selectAll();
         $comicGenres = $genreManager->selectAll();
         $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
@@ -54,7 +59,9 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/add.html.twig', array('errors' => $errors, 'comicGenres' => $comicGenres));
+        return $this->twig->render('Admin/add.html.twig', array('errors' => $errors,
+                                                                'comicGenres' => $comicGenres,
+                                                                'comicAuthors' => $comicAuthors));
     }
 
     public function delete(): void
@@ -66,6 +73,23 @@ class AdminController extends AbstractController
 
             header('Location:/admin/list');
         }
+    }
+
+
+    public function deleteAuthor(): ?string
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authorId = trim($_POST['id']);
+            $authorManager = new AuthorManager();
+            try {
+                $authorManager->delete((int)$authorId);
+            } catch (Exception $error) {
+                $error = 'Cet auteur est lié à une BD. Vous ne pouvez pas le supprimer.';
+                return $this->twig->render('Admin/delete.html.twig', ['error' => $error]);
+            }
+            header('Location: /admin/author');
+        }
+        return null;
     }
 
     /**
