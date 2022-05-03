@@ -21,8 +21,7 @@ class AddComicService extends UtilityService
     {
         if (
             empty($comicBook['title']) || empty($comicBook['date_of_release']) ||
-            empty($comicBook['category_id']) || empty($comicBook['author_name'])  ||
-            empty($comicBook['pitch'])
+            empty($comicBook['category_id']) || empty($comicBook['pitch'])
         ) {
             $this->checkErrors[] = 'Les champs munis d\'un "*" sont obligatoires.';
         }
@@ -35,9 +34,6 @@ class AddComicService extends UtilityService
     {
         if (strlen($comicBook['title']) > 255) {
             $this->checkErrors[] = 'Le titre ne doit pas dépasser 255 caractères.';
-        }
-        if (strlen($comicBook['author_name']) > 100) {
-            $this->checkErrors[] = 'Le champ "Auteur" ne doit pas dépasser 100 caractères.';
         }
     }
 

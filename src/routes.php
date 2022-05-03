@@ -15,10 +15,13 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'search' => ['UserController', 'list'],
     'contact' => ['UserController', 'contact'],
+    'auth' => ['UserController', 'login'],
+    'logout' => ['UserController', 'logout',],
     'admin/list' => ['AdminController', 'list',],
     'admin/add' => ['AdminController', 'add'],
     'admin/edit' => ['AdminController', 'edit', ['id']],
     'admin/delete' => ['AdminController', 'delete',],
     'admin/author' => ['AdminController', 'authorList'],
     'admin/author/add' => ['AdminController', 'addAuthor'],
+    'admin/author/delete' => ['AdminController', 'deleteAuthor'],
 ];
