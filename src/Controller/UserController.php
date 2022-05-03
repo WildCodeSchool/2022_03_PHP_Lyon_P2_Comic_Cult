@@ -35,8 +35,23 @@ class UserController extends AbstractController
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 
-    public function details(): string
+    public function login()
     {
-        return $this->twig->render('User/details.html.twig');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $credentials = array_map('trim', $_POST);
+            //      @todo make some controls on email and password fields and if errors, send them to the view
+            $userManager = new UserManager();
+            $user = $userManager->selectOneByUser($credentials['user_name']);
+            if ($credentials['password'] === $user['password']) {
+                $_SESSION['user_id'] = $user['id'];
+                header('Location: admin/list');
+            }
+        }
+        return $this->twig->render('Home/index.html.twig');
+    }
+    public function logout(): void
+    {
+        session_destroy();
+        header('Location: /');
     }
 }

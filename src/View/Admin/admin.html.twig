@@ -6,7 +6,7 @@
 {% block content %}
 	{% include "Admin/_header.html.twig" %}
 	<main>
-		<a class="white_link" href="/"><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
+		<a class="white_link" href=""><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
 		<h1 id="dashboard_title">bandes dessinées</h1>
 		<div class="row justify-content-center table-responsive">
 			<div class="col-8">
@@ -15,23 +15,27 @@
 					<thead>
 						<tr>
 							<th class="first_column">Titre</th>
-							<th class="second_column">Auteur</th>
+							<th class="second_column">Auteurs</th>
 							<th class="add_suppr_column" colspan="2">Modif. / Suppr.</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for comic in comics %}
 							<tr>
-								<td class="table_line">
+								<td class="table_line align-middle">
 									{{ comic.title }}
 								</td>
-								<td class="table_line">
-									{{ comic.author_name }}
+								<td class="table_line align-middle">
+									{% for author in authors %}
+										{% if comic.id == author.comic_book_id %}
+											{{ author.first_name ~ ' ' ~ author.last_name }}</br>
+										{% endif %}
+									{% endfor %}
 								</td>
-								<td>
+								<td class="align-middle">
 									<a href="edit?id={{ comic.id }}"><input type="submit" id="edit_btn" class="btn btn-dark" value="éditer"></a>
 								</td>
-								<td>
+								<td class="align-middle">
 									<form action="/admin/delete" method="POST">
 										<input type="hidden" name="id" value="{{ comic.id }}">
 										<button type="submit" id="delete_btn" class="btn btn-dark" onclick= "return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
