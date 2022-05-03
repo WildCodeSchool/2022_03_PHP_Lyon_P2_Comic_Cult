@@ -28,7 +28,11 @@ class UserController extends AbstractController
         $splitKeywords = $utilityService->sortByWords($keywords, $comicBooks, 'keywords');
         $plitCategory = $utilityService->sortByWords($keywords, $comicBooks, 'category');
         $finalList = array_merge(
-            ($splitAuthorFirstName)($splitAuthorLastName)($splitTitle)($splitKeywords)($plitCategory)
+            $splitAuthorFirstName,
+            $splitAuthorLastName,
+            $splitTitle,
+            $splitKeywords,
+            $plitCategory
         );
         // Use this method to delete duplicates (for ex: One comic may have 2 or 3 authors).
         $finalList = $utilityService->arrayUnique($finalList, 'title');
