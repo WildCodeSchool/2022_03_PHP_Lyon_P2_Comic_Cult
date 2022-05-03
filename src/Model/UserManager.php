@@ -7,7 +7,7 @@ class UserManager extends AbstractManager
     public const TABLE = 'comic_book';
     public const TABLE2 = 'contact';
     public const TABLE3 = 'user';
-
+    public const TABLE4 = 'contact';
 
     /**
      * list of user's keywords sent from home page.
