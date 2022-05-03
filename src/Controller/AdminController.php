@@ -6,6 +6,7 @@ use App\Model\AdminManager;
 use App\Model\AuthorManager;
 use App\Model\GenreManager;
 use App\Service\AddComicService;
+use Exception;
 use App\Service\AddAuthorService;
 
 class AdminController extends AbstractController
@@ -71,6 +72,23 @@ class AdminController extends AbstractController
 
             header('Location:/admin/list');
         }
+    }
+
+
+    public function deleteAuthor(): ?string
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authorId = trim($_POST['id']);
+            $authorManager = new AuthorManager();
+            try {
+                $authorManager->delete((int)$authorId);
+            } catch (Exception $error) {
+                $error = 'Cet auteur est lié à une BD. Vous ne pouvez pas le supprimer.';
+                return $this->twig->render('Admin/delete.html.twig', ['error' => $error]);
+            }
+            header('Location: /admin/author');
+        }
+        return null;
     }
 
     /**
