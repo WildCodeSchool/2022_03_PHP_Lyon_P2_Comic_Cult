@@ -42,8 +42,8 @@ class UserController extends AbstractController
         $comics = $adminManager->selectOneById($id);
         $comicsAuthor = $adminManager-> selectAllAuthorsInJunction();
 
-        var_dump($comics);
-        var_dump($comicsAuthor);
+        //var_dump($comics);
+        //var_dump($comicsAuthor);
         return $this->twig->render('User/details.html.twig', array('comics' => $comics,
                                                                     'comicAuthor' => $comicsAuthor));
     }

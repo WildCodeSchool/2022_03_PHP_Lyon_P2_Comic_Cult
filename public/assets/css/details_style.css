@@ -52,7 +52,7 @@
 
 
     
-    .pitch_details {
+.pitch_details {
     -webkit-line-clamp: 15;
     overflow: hidden;
     display: -webkit-box;
@@ -63,6 +63,7 @@
 .accordion-element {
     border: 1px solid rgb(122, 120, 120);
 }
+
 
 .accordion-element>h1 {
     color: black;

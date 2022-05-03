@@ -32,41 +32,43 @@
 	</header>
 
 <div class="container-fluid">
-		<div class="justify-content-center d-none d-md-flex p-md-0">
+		<div class="justify-content-center mt-5  d-none d-md-flex p-md-0">
 			<div class="bulle col-xl-6 col-lg-8 col-md-11 row mt-md-5 mt-xl-0">
 				<div class="col-xl-5 p-sm-5 p-md-0 col-md-6 div_img_details p-0">
 					<div class="h-100 w-100 p-2">
-						<img class="img_details img-fluid h-100" src="/assets/images/31_toujours_vivant.jpeg" alt="" srcset="">
+						<img class="img_details img-fluid h-100" src="{{comics.cover}}" alt="" srcset="">
 					</div>
 				</div>
 		
 				<div class="col-lg-6 col-xl-7 col-md-6 mb-lg-3 details_card_body p-2">
 					<div class="detail_title">
-						<h1 class="p-2 fs-3">blacksad quelque part entre les ombres</h1>
+						<h1 class="p-2 fs-3">{{comics.title}}</h1>
 					</div>
 					<div class="detail_description text-truncate">
 						<h3 class="p-2 fs-4">
 							Une BD de 
-							<span class="author_name_details">Jean-Michel Charlier</span>
+							<span class="author_name_details">
+							
+							Jean-Michel Charlier</span>
 						</h3>
 					</div>
 
 					<div class="detail_tome_date">
 						<h2 class="px-2 fs-5">
-							Genre
+							{{comics.category}}
 						</h2>
 					</div>
 
 
 					<div class="detail_tome_date">
 						<h2 class="px-2 fs-5">
-							<i class="icon-calendar"></i>1999-10-19 | tome n°3 | 312 pages
+							<i class="icon-calendar"></i>{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages
 						</h2>
 					</div>
 
 					<div class="detail_isbn">
 						<h2 class=" px-2 fs-5">
-							ISBN : 9782803624683
+							{{comics.isbn}}
 						</h2> 
 
 					<div class="card_footer">
@@ -81,7 +83,7 @@
 
 					<div class="">
 						<h3 class="px-2 fs-md-5 mb-3 mb-lg-0 fs-5 pitch_details">
-							Résumé :<br><br> Des chambres d'hôtel anonymes, sept gardes du corps, deux voitures blindées. C'est le quotidien sous haute protection de l'auteur napolitain depuis le succès phénoménal de Gomorra, son roman-enquête sur la mafia locale -la Camorra- publié en 2006. Depuis lors, sa vie a radicalement changé, mais celui qui n'est jamais plus rentré chez lui a choisi son camp:il ne se taira pas. De la crainte des voitures piégées à celle des pizzas empoisonnées, il imagine les divers scénarios de son assassinat et, évoquant son enfance, sa famille, ses ennemis, il livre un récit intime et saisissant. Le récit inédit d'une vie en sursis.
+							Résumé :<br><br> {{comics.pitch}}
 						</h3>
 					</div>
 				</div>
@@ -92,7 +94,7 @@
 	<div class="justify-content-center d-flex d-md-none flex-direction-column">
 		<div class=" col-10 col-sm-1O  mt-3">
 			<div class=" p-0">
-				<img class="img-fluid h-100 w-100 img_sm_details" src="/assets/images/28_josephine_baker.jpeg" alt="" srcset="">
+				<img class="img-fluid h-100 w-100 img_sm_details" src="{{comics.cover}}" alt="" srcset="">
 			</div>
 
 			<div class="p-0 bulle mt-4">
@@ -100,13 +102,19 @@
 					<div class="accordion-element active">
 						<h1 class="accordion-header justify-content-center d-flex p-2">Informations  ▼ </h1>
 						<div class=" accordion-content fs-3">
-							<p class = ""> lorem ipsum dolor sit amet, consect lorem ipsum dolor sit amet, consect lorem ipsum dolor sit amet, consect lorem ipsum dolor sit amet, consect</p>
+							<p class = ""> {{comics.title}} <br>
+								{{comics.author}}
+								{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br>
+								{{comics.category}} <br>
+								{{comics.isbn}} 
+							</p>
 						</div>
 					</div>
 					<div class="accordion-element">
 						<h1 class="accordion-header justify-content-center d-flex p-2">Résumé  ▼</h1>
-						<div class="accordion-content fs-4">
-							<p>Des chambres d'hôtel anonymes, sept gardes du corps, deux voitures blindées. C'est le quotidien sous haute protection de l'auteur napolitain depuis le succès phénoménal de Gomorra, son roman-enquête sur la mafia locale -la Camorra- publié en 2006. Depuis lors, sa vie a radicalement changé, mais celui qui n'est jamais plus rentré chez lui a choisi son camp:il ne se taira pas. De la crainte des voitures piégées à celle des pizzas empoisonnées, il imagine les divers scénarios de son assassinat et, évoquant son enfance, sa famille, ses ennemis, il livre un récit intime et saisissant. Le récit inédit d'une vie en sursis.</p>
+						<div class="accordion-content accordion-content-pitch fs-4">
+							<p>{{comics.pitch}}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -114,6 +122,10 @@
 		</div>
 	</div>
 
+<footer class="mt-5 fixed-bottom home_footer d-flex justify-content-between align-items-center bg-dark px-3">
+    <a href="">Team Bd Cult'</a>
+    <a href="">2022 - Wild Code School</a>
+</footer>
 	{% block javascript %}
 
 		<script src="/assets/JS/script.js"></script>
