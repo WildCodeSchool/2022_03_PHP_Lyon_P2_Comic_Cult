@@ -14,7 +14,7 @@
 
 	<header class="container-fluid header_search mb-4 order-md-1">
 		<div class="row">
-			<div class="col-md-2 col-10 d-flex justify-content-start justify-content-lg-start">
+			<div class="col-md-3 col-xl-2 col-10 d-flex justify-content-start justify-content-lg-start">
 				<h1 class="website_title ">B<span>d</span>
 					C<span>ult'</span>
 				</h1>
@@ -22,7 +22,7 @@
 			<div class="col-md-2 col-2 p-3 d-flex justify-content-center align-items-center order-md-3">
 				<img src="assets/images/admin_icon.png" id="admin_icon" alt="" class="justify-content-center">
 			</div>
-			<div class="col-md-8 col-12 ">
+			<div class="col-xl-8 col-md-7 ">
 				<form action="/" class="search_bar w-85 ps-3 pe-2 d-flex mt-2 mt-md-4 justify-content-center order-md-2" method="POST">
 					<input class="search_input w-100 me-2 d-flex" type="search" name="keywords" placeholder="Rechercher une BD..." aria-label="Search" required>
 					<button class="search_button" type="submit"><img id="snag_icon" src="/assets/images/snag_icon.png" alt=""></button>
@@ -93,8 +93,10 @@
 		</div>
 	</div>
 
+	<!-- mobile section -->
+
 	<div class="justify-content-center d-flex d-md-none flex-direction-column">
-		<div class=" col-10 col-sm-1O  mt-3">
+		<div class=" col-10 col-sm-1O  mt-2">
 			<div class=" p-0">
 				<img class="img-fluid h-100 w-100 img_sm_details" src="{{comics.cover}}" alt="" srcset="">
 			</div>
@@ -104,12 +106,12 @@
 					<div class="accordion-element active">
 						<h1 class="accordion-header justify-content-center d-flex p-2">Informations  ▼ </h1>
 						<div class=" accordion-content fs-3">
-							<p class = ""> 
-								<span>{{comics.title}}</span> <br>
-								<span>{{comicsAuthor.firstname}} . {{comicsAuthor.lastname}} </span>
-								<span>{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
-								<span>{{comics.category}} <br></span>
-								<span>{{comics.isbn}}<span>
+							<p class = "text-truncate p-0 px-2"> 
+								<span class="detail_title_mobile fs-1">{{comics.title}}</span> <br>
+								<span class="detail_author_mobile fs-3">Par {{comics.author_name}} {{comicsAuthor.lastname}} </span><br>
+								<span class="detail_global_infos_mobile fs-4">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
+								<span class="detail_global_infos_mobile fs-4">{{comics.category}} <br></span>
+								<span class="detail_global_infos_mobile detail_isbn_mobile fs-5">isbn : {{comics.isbn}}<span>
 							</p>
 						</div>
 					</div>
@@ -125,7 +127,12 @@
 		</div>
 	</div>
 
-<footer class="mt-5 fixed-bottom home_footer d-flex justify-content-between align-items-center bg-dark px-3">
+<footer class="mt-5 home_footer d-md-none d-flex justify-content-between align-items-center bg-dark px-3">
+	<a href="">Team Bd Cult'</a>
+	<a href="">2022 - Wild Code School</a>
+</footer>
+
+<footer class="mt-5 fixed-bottom d-none home_footer d-md-flex justify-content-between align-items-center bg-dark px-3">
     <a href="">Team Bd Cult'</a>
     <a href="">2022 - Wild Code School</a>
 </footer>
