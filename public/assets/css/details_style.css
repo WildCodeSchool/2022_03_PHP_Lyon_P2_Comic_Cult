@@ -1,13 +1,12 @@
+/* Bubble visual section */
+
 .img_details {
     border-radius: 20px;
-    /*border-radius: 20px 0px 0px 20px;*/
-    /*border-right: 0.4rem solid yellow;*/
 }
 
 .img_sm_details {
     border-radius: 20px;
-   /*border-radius: border-radius: 20px 20px 0px 0px; */
-   /* border-bottom: 0.4rem solid yellow;*/
+    height: 42vh !important;
 }
 
 .bulle {
@@ -30,6 +29,8 @@
     clip-path: polygon(38% 0%, 100% 80%, 100% 0);
 }
 
+/*bubble informations section */
+
 .author_name_details {
     color: #6AA3F9;
 }
@@ -50,8 +51,6 @@
     color: #D80505;
 }
 
-
-    
 .pitch_details {
     -webkit-line-clamp: 15;
     overflow: hidden;
@@ -60,10 +59,11 @@
     word-wrap: break-word;
 }
 
+/* accordion section */
+
 .accordion-header-resume {
     border-top: 1px solid rgb(122, 120, 120);
 }
-
 
 .accordion-element>h1 {
     color: black;
