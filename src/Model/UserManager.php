@@ -24,10 +24,13 @@ class UserManager extends AbstractManager
      */
     public function listByKeywords(): array
     {
-        $query = 'SELECT DISTINCT comic_book.*, author.* FROM comic_book
+        $query = 'SELECT DISTINCT comic_book.*, author.first_name, author.first_name_keyword,
+                    author.last_name, author.last_name_keyword, author.editor,
+                    category.category, category.category_keyword FROM comic_book
                     INNER JOIN keywords_search
                     LEFT JOIN comic_book_author ON comic_book_author.comic_book_id=comic_book.id
                     LEFT JOIN author ON author.id=comic_book_author.author_id
+                    LEFT JOIN category ON category.id=comic_book.category_id
                     WHERE INSTR(comic_book.title_keywords, keywords_search.keyword)
                     OR INSTR(comic_book.keywords, keywords_search.keyword);';
         $statement = $this->pdo->query($query);
@@ -41,10 +44,13 @@ class UserManager extends AbstractManager
      */
     public function listByAuthor(): array
     {
-        $query = 'SELECT DISTINCT comic_book.*, author.* FROM comic_book
+        $query = 'SELECT DISTINCT comic_book.*, author.first_name, author.first_name_keyword,
+                    author.last_name, author.last_name_keyword, author.editor,
+                    category.category, category.category_keyword FROM comic_book
                     INNER JOIN keywords_search
                     LEFT JOIN comic_book_author ON comic_book_author.comic_book_id=comic_book.id
                     LEFT JOIN author ON author.id=comic_book_author.author_id
+                    LEFT JOIN category ON category.id=comic_book.category_id
                     WHERE INSTR(author.first_name_keyword, keywords_search.keyword)
                     OR INSTR(author.last_name_keyword, keywords_search.keyword);';
         $statement = $this->pdo->query($query);
@@ -61,5 +67,22 @@ class UserManager extends AbstractManager
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function listByCategory(): array
+    {
+        $query = 'SELECT DISTINCT comic_book.*, author.first_name, author.first_name_keyword,
+                    author.last_name, author.last_name_keyword, author.editor,
+                    category.category, category.category_keyword FROM comic_book
+                    INNER JOIN keywords_search
+                    LEFT JOIN comic_book_author ON comic_book_author.comic_book_id=comic_book.id
+                    LEFT JOIN author ON author.id=comic_book_author.author_id
+                    LEFT JOIN category ON category.id=comic_book.category_id
+                    WHERE INSTR(category.category_keyword, keywords_search.keyword)';
+        $statement = $this->pdo->query($query);
+        $comicBooks = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+
+        return $comicBooks;
     }
 }
