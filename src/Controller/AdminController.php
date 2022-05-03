@@ -81,7 +81,6 @@ class AdminController extends AbstractController
             header('Location: /');
         }
 
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
             $adminManager = new AdminManager();
@@ -94,6 +93,11 @@ class AdminController extends AbstractController
 
     public function deleteAuthor(): ?string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $authorId = trim($_POST['id']);
             $authorManager = new AuthorManager();
@@ -164,6 +168,7 @@ class AdminController extends AbstractController
             echo 'Unauthorized access';
             header('Location: /');
         }
+
         $authorManager = new AuthorManager();
         $authors = $authorManager->selectAll();
 
