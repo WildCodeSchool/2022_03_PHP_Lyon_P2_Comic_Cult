@@ -14,6 +14,8 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'search' => ['UserController', 'list'],
+    'auth' => ['UserController', 'login'],
+    'logout' => ['UserController', 'logout',],
     'admin/list' => ['AdminController', 'list',],
     'admin/add' => ['AdminController', 'add'],
     'admin/edit' => ['AdminController', 'edit', ['id']],
