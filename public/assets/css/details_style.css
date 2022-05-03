@@ -60,8 +60,8 @@
     word-wrap: break-word;
 }
 
-.accordion-element {
-    border: 1px solid rgb(122, 120, 120);
+.accordion-header-resume {
+    border-top: 1px solid rgb(122, 120, 120);
 }
 
 
