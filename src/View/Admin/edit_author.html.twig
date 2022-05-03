@@ -1,0 +1,80 @@
+{% extends 'layout.html.twig'%}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">
+{% endblock %}
+
+{% block title %}
+   Ajouter un auteur {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+{% include "Admin/_header.html.twig" %}
+
+<div class="container-fluid mt-5">
+    <div class="row p-3 p-lg-5 text-center">
+        <h1 id="add_bd_author">AJOUTER UN AUTEUR</h1>
+    </div>
+</div>
+
+ <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data">
+    <div class='container'>
+        <div class='row'>
+            <div class="col-lg-6">
+                <div class="form-group row mt-5">
+                    <label for="author_name" class="label_form_add_BD col-sm-3 col-md-2 control-label">Prénom<span class="asterisk">*</span></label>
+                    <div class="col-sm-8 col-md-8">
+                        <input type="text" class="input-bg form-control" name="first_name" id="first_name" value="{{ comicAuthor.first_name }}" required>
+                    </div>
+                </div>
+
+                <div class="form-group  row mt-3">
+                    <label for="price" class="label_form_add_BD col-sm-3 col-md-2 control-label">nom<span class="asterisk">*</span></label>
+                    <div class="col-sm-8 col-md-8">
+                        <input type="text" class="form-control input-bg" name="last_name" id="last_name" value="{{comicAuthor.last_name }}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 ">
+                <div class="form-group  row mt-sm-3 mt-lg-5 mt-5">
+                    <label for="author_name" class=" label_form_add_BD col-sm-5 col-md-4 col-lg-5 col-xl-5 col-4 d-flex justify-content-end control-label">Date de naissance<span class="asterisk">*</span></label>
+                    <div class="col-sm-6 col-lg-7">
+                        <input type="date" class="input-bg form-control" name="birth_date" id="birth_date" value="{{ comicAuthor.birth_date }}"required>
+                    </div>
+                </div>
+
+                <div class="form-group  row mt-3">
+                    <label for="price" class="label_form_add_BD col-sm-5 col-md-4 col-lg-5 col-4 d-flex justify-content-lg-end control-label">maison d'édition</label>
+                    <div class="col-sm-6 col-lg-7">
+                        <input type="text" class="form-control input-bg" name="editor" id="editor" value="{{ comicAuthor.editor }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="form-group row mt-3">
+                    <label for="pitch" class="label_form_add_BD col-sm-3 col-md-2 col-lg-1 control-label fs-5">Biographie<span class="asterisk">*</span></label>
+                    <div class="col-sm-8 col-lg-11 col-md-8">
+                    <textarea class="form-control input-bg" name="biography" id="biography" rows="4"  value="{{ comicAuthor.biography }}"required></textarea>
+                    </div>
+                </div>
+
+                  <div class=' mt-5 d-flex justify-content-center'>
+                        <button name="send" type="submit" class="btn col-3 col-md-2 send_btn btn-dark">Envoyer</button>
+                    </div>
+            </div>
+    </form>
+
+    <div class="container">
+        <div class="row text-center mt-5 mt-lg-5">
+            <h1> TOUS LES CHAMPS (<span class="asterisk">*</span>) SONT OBLIGATOIRES.</h1>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        {% for error in errors %}
+            <p class="text-warning fs-3 mt-3 lh-1">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -15,6 +15,7 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'search' => ['UserController', 'list'],
     'contact' => ['UserController', 'contact'],
+    'details' => ['UserController', 'details', ['id']],
     'auth' => ['UserController', 'login'],
     'logout' => ['UserController', 'logout',],
     'admin/list' => ['AdminController', 'list',],
@@ -23,5 +24,6 @@ return [
     'admin/delete' => ['AdminController', 'delete',],
     'admin/author' => ['AdminController', 'authorList'],
     'admin/author/add' => ['AdminController', 'addAuthor'],
+    'admin/author/edit' => ['AdminController', 'authorEdit', ['id']],
     'admin/author/delete' => ['AdminController', 'deleteAuthor'],
 ];
