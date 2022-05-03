@@ -11,19 +11,20 @@
 {% endblock %}
 
 {% block content %}
+	{% include "Home/_footer.html.twig" %}
 
-	<header class="container-fluid header_search mb-4 order-md-1">
+	<header class="container-fluid header_search order-md-1">
 		<div class="row">
-			<div class="col-md-3 col-xl-2 col-10 d-flex justify-content-start justify-content-lg-start">
+			<div class=" col-md-3 col-xl-2 col-10 d-flex justify-content-start justify-content-lg-start">
 				<h1 class="website_title ">B<span>d</span>
 					C<span>ult'</span>
 				</h1>
 			</div>
-			<div class="col-md-2 col-2 p-3 d-flex justify-content-center align-items-center order-md-3">
-				<img src="assets/images/admin_icon.png" id="admin_icon" alt="" class="justify-content-center">
+			<div class="col-md-2 col-2 d-flex justify-content-end align-items-center order-md-3">
+				<img src="assets/images/admin_icon.png" id="admin_icon" alt="" class="mx-2 mb-xl-3">
 			</div>
 			<div class="col-xl-8 col-md-7 ">
-				<form action="/" class="search_bar w-85 ps-3 pe-2 d-flex mt-2 mt-md-4 justify-content-center order-md-2" method="POST">
+				<form action="/" class="search_bar w-85 ps-3 pe-2 d-flex mt-2 mt-md-3 mb-4 mb-md-0 mb-lg-3 mb-xl-5 mt-lg-4 justify-content-center order-md-2" method="POST">
 					<input class="search_input w-100 me-2 d-flex" type="search" name="keywords" placeholder="Rechercher une BD..." aria-label="Search" required>
 					<button class="search_button" type="submit"><img id="snag_icon" src="/assets/images/snag_icon.png" alt=""></button>
 				</form>
@@ -48,9 +49,7 @@
 						<h3 class="p-2 fs-4">
 							Une BD de 
 							<span class="author_name_details">
-							
 								{{comicAuthor.first_name}}
-							
 							</span>
 						</h3>
 					</div>
@@ -60,7 +59,6 @@
 							{{comics.category}}
 						</h2>
 					</div>
-
 
 					<div class="detail_tome_date">
 						<h2 class="px-2 fs-5">
@@ -79,7 +77,6 @@
 							<span class="bottom editor_name_details">{{comicAuthors.editor}}</span>
 						</h3>
 					</div>
-						
 						<hr>
 					</div>
 
@@ -98,7 +95,7 @@
 	<div class="justify-content-center d-flex d-md-none flex-direction-column">
 		<div class=" col-10 col-sm-1O  mt-2">
 			<div class=" p-0">
-				<img class="img-fluid h-90 w-100 img_sm_details" src="{{comics.cover}}" alt="" srcset="">
+				<img class="img-fluid w-100 img_sm_details" src="{{comics.cover}}" alt="" srcset="">
 			</div>
 
 			<div class="p-0 bulle mt-4">
@@ -126,11 +123,6 @@
 			</div>
 		</div>
 	</div>
-
-<footer class="mt-5 fixed-bottom home_footer d-md-flex justify-content-between align-items-center bg-dark px-3">
-    <a href="">Team Bd Cult'</a>
-    <a href="">2022 - Wild Code School</a>
-</footer>
 
 	{% block javascript %}
 
