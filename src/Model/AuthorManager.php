@@ -6,16 +6,6 @@ class AuthorManager extends AbstractManager
 {
     public const TABLE = 'author';
 
-    public function selectAuthorById(int $id): array|false
-    {
-        $statement = $this->pdo->prepare("SELECT * FROM author
-                                        WHERE author.id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
-        $statement->execute();
-
-        return $statement->fetch(\PDO::FETCH_ASSOC);
-    }
-
     public function insertAuthor(array $comicAuthor): void
     {
             $query = 'INSERT INTO author (`first_name`, `first_name_keyword`, `last_name`, `last_name_keyword`,

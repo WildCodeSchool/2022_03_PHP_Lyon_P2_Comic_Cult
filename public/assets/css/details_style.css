@@ -1,14 +1,12 @@
 .img_details {
     border-radius: 20px;
-    /*border-radius: 20px 0px 0px 20px;*/
-    /*border-right: 0.4rem solid yellow;*/
 }
 
 .img_sm_details {
     border-radius: 20px;
-   /*border-radius: border-radius: 20px 20px 0px 0px; */
-   /* border-bottom: 0.4rem solid yellow;*/
 }
+
+/* bubble section */
 
 .bulle {
     position: relative;
@@ -50,9 +48,7 @@
     color: #D80505;
 }
 
-
-    
-    .pitch_details {
+.pitch_details {
     -webkit-line-clamp: 15;
     overflow: hidden;
     display: -webkit-box;
@@ -60,14 +56,17 @@
     word-wrap: break-word;
 }
 
-.accordion-element {
-    border: 1px solid rgb(122, 120, 120);
-}
+/* accordion section */
+
 
 .accordion-element>h1 {
     color: black;
     margin: 0;
     cursor: pointer;
+}
+
+.mobile-pitch-title {
+    border-top: 1px solid rgb(122, 120, 120);
 }
 
 .accordion-content {
@@ -79,4 +78,12 @@
 
 .accordion-content>p {
     padding: 10px;
+}
+
+.pitch_details {
+    -webkit-line-clamp: 15;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 }

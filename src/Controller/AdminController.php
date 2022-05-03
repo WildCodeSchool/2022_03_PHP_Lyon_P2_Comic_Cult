@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\AdminManager;
 use App\Model\AuthorManager;
 use App\Model\GenreManager;
+use App\Model\AbstractManager;
 use App\Service\AddComicService;
 use App\Service\AddAuthorService;
 
@@ -147,7 +148,7 @@ class AdminController extends AbstractController
 
         $authorManager = new AuthorManager();
         $cleanComicAuthor = new AddAuthorService();
-        $authorById = $authorManager->selectAuthorById($id);
+        $authorById = $authorManager->selectOneById($id);
         $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
             $comicAuthor = array_map('trim', $_POST);
