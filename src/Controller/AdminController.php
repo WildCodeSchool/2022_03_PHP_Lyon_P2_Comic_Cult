@@ -13,6 +13,11 @@ class AdminController extends AbstractController
 {
     public function list(): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $adminManager = new AdminManager();
         $comics = $adminManager->selectAllComicsInJunction();
         $authors = $adminManager->selectAllAuthorsInJunction();
@@ -26,6 +31,12 @@ class AdminController extends AbstractController
      */
     public function add(): ?string
     {
+
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
@@ -65,6 +76,12 @@ class AdminController extends AbstractController
 
     public function delete(): void
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
             $adminManager = new AdminManager();
@@ -96,6 +113,12 @@ class AdminController extends AbstractController
      */
     public function edit($id): ?string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
+
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
@@ -133,6 +156,10 @@ class AdminController extends AbstractController
 
     public function authorList(): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
         $authorManager = new AuthorManager();
         $authors = $authorManager->selectAll();
 
@@ -141,6 +168,11 @@ class AdminController extends AbstractController
 
     public function addAuthor(): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $authorManager = new AuthorManager();
         $cleanComicAuthor = new AddAuthorService();
         $errors = [];
