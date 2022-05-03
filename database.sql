@@ -105,7 +105,8 @@ CREATE TABLE author (
 
 CREATE TABLE category (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    category VARCHAR(80) NOT NULL
+    category VARCHAR(80) NOT NULL,
+    category_keyword VARCHAR(80)
     );
 
 ------------------------------------------------------
@@ -194,34 +195,34 @@ CREATE TABLE keywords_search (
 -- INSERT VALUES REQUEST FOR 'category' TABLE       --
 ------------------------------------------------------
 
-INSERT INTO comic_cult.category (category) VALUES
-	 ('Education'),
-	 ('Polar'),
-	 ('Science-fiction'),
-	 ('Sport'),
-	 ('Humour'),
-	 ('Horreur'),
-	 ('Philo'),
-	 ('Histoire'),
-	 ('Absurde'),
-	 ('Western');
-INSERT INTO comic_cult.category (category) VALUES
-	 ('Aventure'),
-	 ('Héroïque Fantaisie'),
-	 ('Animalier'),
-	 ('Autobiographique'),
-	 ('Biographique'),
-	 ('Documentaire'),
-	 ('Espionnage'),
-	 ('Fantastique'),
-	 ('Humoristique'),
-	 ('Jeunesse');
-INSERT INTO comic_cult.category (category) VALUES
-	 ('Médical'),
-	 ('Poltique'),
-	 ('Graphique'),
-	 ('Sentimental'),
-	 ('Underground');
+INSERT INTO comic_cult.category (category,category_keyword) VALUES
+	 ('Education','education'),
+	 ('Polar','polar'),
+	 ('Science-fiction','science fiction'),
+	 ('Sport','sport'),
+	 ('Humour','humour'),
+	 ('Horreur','horreur'),
+	 ('Philosophie','philosophie'),
+	 ('Histoire','histoire'),
+	 ('Absurde','absurde'),
+	 ('Western','western');
+INSERT INTO comic_cult.category (category,category_keyword) VALUES
+	 ('Aventure','aventure'),
+	 ('Héroïque Fantaisie','heroique fantaisie'),
+	 ('Animalier','animalier'),
+	 ('Autobiographique','autobiographique'),
+	 ('Biographique','biographique'),
+	 ('Documentaire','documentaire'),
+	 ('Espionnage','espionnage'),
+	 ('Fantastique','fantastique'),
+	 ('Humoristique','humoristique'),
+	 ('Jeunesse','jeunesse');
+INSERT INTO comic_cult.category (category,category_keyword) VALUES
+	 ('Médical','medical'),
+	 ('Poltique','politique'),
+	 ('Graphique','graphique'),
+	 ('Sentimental','sentimental'),
+	 ('Underground','undeground');
 
 ------------------------------------------------------
 -- INSERT VALUES REQUEST FOR 'author' TABLE         --
@@ -376,5 +377,4 @@ INSERT INTO comic_cult.comic_book_author (comic_book_id,author_id) VALUES
 	 (28,36),
 	 (29,37),
 	 (30,38),
-	 (31,40);
-
+     (31,40);
