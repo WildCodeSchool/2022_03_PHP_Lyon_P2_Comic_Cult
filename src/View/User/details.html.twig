@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-	{% include "Home/_footer.html.twig" %}
+	
 
 	<header class="container-fluid header_search order-md-1">
 		<div class="row">
@@ -62,7 +62,7 @@
 
 					<div class="detail_tome_date">
 						<h2 class="px-2 fs-5">
-							<i class="icon-calendar"></i>{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages
+							<i class="fas fa-calendar-alt"></i>{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages
 						</h2>
 					</div>
 
@@ -98,13 +98,13 @@
 				<img class="img-fluid w-100 img_sm_details" src="{{comics.cover}}" alt="" srcset="">
 			</div>
 
-			<div class="p-0 bulle mt-4">
+			<div class="p-0 bulle mt-4" id="bubble">
 				<div class="accordion justify-content-center">
 					<div class="accordion-element active">
 						<h1 class="accordion-header justify-content-center d-flex p-2">Informations  ▼ </h1>
 						<div class=" accordion-content fs-3">
 							<p class = "text-truncate p-0 px-2"> 
-								<span class="detail_title_mobile detail_title fs-1">{{comics.title}}</span> <br>
+								<span class="detail_title_mobile text-truncate detail_title fs-1">{{comics.title}}</span> <br>
 								Par <span class="detail_author_mobile author_name_details fs-3">{{comics.author_name}} {{comicsAuthor.lastname}} </span><br>
 								<span class="detail_global_infos_mobile fs-4">{{comics.category}} | chez <br></span>
 								<span class="detail_global_infos_mobile detail_tome_date fs-4">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
@@ -121,8 +121,14 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
+
+	<footer class="home_footer d-flex justify-content-between align-items-center fixed-bottom bg-dark px-3">
+    <a href="">Team Bd Cult'</a>
+    <a href="">2022 - Wild Code School</a>
+</footer>
 
 	{% block javascript %}
 
