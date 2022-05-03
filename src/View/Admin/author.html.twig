@@ -31,9 +31,9 @@
 								<a href=""><input type="submit" id="edit_btn" class="btn btn-dark" value="éditer"></a>
 							</td>
 							<td>
-								<form action="" method="POST">
-									<input type="hidden" name="id" value="">
-									<button type="submit" id="delete_btn" class="btn btn-dark" onclick= "return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
+								<form action="author/delete" method="POST">
+									<input type="hidden" name="id" value="{{ author.id }}">
+									<button type="submit" id="delete_btn" class="btn btn-dark" onclick= "return confirm('Voulez-vous supprimer cet auteur ?')">suppr.</button>
 								</form>
 							</td>
 						</tr>

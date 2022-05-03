@@ -14,11 +14,11 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'search' => ['UserController', 'list'],
+    'details' => ['UserController', 'details', ['id']],
     'admin/list' => ['AdminController', 'list',],
     'admin/add' => ['AdminController', 'add'],
     'admin/edit' => ['AdminController', 'edit', ['id']],
     'admin/delete' => ['AdminController', 'delete',],
     'admin/author' => ['AdminController', 'authorList'],
     'admin/author/add' => ['AdminController', 'addAuthor'],
-    'details' => ['UserController', 'details', ['id']],
 ];

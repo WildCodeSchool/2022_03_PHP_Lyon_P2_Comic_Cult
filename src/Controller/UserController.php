@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\AdminManager;
 use App\Model\UserManager;
 use App\Service\UtilityService;
 
@@ -35,8 +36,14 @@ class UserController extends AbstractController
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 
-    public function details(): string
+    public function details($id): string
     {
-        return $this->twig->render('User/details.html.twig');
+        $adminManager = new AdminManager();
+        $comics = $adminManager->selectOneById($id);
+        $comicsAuthor = $adminManager-> selectAllAuthorsInJunction($id);
+
+        var_dump($comics);
+        var_dump($comicsAuthor);
+        return $this->twig->render('User/details.html.twig', array('comics' => $comics, 'comicAuthor' => $comicsAuthor));
     }
 }
