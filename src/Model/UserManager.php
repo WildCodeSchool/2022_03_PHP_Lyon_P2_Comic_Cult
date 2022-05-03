@@ -5,6 +5,8 @@ namespace App\Model;
 class UserManager extends AbstractManager
 {
     public const TABLE = 'comic_book';
+    public const TABLE2 = 'contact';
+
 
 
     /**
