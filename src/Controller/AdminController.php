@@ -122,7 +122,6 @@ class AdminController extends AbstractController
             header('Location: /');
         }
 
-
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
@@ -132,16 +131,39 @@ class AdminController extends AbstractController
         $authorList = $authorManager->selectAll();
         $comicById = $adminManager->selectOneById($id);
         $errors = [];
+
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
             $comicBook = array_map('trim', $_POST);
-            // Three function in UtilityService to clean comic book's datas.
+
+            // Four functions in UtilityService to clean comic book's datas.
             $cleanComicBook->comicBookEmptyVerify($comicBook);
             $cleanComicBook->comicIsbnValidate($comicBook);
             $cleanComicBook->comicBookNumberValidate($comicBook);
             $cleanComicBook->comicBookStringVerify($comicBook);
+
             $comicBook['keywords'] = $cleanComicBook->clearString($comicBook['pitch']);
             $comicBook['title_keywords'] = $cleanComicBook->clearString($comicBook['title']);
 
+            $authorsId = [];
+            for ($key = 0; $key < 3; $key++) {
+                if (isset($comicBook['author_id' . $key])) {
+                    $authorsId[] = $comicBook['author_id' . $key];
+                }
+            }
+
+            // This part update comic only if there is no cover to send
+            if (empty($_FILES['cover']['name'])) {
+                $comicBook['cover'] = $comicBook['cover_link'];
+                $errors = $cleanComicBook->getCheckErrors();
+
+                if (empty($cleanComicBook->getCheckErrors())) {
+                    $adminManager->update($comicBook, $id);
+                    $adminManager->updateJunctionComicAuthor($id, $authorsId);
+                    header('Location: list');
+                }
+            }
+
+            // This part update comic only if admin send a new cover
             $uploadDir = 'assets/images/comicUpload/';
             $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
             $comicBook['cover'] = $uploadFile;
@@ -153,6 +175,7 @@ class AdminController extends AbstractController
             if (empty($cleanComicBook->getCheckErrors())) {
                 move_uploaded_file($_FILES['cover']['tmp_name'], $uploadFile);
                 $adminManager->update($comicBook, $id);
+                $adminManager->updateJunctionComicAuthor($id, $authorsId);
                 header('Location: list');
             }
         }
