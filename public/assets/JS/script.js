@@ -1,3 +1,4 @@
+//Button go to the top.
 
 window.onscroll = function () {
 	if (window.scrollY<1) 
@@ -7,3 +8,4 @@ window.onscroll = function () {
 			document.getElementById("scrollup_img").style.display = "block";
 		}
 	}
+

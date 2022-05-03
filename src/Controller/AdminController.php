@@ -5,17 +5,26 @@ namespace App\Controller;
 use App\Model\AdminManager;
 use App\Model\AuthorManager;
 use App\Model\GenreManager;
+use App\Model\AbstractManager;
 use App\Service\AddComicService;
+use Exception;
 use App\Service\AddAuthorService;
 
 class AdminController extends AbstractController
 {
     public function list(): string
     {
-        $adminManager = new AdminManager();
-        $comics = $adminManager->selectAll();
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
 
-        return $this->twig->render('Admin/admin.html.twig', ['comics' => $comics]);
+        $adminManager = new AdminManager();
+        $comics = $adminManager->selectAllComicsInJunction();
+        $authors = $adminManager->selectAllAuthorsInJunction();
+
+        return $this->twig->render('Admin/admin.html.twig', array('comics' => $comics,
+                                                                    'authors' => $authors));
     }
 
     /**
@@ -23,9 +32,17 @@ class AdminController extends AbstractController
      */
     public function add(): ?string
     {
+
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
+        $authorManager = new AuthorManager();
+        $comicAuthors = $authorManager->selectAll();
         $comicGenres = $genreManager->selectAll();
         $errors = [];
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
@@ -53,11 +70,19 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/add.html.twig', array('errors' => $errors, 'comicGenres' => $comicGenres));
+        return $this->twig->render('Admin/add.html.twig', array('errors' => $errors,
+                                                                'comicGenres' => $comicGenres,
+                                                                'comicAuthors' => $comicAuthors));
     }
 
     public function delete(): void
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
             $adminManager = new AdminManager();
@@ -67,11 +92,34 @@ class AdminController extends AbstractController
         }
     }
 
+
+    public function deleteAuthor(): ?string
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $authorId = trim($_POST['id']);
+            $authorManager = new AuthorManager();
+            try {
+                $authorManager->delete((int)$authorId);
+            } catch (Exception $error) {
+                $error = 'Cet auteur est lié à une BD. Vous ne pouvez pas le supprimer.';
+                return $this->twig->render('Admin/delete.html.twig', ['error' => $error]);
+            }
+            header('Location: /admin/author');
+        }
+        return null;
+    }
+
     /**
      * Edit a specific item
      */
     public function edit($id): ?string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
+
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
@@ -109,6 +157,10 @@ class AdminController extends AbstractController
 
     public function authorList(): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
         $authorManager = new AuthorManager();
         $authors = $authorManager->selectAll();
 
@@ -117,6 +169,11 @@ class AdminController extends AbstractController
 
     public function addAuthor(): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $authorManager = new AuthorManager();
         $cleanComicAuthor = new AddAuthorService();
         $errors = [];
@@ -135,6 +192,36 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Admin/add_author.html.twig', array('errors' => $errors));
+        return $this->twig->render('Admin/add_author.html.twig', ['errors' => $errors]);
+    }
+
+    /**
+     * Update author table.
+     */
+
+    public function authorEdit($id)
+    {
+
+        $authorManager = new AuthorManager();
+        $cleanComicAuthor = new AddAuthorService();
+        $authorById = $authorManager->selectOneById($id);
+        $errors = [];
+        if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
+            $comicAuthor = array_map('trim', $_POST);
+            $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
+            $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
+            $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
+            $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
+            var_dump($comicAuthor);
+
+            $errors = $cleanComicAuthor->getCheckErrors();
+            if (empty($cleanComicAuthor->getCheckErrors())) {
+                $authorManager->updateAuthor($comicAuthor, $id);
+                header('Location:/admin/author/');
+            }
+        }
+
+        return $this->twig->render('Admin/edit_author.html.twig', array('errors' => $errors,
+                                    'comicAuthor' => $authorById));
     }
 }
