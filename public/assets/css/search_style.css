@@ -135,22 +135,21 @@ body {
 
 /* Scroll btn JS */
 
-
 #scrollUp {
     position: fixed;
     opacity: 0.9;
     bottom : 1vh;
     right: 1vh;
-  }
+}
   
   #scrollup_img {
       width: calc(35px + 1vw);
       height: calc(35px + 1vw);
       display: none;
-  }
+}
   
+/* Footer*/
 
-/* Footer Twig */
 .home_footer {
     font-family: var(--main_font);
     border-top: 1px solid var(--main_border_color);
