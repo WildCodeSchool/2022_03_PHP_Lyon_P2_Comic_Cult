@@ -58,14 +58,16 @@ class UserController extends AbstractController
         }
         return $this->twig->render('User/contact.html.twig');
     }
-    
-        public function details($id): string
+
+    public function details($id): string
     {
         $adminManager = new AdminManager();
         $comics = $adminManager->selectOneById($id);
-        $comicsAuthor = $adminManager-> selectAllAuthorsInJunction();
-        return $this->twig->render('User/details.html.twig', array('comics' => $comics,
-                                                                    'comicAuthors' => $comicsAuthor));
+        $comicsAuthor = $adminManager->selectAllAuthorsInJunction();
+        return $this->twig->render('User/details.html.twig', array(
+            'comics' => $comics,
+            'comicAuthors' => $comicsAuthor
+        ));
     }
 
     public function login()

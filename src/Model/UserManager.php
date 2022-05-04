@@ -84,9 +84,8 @@ class UserManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
-    
-    public function listByCategory(): array
 
+    public function listByCategory(): array
     {
         $query = 'SELECT DISTINCT comic_book.*, author.first_name, author.first_name_keyword,
                     author.last_name, author.last_name_keyword, author.editor,
