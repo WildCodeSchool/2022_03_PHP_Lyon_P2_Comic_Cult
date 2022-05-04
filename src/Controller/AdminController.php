@@ -267,4 +267,24 @@ class AdminController extends AbstractController
 
         return $this->twig->render('Admin/contact.html.twig', ['userMessages' => $userMessages]);
     }
+
+    /**
+     * Delete a message
+     */
+
+    public function messageDelete(): void
+    {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = trim($_POST['id']);
+            $adminManager = new AdminManager();
+            $adminManager->messageDelete((int)$id);
+
+            header('Location:/admin/contact');
+        }
+    }
 }

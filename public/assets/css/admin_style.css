@@ -116,6 +116,10 @@ body {
     width: 25%;
 }
 
+.delete_message_column {
+    width: 1%;
+}
+
 /* Scroll btn JS */
 
 #scrollUp {

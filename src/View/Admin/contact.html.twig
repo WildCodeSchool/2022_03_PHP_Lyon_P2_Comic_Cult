@@ -14,10 +14,12 @@
 				<table class="table table-responsive">
 					<thead>
 						<tr>
-							<th class="firstname_column">Firstname</th>
-							<th class="lastname_column">Lastname</th>
+							<th class="firstname_column">Nom</th>
+							<th class="lastname_column">Prénom</th>
 							<th class="email_column">Email</th>
 							<th class="message_column">Message</th>
+							<th class="delete_message_column">Effacer</th>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -34,6 +36,12 @@
 								</td>
 								<td class="table_line align-middle">
 									{{ userMessage.message }}
+								</td>
+								<td class="align-middle">
+									<form action="message/delete" method="POST">
+										<input type="hidden" name="id" value="{{ userMessage.id }}">
+										<button type="submit" id="delete_btn" class="btn btn-dark" onclick="return confirm('Voulez-vous supprimer ce message ?')">suppr.</button>
+									</form>
 								</td>
 							</tr>
 						{% endfor %}
