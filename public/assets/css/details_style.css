@@ -31,6 +31,10 @@
 
 /*bubble informations section */
 
+.detail_title {
+    color: #D80505;
+}
+
 .author_name_details {
     color: #6AA3F9;
 }
@@ -43,12 +47,8 @@
     color: #69696b
 }
 
-.editor_name_details {
+.category_details {
     color: rgb(79, 173, 101);
-}
-
-.detail_title {
-    color: #D80505;
 }
 
 .pitch_details {

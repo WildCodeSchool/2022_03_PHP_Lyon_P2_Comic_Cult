@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig'%}
 {% block stylesheet %}<link rel="stylesheet" href="/assets/css/search_style.css">
+					  <link rel="stylesheet" href="/assets/css/details_style.css">
 {% endblock %}
 
 {% block title %}
@@ -11,6 +12,127 @@
 	{% include "Home/_footer.html.twig" %}
 	{% include "User/_search_bar_details.html.twig" %}
 
+	<!-- {% for comicBook in comicBooks %}
+		{% set counter = counter + 1 %}
+		{% if counter == 1 %}
+<div class="container-fluid row">
+	<div class="row col-6 d-flex justify-content-end d-none d-md-flex ">
+			<div class=" m-lg-3 bulle col-xl-7 col-lg-8 col-md-11 row mt-md-5 mt-xl-0 m-4 p-md-4 p-lg-1">
+				<div class="col-xl-5 p-sm-5 p-md-0 col-md-6 div_img_details">
+					<div class="h-100 w-100 p-2">
+						<img class="img_details img-fluid w-100 h-100" src="{{comicBook.cover}}" alt="" srcset="">
+					</div>
+				</div>
+		
+				<div class="col-lg-6 col-xl-7 col-md-6 mb-lg-3 details_card_body p-2">
+					<div class="detail_title">
+						<h1 class="p-2 fs-5">{{comicBook.title}}</h1>
+					</div>
+					<div class="detail_description text-truncate">
+						<h3 class="p-2 fs-4">
+							Une BD de 
+							<span class="author_name_details">
+								{{comicAuthor.first_name}}
+							</span>
+						</h3>
+					</div>
+
+					<div class="detail_tome_date">
+						<h2 class="px-2 fs-5">
+							{{comics.category}}
+						</h2>
+					</div>
+
+					<div class="detail_tome_date">
+						<h2 class="px-2 fs-5">
+							<i class="fas fa-calendar-alt"></i>{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages
+						</h2>
+					</div>
+
+					<div class="detail_isbn">
+						<h2 class=" px-2 fs-5">
+							{{comics.isbn}}
+						</h2> 
+
+					<div class="card_footer">
+						<h3 class="px-2 fs-5">
+							Chez
+							<span class="bottom editor_name_details">{{comicAuthors.editor}}</span>
+						</h3>
+					</div>
+						<hr>
+					</div>
+
+					<div class="border d-flex justify-content-center mt-auto">
+						<a class="btn-card-bottom btn btn btn-dark mt-auto border stretched-link" target="" href="details?id={{comicBook.id}}">
+							En savoir plus
+						</a>
+					</div>
+				</div>
+			</div>		
+	</div>
+			{% endif %}
+		{% endfor %}
+
+		
+		{% for comicBook in comicBooks %}
+			{% set counter = counter + 1 %}
+			{% if counter == 2 %}
+		<div class="row col-6  m-0 p-0 d-flex justify-content-start d-none d-md-flex">
+			<div class="border bulle mx-lg-5 col-xl-7 col-lg-8 col-md-11 row mt-md-5 mt-xl-0 m-4 p-md-4 p-lg-1">
+				<div class="col-xl-5 p-sm-5 p-md-0 col-md-6 div_img_details p-0">
+					<div class="h-100 w-100 p-2 col-md-5 col-lg-4">
+						<img class="img_details img-fluid h-100" src="{{comicBook.cover}}" alt="" srcset="">
+					</div>
+				</div>
+		
+				<div class="col-lg-6 col-xl-7 col-md-6 mb-lg-3 details_card_body p-2">
+					<div class="detail_title">
+						<h1 class="p-2 fs-3">{{comics.title}}</h1>
+					</div>
+					<div class="detail_description text-truncate">
+						<h3 class="p-2 fs-4">
+							Une BD de 
+							<span class="author_name_details">
+								{{comicAuthor.first_name}}
+							</span>
+						</h3>
+					</div>
+
+					<div class="detail_tome_date">
+						<h2 class="px-2 fs-5 ">
+							{{comics.category}}
+						</h2>
+					</div>
+
+					<div class="detail_tome_date">
+						<h2 class="px-2 fs-5">
+							<i class="fas fa-calendar-alt"></i>{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages
+						</h2>
+					</div>
+
+					<div class="detail_isbn">
+						<h2 class=" px-2 fs-5">
+							{{comics.isbn}}
+						</h2> 
+
+					<div class="card_footer">
+						<h3 class="px-2 fs-5">
+							Chez
+							<span class="bottom editor_name_details">{{comicAuthors.editor}}</span>
+						</h3>
+					</div>
+						<hr>
+						<a class="btn-card-bottom btn-sm btn btn-dark mt-auto stretched-link" target="" href="details?id={{comicBook.id}}">
+							En savoir plus
+						</a>
+				</div>
+			</div>		
+	</div>
+</div>
+			{% endif %}
+		{% endfor %}
+-->
 	<!-- Section for the first and second element on md and lg -->
 
 	{% for comicBook in comicBooks %}
