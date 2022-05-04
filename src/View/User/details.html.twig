@@ -11,12 +11,16 @@
 {% endblock %}
 
 {% block content %}
+		{% include "User/_search_bar_details.html.twig" %}
+		{% include "Home/_footer.html.twig" %}
+		{% include "User/_details_comics.html.twig" %}
 
-	{% block javascript %}
+
+{% block javascript %}
 
 		<script src="/assets/JS/script.js"></script>
-		
-	{% endblock %}
+
+{% endblock %}
 
 	<!--format mobile/incorporation de JS-->
 

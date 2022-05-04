@@ -1,3 +1,4 @@
+
 body {
     background-color: var(--main_bg_color);
     font-family: var(--main_font);
@@ -64,7 +65,7 @@ body {
 
 /*img section*/
 .img_search_big {
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
 .img-fluid-search {
@@ -108,7 +109,8 @@ body {
 }
 
 .card {
-    background-color: #e6e6e6;
+    background-color: white;
+    border-radius: 20px;
 }
 
 .card-body {
@@ -116,17 +118,17 @@ body {
 }
 
 .div-back-card-body {
-    background-color: #cfc146;
+    background-color: white;
     margin-right: 2vh;
     padding-right: 0;
-    border-top-right-radius: 5%;
-    border-bottom-right-radius: 5%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .div-img-card {
-    background-color: #cecbcb;
-    border-top-left-radius: 5%;
-    border-bottom-left-radius: 5%;
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .color-author {
@@ -135,22 +137,21 @@ body {
 
 /* Scroll btn JS */
 
-
 #scrollUp {
     position: fixed;
     opacity: 0.9;
     bottom : 1vh;
     right: 1vh;
-  }
+}
   
   #scrollup_img {
       width: calc(35px + 1vw);
       height: calc(35px + 1vw);
       display: none;
-  }
+}
   
+/* Footer*/
 
-/* Footer Twig */
 .home_footer {
     font-family: var(--main_font);
     border-top: 1px solid var(--main_border_color);
