@@ -2,7 +2,7 @@
 <header class="home_header position-relative mt-4 me-4">
 
     
-    <div class="position-absolute top-0 end-0 border ">
+    <div class="position-absolute top-0 end-0 ">
             <a href="admin/list" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img id="admin_icon" src="/assets/images/admin_icon.png"></a>
 
             <div class="modal fade border" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -17,11 +17,11 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" >
-                            <form  action="" method="POST">
+                            <form  action="auth" method="POST">
                                 <div id="spaceAdminConnexion">
                             
                                 <label class="container" id="spaceAdminLogin" for="Name">Log in</label>
-                                <input type="text" name="login" required>
+                                <input type="text" name="user_name" required>
 
                                 <label class="container" for="Name" id="spaceAdminMdp"> Mot de passe</label>
                                 <input type="password" name= "password" required>

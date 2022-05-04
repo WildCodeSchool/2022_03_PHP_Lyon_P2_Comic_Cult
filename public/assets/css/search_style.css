@@ -6,7 +6,7 @@ body {
     --bg_input_color: #c9c3c3;
 }
 
-/*Header trois colonnes pour la page search*/
+/*Header three columns for the search page*/
 
 .website_title {
     font-size: calc(38px + 2vw);
@@ -24,7 +24,7 @@ body {
 }
 
 
-/* SEARCH BAR RESPONSIVE TWIGG*/
+/* Search bar*/
 .search_bar {
     background-color: #e6e6e6;
     height: calc(30px + 1vw);
@@ -53,7 +53,7 @@ body {
     height: calc(25px + 1vw);
 }
 
-/* USER HEADER RESPONSIVE TWIGG */
+/* USER HEADER */
 .home_header {
     height: 20vh;
 }
@@ -161,7 +161,6 @@ body {
 .home_footer a {
     color: var(--main_font_color);
     font-size: calc(12px + 0.5vw);
-    text-decoration: none;
 }
 
 .home_footer a:hover {
