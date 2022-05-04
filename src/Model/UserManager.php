@@ -4,10 +4,8 @@ namespace App\Model;
 
 class UserManager extends AbstractManager
 {
-    public const TABLE = 'comic_book';
-    public const TABLE2 = 'contact';
-    public const TABLE3 = 'user';
-    public const TABLE4 = 'contact';
+    public const TABLE = 'user';
+    public const CONTACT_TABLE = 'contact';
 
     /**
      * list of user's keywords sent from home page.
@@ -58,10 +56,25 @@ class UserManager extends AbstractManager
     public function selectOneByUser(string $user)
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE3 . " WHERE user_name=:user_name");
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE user_name=:user_name");
         $statement->bindValue('user_name', $user, \PDO::PARAM_STR);
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
+   
+    /**
+     * Insert new message in database
+     */
+    public function insert(array $userMessages): int
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . self::CONTACT_TABLE . " (firstname, lastname, email, message) VALUES (:firstname, :lastname, :email, :message)");
+        $statement->bindValue('firstname', $userMessages['firstname'], \PDO::PARAM_STR);
+        $statement->bindValue('lastname', $userMessages['lastname'], \PDO::PARAM_STR);
+        $statement->bindValue('email', $userMessages['email'], \PDO::PARAM_STR);
+        $statement->bindValue('message', $userMessages['message'], \PDO::PARAM_STR);
+
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
+    }  
 }

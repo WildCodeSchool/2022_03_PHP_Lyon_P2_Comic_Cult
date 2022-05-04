@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/admin_style.css">
+{% endblock %}
+{% block title %}Admin{{ parent() }}
+{% endblock %}
+{% block content %}
+	{% include "Admin/_header.html.twig" %}
+	<main>
+		<a class="white_link" href="/"><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
+		<h1 id="dashboard_title">Liste des messages</h1>
+		<div class="row justify-content-center table-responsive">
+			<div class="col-8">
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<th class="firstname_column">Firstname</th>
+							<th class="lastname_column">Lastname</th>
+							<th class="email_column">Email</th>
+							<th class="message_column">Message</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for userMessage in userMessages %}
+							<tr>
+								<td class="table_line align-middle">
+									{{ userMessage.firstname }}
+								</td>
+								<td class="table_line align-middle">
+									{{ userMessage.lastname }}
+								</td>
+                                <td class="table_line align-middle">
+									{{ userMessage.email }}
+								</td>
+								<td class="table_line align-middle">
+									{{ userMessage.message }}
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class=" d-flex justify-content-end fixed-bottom mb-5" id="scrollUp">
+				<a href="#top"><img id="scrollup_img" src="/assets/images/bouton-retour-haut.png" onclick="scroll(0, 100);"/></a>
+			</div>
+		</div>
+	</main>
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/JS/script.js"></script>
+{% endblock %}
