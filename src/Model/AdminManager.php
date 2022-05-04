@@ -78,7 +78,7 @@ class AdminManager extends AbstractManager
         $query = 'UPDATE comic_book SET `title`=:title, `title_keywords`=:title_keywords, `isbn`=:isbn,
                     `date_of_release`=:date_of_release, `pitch`=:pitch, `keywords`=:keywords,
                     `nb_pages`=:nb_pages, `volume`=:volume, `price`=:price, `cover`=:cover,
-                    `author_name`=:author_name, `category_id`=:category_id
+                    `category_id`=:category_id
                     WHERE `id`=:id;';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':id', $id, \PDO::PARAM_INT);
@@ -92,7 +92,6 @@ class AdminManager extends AbstractManager
         $statement->bindValue(':volume', $comicBook['volume'], \PDO::PARAM_INT);
         $statement->bindValue(':price', $comicBook['price'], \PDO::PARAM_STR);
         $statement->bindValue(':cover', $comicBook['cover'], \PDO::PARAM_STR);
-        $statement->bindValue(':author_name', $comicBook['author_name'], \PDO::PARAM_STR);
         $statement->bindValue(':category_id', $comicBook['category_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
@@ -115,5 +114,22 @@ class AdminManager extends AbstractManager
                     INNER JOIN author ON author.id=comic_book_author.author_id';
 
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function updateJunctionComicAuthor(int $comicId, array $authorId): void
+    {
+        $query = 'DELETE FROM comic_book_author WHERE comic_book_id=:id;';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':id', $comicId, \PDO::PARAM_INT);
+        $statement->execute();
+
+        foreach ($authorId as $author) {
+            $query = 'INSERT INTO comic_book_author (comic_book_id, author_id)
+                        VALUES (:comic_book_id, :author_id);';
+            $statement = $this->pdo->prepare($query);
+            $statement->bindValue(':comic_book_id', $comicId, \PDO::PARAM_INT);
+            $statement->bindValue(':author_id', $author, \PDO::PARAM_INT);
+            $statement->execute();
+        }
     }
 }

@@ -82,7 +82,6 @@ class AdminController extends AbstractController
             header('Location: /');
         }
 
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
             $adminManager = new AdminManager();
@@ -95,6 +94,11 @@ class AdminController extends AbstractController
 
     public function deleteAuthor(): ?string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $authorId = trim($_POST['id']);
             $authorManager = new AuthorManager();
@@ -119,23 +123,48 @@ class AdminController extends AbstractController
             header('Location: /');
         }
 
-
         $cleanComicBook = new AddComicService();
         $adminManager = new AdminManager();
         $genreManager = new GenreManager();
+        $authorManager = new AuthorManager();
         $comicGenres = $genreManager->selectAll();
+        $comicAuthors = $adminManager->selectAllAuthorsInJunction();
+        $authorList = $authorManager->selectAll();
         $comicById = $adminManager->selectOneById($id);
         $errors = [];
+
         if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
             $comicBook = array_map('trim', $_POST);
-            // Three function in UtilityService to clean comic book's datas.
+
+            // Four functions in UtilityService to clean comic book's datas.
             $cleanComicBook->comicBookEmptyVerify($comicBook);
             $cleanComicBook->comicIsbnValidate($comicBook);
             $cleanComicBook->comicBookNumberValidate($comicBook);
             $cleanComicBook->comicBookStringVerify($comicBook);
+
             $comicBook['keywords'] = $cleanComicBook->clearString($comicBook['pitch']);
             $comicBook['title_keywords'] = $cleanComicBook->clearString($comicBook['title']);
 
+            $authorsId = [];
+            for ($key = 0; $key < 3; $key++) {
+                if (isset($comicBook['author_id' . $key])) {
+                    $authorsId[] = $comicBook['author_id' . $key];
+                }
+            }
+
+            // This part update comic only if there is no cover to send
+            if (empty($_FILES['cover']['name'])) {
+                $comicBook['cover'] = $comicBook['cover_link'];
+                $errors = $cleanComicBook->getCheckErrors();
+
+                if (empty($cleanComicBook->getCheckErrors())) {
+                    $adminManager->update($comicBook, $id);
+                    $adminManager->updateJunctionComicAuthor($id, $authorsId);
+                    header('Location: list');
+                }
+            }
+
+            // This part update comic only if admin send a new cover
             $uploadDir = 'assets/images/comicUpload/';
             $uploadFile = $uploadDir . uniqid() . '-' . basename($_FILES['cover']['name']);
             $comicBook['cover'] = $uploadFile;
@@ -147,12 +176,14 @@ class AdminController extends AbstractController
             if (empty($cleanComicBook->getCheckErrors())) {
                 move_uploaded_file($_FILES['cover']['tmp_name'], $uploadFile);
                 $adminManager->update($comicBook, $id);
+                $adminManager->updateJunctionComicAuthor($id, $authorsId);
                 header('Location: list');
             }
         }
 
         return $this->twig->render('Admin/edit.html.twig', array('errors' => $errors, 'comicBook' => $comicById,
-                                    'comicGenres' => $comicGenres));
+                                    'comicGenres' => $comicGenres, 'comicAuthors' => $comicAuthors,
+                                    'authorList' => $authorList));
     }
 
     public function authorList(): string
@@ -161,6 +192,7 @@ class AdminController extends AbstractController
             echo 'Unauthorized access';
             header('Location: /');
         }
+
         $authorManager = new AuthorManager();
         $authors = $authorManager->selectAll();
 
