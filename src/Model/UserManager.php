@@ -84,4 +84,21 @@ class UserManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
+    
+    public function listByCategory(): array
+
+    {
+        $query = 'SELECT DISTINCT comic_book.*, author.first_name, author.first_name_keyword,
+                    author.last_name, author.last_name_keyword, author.editor,
+                    category.category, category.category_keyword FROM comic_book
+                    INNER JOIN keywords_search
+                    LEFT JOIN comic_book_author ON comic_book_author.comic_book_id=comic_book.id
+                    LEFT JOIN author ON author.id=comic_book_author.author_id
+                    LEFT JOIN category ON category.id=comic_book.category_id
+                    WHERE INSTR(category.category_keyword, keywords_search.keyword)';
+        $statement = $this->pdo->query($query);
+        $comicBooks = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $comicBooks;
+    }
 }
