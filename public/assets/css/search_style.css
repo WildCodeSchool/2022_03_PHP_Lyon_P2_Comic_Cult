@@ -8,6 +8,11 @@ body {
 
 /*Header three columns for the search page*/
 
+.header_search a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .website_title {
     font-size: calc(38px + 2vw);
     font-family: var(--main_font);
