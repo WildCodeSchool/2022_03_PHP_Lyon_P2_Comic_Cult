@@ -30,8 +30,8 @@ class UserController extends AbstractController
         $splitTitle = $utilityService->sortByWords($keywords, $comicBooks, 'title');
         $splitKeywords = $utilityService->sortByWords($keywords, $comicBooks, 'keywords');
         $finalList = array_merge(
-            $splitAuthorFirstName,
             $splitAuthorLastName,
+            $splitAuthorFirstName,
             $plitCategory,
             $splitTitle,
             $splitKeywords

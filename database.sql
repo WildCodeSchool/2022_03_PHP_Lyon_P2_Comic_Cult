@@ -219,7 +219,7 @@ INSERT INTO comic_cult.category (category,category_keyword) VALUES
 	 ('Jeunesse','jeunesse');
 INSERT INTO comic_cult.category (category,category_keyword) VALUES
 	 ('Médical','medical'),
-	 ('Poltique','politique'),
+	 ('Politique','politique'),
 	 ('Graphique','graphique'),
 	 ('Sentimental','sentimental'),
 	 ('Underground','undeground');
