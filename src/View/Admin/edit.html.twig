@@ -83,7 +83,7 @@
                         <div class="form-group row mt-3">
                             <label for="author_id{{ index }}" class="label_form_add_BD col-sm-2 control-label ">AUTEUR <span class="asterisk">*</span></label>
                                 <div class="col-sm-8">
-                                    <select class="form-select input-bg" name="author_id{{ index }}" id="author_select" aria-label="Example select with button addon" required>
+                                    <select class="form-select input-bg" name="author_id{{ index }}" id="author_select" aria-label="Liste déroulante afin de choisir un auteur" required>
                                         <option value="{{ author.id }}">{{ author.first_name ~ ' ' ~ author.last_name }}</option>
                                         {% for author in authorList %}
                                         <option value="{{ author.id }}">{{ author.first_name ~ ' ' ~ author.last_name }}</option>
