@@ -25,5 +25,4 @@ return [
     'admin/author/add' => ['AdminController', 'addAuthor'],
     'admin/author/edit' => ['AdminController', 'authorEdit', ['id']],
     'admin/author/delete' => ['AdminController', 'deleteAuthor'],
-
 ];

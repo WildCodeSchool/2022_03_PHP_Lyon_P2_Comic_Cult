@@ -57,10 +57,9 @@ class UserController extends AbstractController
                 header('Location: admin/list');
             }
         }
-
         return $this->twig->render('Home/index.html.twig');
     }
-
+    
     public function logout(): void
     {
         session_destroy();

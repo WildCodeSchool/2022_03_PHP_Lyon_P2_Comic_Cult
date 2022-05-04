@@ -31,10 +31,6 @@
 
 /*bubble informations section */
 
-.detail_title {
-    color: #D80505;
-}
-
 .author_name_details {
     color: #6AA3F9;
 }
@@ -51,6 +47,10 @@
     color: rgb(79, 173, 101);
 }
 
+.detail_title {
+    color: #D80505;
+}
+
 .pitch_details {
     -webkit-line-clamp: 15;
     overflow: hidden;
@@ -59,6 +59,13 @@
     word-wrap: break-word;
 }
 
+.pitch_truncated {
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
 /* accordion section */
 
 .accordion-header-resume {
@@ -80,4 +87,8 @@
 
 .accordion-content>p {
     padding: 10px;
+}
+
+.home_footer a {
+    text-decoration: none;
 }
