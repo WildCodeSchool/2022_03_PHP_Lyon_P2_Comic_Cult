@@ -59,7 +59,7 @@ class UserController extends AbstractController
         }
         return $this->twig->render('Home/index.html.twig');
     }
-    
+
     public function logout(): void
     {
         session_destroy();

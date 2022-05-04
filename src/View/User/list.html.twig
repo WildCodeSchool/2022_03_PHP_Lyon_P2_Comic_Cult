@@ -12,14 +12,14 @@
 	{% include "Home/_footer.html.twig" %}
 	{% include "User/_search_bar_details.html.twig" %}
 
-	{% for comicBook in comicBooks %}
+	<!-- {% for comicBook in comicBooks %}
 		{% set counter = counter + 1 %}
 		{% if counter == 1 %}
-			<div class="container-fluid mb-5 row">
-				<div class="row col-6 d-flex justify-content-end d-none d-md-flex ">
+			<div class="container-fluid mb-md-5 mb-2 row">
+				<div class="row col-6 d-flex justify-content-center justify-content-lg-end d-none d-md-flex ">
 					<div class=" m-lg-3 bulle col-xl-7 col-lg-8 col-md-11 row mt-md-5 mt-xl-0 m-4 p-md-4 p-lg-1">
 						<div class="col-xl-5 p-sm-5 p-md-0 col-md-6 div_img_details">
-							<div class="h-100 w-100 p-1">
+							<div class="h-100 w-100 p-lg-1">
 								<img class="img_details img-fluid w-100 h-100" src="{{comicBook.cover}}" alt="" srcset="">
 							</div>
 						</div>
@@ -63,15 +63,15 @@
 					</div>
 				</div>
 			{% endif %}
-		{% endfor %}
+		{% endfor %} 
 
 
 		{% for comicBook in comicBooks %}
 			{% set counter = counter + 1 %}
 			{% if counter == 2 %}
-				<div class="row col-6 mx-2 m-0 d-flex justify-content-start d-none d-md-flex ">
-					<div class=" mx-lg-5 bulle col-xl-7 col-lg-8 col-md-11 row mt-md-5 mt-xl-0 m-4 p-md-4 p-lg-1">
-						<div class="col-xl-5 p-sm-5 p-md-0 col-md-6 div_img_details">
+				<div class="row col-6 mx-2 m-0 d-flex justify-content-lg-start justify-content-md-center d-none d-md-flex ">
+					<div class=" mx-lg-5 bulle col-xl-7 col-lg-8  row mt-md-5 mt-xl-0 m-4 p-md-1 p-lg-1">
+						<div class="col-lg-5 p-sm-5 p-md-0 col-md-6 div_img_details">
 							<div class="h-100 w-100 p-1">
 								<img class="img_details img-fluid w-100 h-100" src="{{comicBook.cover}}" alt="" srcset="">
 							</div>
@@ -104,7 +104,7 @@
 								<hr>
 
 								<div class="card_footer">
-									<h3 class="p-2 fs-6 ">
+									<h3 class="p-2 fs-6  ">
 										<span class="m-0 editor_name_details pitch_truncated">{{comicBook.pitch}}
 										</span>
 									</h3>
@@ -118,10 +118,10 @@
 					</div>
 				</div>
 			{% endif %}
-		{% endfor %}
+		{% endfor %} -->
 		<!-- Section for the first and second element on md and lg -->
 
-	<!--	{% for comicBook in comicBooks %}
+	{% for comicBook in comicBooks %}
 			{% set counter = counter + 1 %}
 			{% if counter == 1 %}
 				<div class=" container-fluid row mb-4 d-none d-md-flex ">
@@ -211,7 +211,7 @@
 					</div>
 				</div>
 			{% endif %}
-		{% endfor %} -->
+		{% endfor %} 
 
 		<!-- section for the small pictures -->
 
