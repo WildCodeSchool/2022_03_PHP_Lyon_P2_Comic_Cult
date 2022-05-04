@@ -12,7 +12,8 @@
 	{% include "Home/_footer.html.twig" %}
 	{% include "User/_search_bar_details.html.twig" %}
 
-	<!-- {% for comicBook in comicBooks %}
+
+	{% for comicBook in comicBooks %}
 		{% set counter = counter + 1 %}
 		{% if counter == 1 %}
 			<div class="container-fluid mb-md-5 mb-2 row">
@@ -48,14 +49,14 @@
 								</h2>
 							</div>
 
-								<hr>
+							<hr>
 
-								<div class="card_footer">
-									<h3 class="p-2 fs-6 ">
-										<span class="m-0 editor_name_details pitch_truncated">{{comicBook.pitch}}
-										</span>
-									</h3>
-								</div>
+							<div class="card_footer">
+								<h3 class="p-2 fs-6 ">
+									<span class="m-0 editor_name_details pitch_truncated">{{comicBook.pitch}}
+									</span>
+								</h3>
+							</div>
 							<a class=" d-flex align-self-center btn btn-sm btn-dark mt-auto border stretched-link" target="" href="details?id={{comicBook.id}}">
 								En savoir plus
 							</a>
@@ -63,7 +64,7 @@
 					</div>
 				</div>
 			{% endif %}
-		{% endfor %} 
+		{% endfor %}
 
 
 		{% for comicBook in comicBooks %}
@@ -77,7 +78,7 @@
 							</div>
 						</div>
 
-						<div class="col-lg-6 col-xl-7 col-md-6 details_card_body d-flex flex-column p-2">
+						<div class="col-lg-6 col-xl-7 col-md-6 details_card_body border d-flex flex-column p-2">
 							<div class="detail_title">
 								<h1 class="p-2 fs-5">{{comicBook.title}}</h1>
 							</div>
@@ -100,15 +101,13 @@
 									pages
 								</h2>
 							</div>
-
-								<hr>
-
-								<div class="card_footer">
-									<h3 class="p-2 fs-6  ">
-										<span class="m-0 editor_name_details pitch_truncated">{{comicBook.pitch}}
-										</span>
-									</h3>
-								</div>
+							<hr>
+							<div class="card_footer">
+								<h3 class="p-2 fs-6  ">
+									<span class="m-0 editor_name_details pitch_truncated">{{comicBook.pitch}}
+									</span>
+								</h3>
+							</div>
 
 
 							<a class=" d-flex align-self-center btn btn-sm btn-dark mt-auto border stretched-link" target="" href="details?id={{comicBook.id}}">
@@ -118,108 +117,107 @@
 					</div>
 				</div>
 			{% endif %}
-		{% endfor %} -->
+		{% endfor %}
 		<!-- Section for the first and second element on md and lg -->
 
-	{% for comicBook in comicBooks %}
-			{% set counter = counter + 1 %}
-			{% if counter == 1 %}
-				<div class=" container-fluid row mb-4 d-none d-md-flex ">
-					<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-end p-md-5 p-lg-2">
-						<div class=" row justify-content-lg-end justify-content-md-center m-4 p-md-4 p-lg-1">
-							<div class=" col-md-5 col-lg-4 p-1 div-img-card">
-								<img src="{{comicBook.cover}}" alt="comic-book-cover" class=" py-2 img-fluid img_search_big ">
+		<!-- {% for comicBook in comicBooks %}
+					{% set counter = counter + 1 %}
+					{% if counter == 1 %}
+						<div class=" container-fluid row mb-4 d-none d-md-flex ">
+							<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-end p-md-5 p-lg-2">
+								<div class=" row justify-content-lg-end justify-content-md-center m-4 p-md-4 p-lg-1">
+									<div class=" col-md-5 col-lg-4 p-1 div-img-card">
+										<img src="{{comicBook.cover}}" alt="comic-book-cover" class=" py-2 img-fluid img_search_big ">
+									</div>
+									<div class="col-md-6 col-lg-7 div-back-card-body">
+										<div class="card h-100 border-0">
+											<div class="card-body d-flex flex-column">
+		
+												<p class="mt-2 card-text d-inline-block text-truncate" style="">
+													{{comicBook.title}}
+												</p>
+		
+												<p class="card-text d-inline-block text-truncate" style="">
+													Tome 2
+												</p>
+		
+												<p class="card-text d-inline-block text-truncate" style="">
+													Test longueur de la description et texte tronqué
+												</p>
+		
+												<p class="card-text d-inline-block text-truncate" style="">
+													<span class="color-author">
+														{{comicBook.author_name}}
+													</span>
+												</p>
+		
+												<p>
+													{{comicBook.date_of_release}}
+												</p>
+		
+												<a class="btn-card-bottom btn-sm btn btn-dark mt-auto stretched-link" target="" href="details?id={{comicBook.id}}">
+													En savoir plus
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="col-md-6 col-lg-7 div-back-card-body">
-								<div class="card h-100 border-0">
-									<div class="card-body d-flex flex-column">
-
-										<p class="mt-2 card-text d-inline-block text-truncate" style="">
-											{{comicBook.title}}
-										</p>
-
-										<p class="card-text d-inline-block text-truncate" style="">
-											Tome 2
-										</p>
-
-										<p class="card-text d-inline-block text-truncate" style="">
-											Test longueur de la description et texte tronqué
-										</p>
-
-										<p class="card-text d-inline-block text-truncate" style="">
-											<span class="color-author">
-												{{comicBook.author_name}}
-											</span>
-										</p>
-
-										<p>
-											{{comicBook.date_of_release}}
-										</p>
-
-										<a class="btn-card-bottom btn-sm btn btn-dark mt-auto stretched-link" target="" href="details?id={{comicBook.id}}">
-											En savoir plus
-										</a>
+						{% endif %}
+					{% endfor %}
+		
+					{% for comicBook in comicBooks %}
+						{% set counter = counter + 1 %}
+						{% if counter == 2 %}
+							<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-start p-md-5 p-lg-2">
+								<div class="row justify-content-lg-end justify-content-md-center m-4 p-md-4 p-lg-1">
+									<div class=" col-md-5 col-lg-4 p-1 div-img-card">
+										<img src="{{comicBook.cover}}" alt="" srcset="" class=" py-2 img-fluid img_search_big ">
+									</div>
+									<div class="col-md-6 col-lg-7 div-back-card-body">
+										<div class="card h-100 border-0">
+											<div class="card-body d-flex flex-column">
+		
+												<p class="mt-2 card-text d-inline-block text-truncate">
+													{{comicBook.title}}
+												</p>
+		
+												<p class="card-text d-inline-block text-truncate">
+													Tome 2
+												</p>
+		
+												<p class="card-text d-inline-block text-truncate mr-4">
+													Test longueur de la description et texte tronqué
+												</p>
+		
+												<p class="card-text d-inline-block text-truncate">
+													<span class="color-author">
+														{{comicBook.author_name}}
+													</span>
+												</p>
+		
+												<p>
+													{{comicBook.date_of_release}}
+												</p>
+		
+												<a class="btn-card-bottom btn-sm btn btn-dark mt-auto stretched-link" target="" href="details?id={{comicBook.id}}">
+													En savoir plus
+												</a>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				{% endif %}
-			{% endfor %}
-
-			{% for comicBook in comicBooks %}
-				{% set counter = counter + 1 %}
-				{% if counter == 2 %}
-					<div class=" d-flex col-lg-6 col-md-6 justify-content-center justify-content-lg-start p-md-5 p-lg-2">
-						<div class="row justify-content-lg-end justify-content-md-center m-4 p-md-4 p-lg-1">
-							<div class=" col-md-5 col-lg-4 p-1 div-img-card">
-								<img src="{{comicBook.cover}}" alt="" srcset="" class=" py-2 img-fluid img_search_big ">
-							</div>
-							<div class="col-md-6 col-lg-7 div-back-card-body">
-								<div class="card h-100 border-0">
-									<div class="card-body d-flex flex-column">
-
-										<p class="mt-2 card-text d-inline-block text-truncate">
-											{{comicBook.title}}
-										</p>
-
-										<p class="card-text d-inline-block text-truncate">
-											Tome 2
-										</p>
-
-										<p class="card-text d-inline-block text-truncate mr-4">
-											Test longueur de la description et texte tronqué
-										</p>
-
-										<p class="card-text d-inline-block text-truncate">
-											<span class="color-author">
-												{{comicBook.author_name}}
-											</span>
-										</p>
-
-										<p>
-											{{comicBook.date_of_release}}
-										</p>
-
-										<a class="btn-card-bottom btn-sm btn btn-dark mt-auto stretched-link" target="" href="details?id={{comicBook.id}}">
-											En savoir plus
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			{% endif %}
-		{% endfor %} 
+					{% endif %}
+				{% endfor %} -->
 
 		<!-- section for the small pictures -->
 
-		{% for comicBook in comicBooks %}
+			{% for comicBook in comicBooks %}
 			{% set counter = counter + 1 %}
-			{% if counter == 1 %}
-				<div class="container-fluid">
-					<ul>
+				{% if counter == 1 %}
+					<div class="container-fluid"> <ul>
 						<div class="row col-lg-6 d-flex d-md-none">
 							<li class="col-3 col-md-3 d-flex align-items-center justify-content-center justify-content-md-end">
 								<img src="{{comicBook.cover}}" class="img-fluid-search h-100 " alt="">
@@ -262,7 +260,8 @@
 											{{comicBook.title}}
 											{{comicBook.author_name}}
 											| T
-											{{comicBook.volume}}<span></li>
+											{{comicBook.volume}}
+											<span></li>
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
 											</li>
@@ -275,7 +274,7 @@
 				</div>
 
 			{% endif %}
-		{% endfor %} 
+		{% endfor %}
 
 		<div class="container-fluid">
 			<ul>
