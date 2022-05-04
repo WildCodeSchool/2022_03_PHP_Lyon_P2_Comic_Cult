@@ -46,7 +46,7 @@ class UserController extends AbstractController
             //      @todo make some controls on email and password fields and if errors, send them to the view
             $userManager = new UserManager();
             $user = $userManager->selectOneByUser($credentials['user_name']);
-            if ($credentials['password'] === $user['password']) {
+            if ($user && ($credentials['password'] === $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
                 header('Location: admin/list');
             }
