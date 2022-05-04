@@ -36,11 +36,6 @@ class UserController extends AbstractController
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 
-    public function contact()
-    {
-        return $this->twig->render('User/contact.html.twig');
-    }
-
     /**
      * Add a new message
      */

@@ -52,17 +52,17 @@ tbody, th, td {
     font-size: 18px;
 }
 .first_column {
-    width: 35%;
+    width: 40%;
 }
 .second_column {
-    width: 23%;
+    width: 25%;
 }
 .add_suppr_column {
-    width: 5%;
+    width: 1%;
 }
 
 .detail_column {
-    width: 5%;
+    width: 1%;
 }
 
 #return_button {
@@ -100,6 +100,20 @@ body {
     margin: -35px 5px  0px 0px;
     align-items: center;
     float: right;
+}
+
+/* Contacts messages page */
+
+.firstname_column {
+    width: 15%;
+}
+
+.lastname_column {
+    width: 15%;
+}
+
+.email_column {
+    width: 25%;
 }
 
 /* Scroll btn JS */
