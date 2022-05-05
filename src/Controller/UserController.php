@@ -40,7 +40,6 @@ class UserController extends AbstractController
         );
         // Use this method to delete duplicates (for ex: One comic may have 2 or 3 authors).
         $finalList = $utilityService->arrayUnique($finalList, 'title');
-
         return $this->twig->render('User/list.html.twig', array('comicBooks' => $finalList,
                                                                     'completionList' => $completionList));
     }
@@ -84,12 +83,14 @@ class UserController extends AbstractController
         $adminManager = new AdminManager();
         $userManager = new UserManager();
         $comics = $adminManager->selectOneById($id);
-        $comicsAuthor = $adminManager->selectAllAuthorsInJunction();
         $completionList = $userManager->selectTwentyLastCompletions();
+
+        $authors = $adminManager-> selectAuthorInJunctionById($id);
         return $this->twig->render('User/details.html.twig', array(
             'comics' => $comics,
-            'comicAuthors' => $comicsAuthor,
+            'authors' => $authors,
             'completionList' => $completionList
+
         ));
     }
 
