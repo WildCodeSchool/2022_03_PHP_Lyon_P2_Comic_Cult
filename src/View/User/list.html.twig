@@ -9,205 +9,211 @@
 {% endblock %}
 
 {% block content %}
-{% include "Home/_footer.html.twig" %}
-{% include "User/_search_bar_details.html.twig" %}
+	{% include "Home/_footer.html.twig" %}
+	{% include "User/_search_bar_details.html.twig" %}
 
 
-{% for comicBook in comicBooks %}
-	{% set counter = counter + 1 %}
-	{% if counter == 1 %}
-		<div class="container-fluid mb-lg-5 mb-md-2 ">
-			<div class=" d-md-flex d-none justify-content-lg-evenly p-md-5 mt-md-3 mt-lg-0 p-xl-4 justify-content-md-between">
-				<div class=" bulle col-xl-4 col-lg-5 col-md-6 row">
-					<div class="col-lg-5 col-md-6 p-2 m-0">
-						<div class="h-100 w-100">
-							<img class="list_img_details img-fluid w-100 h-100" src="{{comicBook.cover}}" alt="" srcset="">
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xl-7 d-flex flex-column py-md-2 pl-lg-1 mb-md-2 mb-lg-3">
-						<div class="detail_title">
-							<h1 class="py-xl-1 px-xl-0 fs-4 fs-xl-4 title_list ">{{comicBook.title}}</h1>
-						</div>
-						<div class="detail_description">
-							<h3 class=" fs-5">
-								Une BD de
-								<span class="author_name_details">
-									{{comicBook.author_name}}
-								</span>
-							</h3>
-						</div>
-
-						<div class="detail_tome_date d-lg-flex d-md-none">
-							<h2 class="fs-6">
-								{{comicBook.date_of_release}}
-								| tome n°{{comicBook.volume}}
-								|
-								{{comicBook.nb_pages}}
-								pages
-							</h2>
-												
-						</div>
-												<hr>
-
-						<div class="pitch_section_list">
-							<h3 class="fs-6 mt-lg-3">
-								<span class="pitch_truncated">{{comicBook.pitch}}
-								</span>
-							</h3>
-						</div>
-						<a class=" d-flex align-self-center btn btn-sm btn-dark mt-auto border stretched-link" target="" href="details?id={{comicBook.id}}">
-							En savoir plus
-						</a>
-					</div>
-				</div>
-			{% endif %}
-{% endfor %}
-
-{% for comicBook in comicBooks %}
-{% set counter = counter + 1 %}
-{% if counter == 2 %}
-				<div class=" bulle col-xl-4 col-lg-5 col-md-6 row">
-					<div class="col-lg-5 col-md-6 p-2 m-0">
-						<div class="h-100 w-100">
-							<img class="list_img_details img-fluid w-100 h-100" src="{{comicBook.cover}}" alt="" srcset="">
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xl-7 d-flex flex-column py-md-2 pl-lg-1 mb-md-2 mb-lg-3">
-						<div class="detail_title">
-							<h1 class=" py-xl-1 px-xl-0 fs-4 fs-xl-4 title_list">{{comicBook.title}}</h1>
-						</div>
-						<div class="detail_description">
-							<h3 class=" fs-5">
-								Une BD de
-								<span class="author_name_details">
-									{{comicBook.author_name}}
-								</span>
-							</h3>
-						</div>
-
-						<div class="detail_tome_date d-lg-flex d-md-none">
-							<h2 class="fs-6">
-								{{comicBook.date_of_release}}
-								| tome n°{{comicBook.volume}}
-								|
-								{{comicBook.nb_pages}}
-								pages
-							</h2>
-												
-						</div>
-												<hr>
-
-						<div class="pitch_section_list">
-							<h3 class="fs-6 mt-lg-3 ">
-								<span class="pitch_truncated">{{comicBook.pitch}}
-								</span>
-							</h3>
-						</div>
-						<a class=" d-flex align-self-center btn btn-sm btn-dark mt-auto border stretched-link" target="" href="details?id={{comicBook.id}}">
-							En savoir plus
-						</a>
-					</div>
-				</div>
-</div>
-{% endif %}
-{% endfor %}
-
-<!-- section for the small pictures -->
-
-{% for comicBook in comicBooks %}
-{% set counter = counter + 1 %}
-	{% if counter == 1 %}
-	<div class="container-fluid d-flex d-md-none col-md-6">
-		<ul>
-			<div class="row">
-				<li class="col-3 col-md-3 d-flex align-items-end justify-content-end justify-content-md-start">
-					<img src="{{comicBook.cover}}" class="img-fluid-search mr-2 " alt="">
-				</li>
-				<div class="col-8 row col-sm-8 col-md-7 p-2">
-					<div class="infos-bd-truncated align-self-center">
-						<li>
-							<span class="bd-description fs-4 mb-md-2">
-								<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}}</a>
-								{{comicBook.author_name}}
-								| T
-								{{comicBook.volume}}
-								<span></li>
-								<li>
-									<small class="fs-6">{{comicBook.pitch}}</li>
-								</li>
-							</div>
-						</li>
-					</div>
-				</div>
-			</div>
-		</ul>
-	</div>
-
-{% endif %}{% endfor %}{% for comicBook in comicBooks %}
-{% set counter = counter + 1 %}
-{% if counter == 2 %}
-	<div class="container-fluid d-flex d-md-none col-md-6">
-		<ul>
-			<div class="row mb-">
-				<li class="col-3 col-md-3 d-flex align-items-end justify-content-center justify-content-md-end">
-					<img src="{{comicBook.cover}}" class="img-fluid-search " alt="">
-				</li>
-				<div class="col-8 row col-sm-8 col-md-7 p-2">
-					<div class="infos-bd-truncated align-self-center">
-						<li>
-							<span class="bd-description fs-4 mb-md-2">
-								<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}}</a>
-								{{comicBook.author_name}}
-								| T
-								{{comicBook.volume}}
-								<span></li>
-								<li>
-									<small class="fs-6">{{comicBook.pitch}}</li>
-								</li>
-							</div>
-						</li>
-					</div>
-				</div>
-			</div>
-		</ul>
-	</div>
-
-{% endif %}{% endfor %}<div class="container-fluid">
-<ul>
 	{% for comicBook in comicBooks %}
 		{% set counter = counter + 1 %}
-		{% if counter > 2 %}
-
-			<div class="row mb-3">
-				<li class="col-3 col-md-3 d-flex align-items-center justify-content-center justify-content-md-end">
-					<a href="details?id={{comicBook.id}}" class="text-decoration-none"><img src="{{comicBook.cover}}" class="img-fluid-search " alt=""></a>
-				</li>
-				<div class="col-8 col-sm-8 col-md-7 mb-3 p-2">
-					<div class="infos-bd-truncated align-self-center">
-						<li>
-							<span class="bd-description fs-4 mb-md-2">
-								<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}}</a>
-								{{comicBook.author_name}}
-								| T
-								{{comicBook.volume}}<span></li>
-								<li>
-									<small class="fs-6">{{comicBook.pitch}}</li>
-								</li>
+		{% if counter == 1 %}
+			<div class="container-fluid mb-lg-5 mb-md-2 ">
+				<div class=" d-md-flex d-none justify-content-lg-evenly p-md-5 mt-md-3 mt-lg-0 p-xl-4 justify-content-md-between">
+					<div class=" bulle col-xl-4 col-lg-5 col-md-6 row">
+						<div class="col-lg-5 col-md-6 p-2 m-0">
+							<div class="h-100 w-100">
+								<img class="list_img_details img-fluid w-100 h-100" src="{{comicBook.cover}}" alt="" srcset="">
 							</div>
-						</li>
+						</div>
+
+						<div class="col-md-6 col-xl-7 d-flex flex-column py-md-2 pl-lg-1 mb-md-2">
+							<div class="detail_title">
+								<h1 class="py-xl-1 px-xl-0 fs-4 fs-xl-4 title_list ">{{comicBook.title}}</h1>
+							</div>
+							<div class="detail_description">
+								<h3 class=" fs-5">
+									Une BD de
+									<span class="author_name_details">
+										{{comicBook.author_name}}
+									</span>
+								</h3>
+							</div>
+
+							<div class="detail_tome_date d-lg-flex d-md-none">
+								<h2 class="fs-6">
+									{{comicBook.date_of_release}}
+									| tome n°{{comicBook.volume}}
+									|
+									{{comicBook.nb_pages}}
+									pages
+								</h2>
+							</div>
+							<hr>
+							<div class="pitch_section_list">
+								<h3 class="fs-6 mt-lg-3">
+									<span class="pitch_truncated">{{comicBook.pitch}}
+									</span>
+								</h3>
+							</div>
+							<a class=" d-flex align-self-center btn btn-sm btn-dark mt-auto border stretched-link" target="" href="details?id={{comicBook.id}}">
+								En savoir plus
+							</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+
+			{% for comicBook in comicBooks %}
+				{% set counter = counter + 1 %}
+				{% if counter == 2 %}
+					<div class=" bulle col-xl-4 col-lg-5 col-md-6 row">
+						<div class="col-lg-5 col-md-6 p-2 m-0">
+							<div class="h-100 w-100">
+								<img class="list_img_details img-fluid w-100 h-100" src="{{comicBook.cover}}" alt="" srcset="">
+							</div>
+						</div>
+
+						<div class="col-md-6 col-xl-7 d-flex flex-column py-md-2 pl-lg-1 mb-md-2">
+							<div class="detail_title">
+								<h1 class=" py-xl-1 px-xl-0 fs-4 fs-xl-4 title_list">{{comicBook.title}}</h1>
+							</div>
+							<div class="detail_description">
+								<h3 class=" fs-5">
+									Une BD de
+									<span class="author_name_details">
+										{{comicBook.author_name}}
+									</span>
+								</h3>
+							</div>
+
+							<div class="detail_tome_date d-lg-flex d-md-none">
+								<h2 class="fs-6">
+									{{comicBook.date_of_release}}
+									| tome n°{{comicBook.volume}}
+									|
+									{{comicBook.nb_pages}}
+									pages
+								</h2>
+
+							</div>
+
+							<hr>
+
+							<div class="pitch_section_list">
+								<h3 class="fs-6 mt-lg-3 ">
+									<span class="pitch_truncated">{{comicBook.pitch}}
+									</span>
+								</h3>
+							</div>
+							<a class=" d-flex align-self-center btn btn-sm btn-dark mt-auto border stretched-link" target="" href="details?id={{comicBook.id}}">
+								En savoir plus
+							</a>
+						</div>
 					</div>
 				</div>
 			{% endif %}
 		{% endfor %}
-	</ul>
-</div>
 
-<!--button top of the page -->
+		<!-- section for the small pictures -->
 
-<div class=" d-flex justify-content-end fixed-bottom mb-5" id="scrollUp">
-	<a href="#"><img id="scrollup_img" src="assets/images/bouton-retour-haut.png" onclick="scroll(0, 100);"/></a>
-</div>{% endblock %}{% block javascript %}
+		{% for comicBook in comicBooks %}
+			{% set counter = counter + 1 %}
+			{% if counter == 1 %}
+				<div class="container-fluid p-0">
+					<ul>
+						<div class="row  p-0 d-md-none">
+							<li class="col-3 col-md-3 p-0 d-flex align-items-center justify-content-center justify-content-md-end">
+								<img src="{{comicBook.cover}}" class="img-fluid-search h-100 " alt="">
+							</li>
+							<div class="col-8 row col-sm-8 col-md-7 mb-3 p-2">
+								<div class="infos-bd-truncated align-self-center">
+									<li>
+										<span class="bd-description fs-4 mb-md-2">
+											{{comicBook.title}}
+											{{comicBook.author_name}}
+											| T
+											<li>
+												<small class="fs-6">{{comicBook.pitch}}</li>
+											</li>
+										</div>
+									</li>
+								</div>
+							</div>
+						</div>
+					</ul>
+				</div>
+			{% endif %}
+		{% endfor %}
 
-<script src="/assets/JS/script.js"></script>{% endblock %}
+
+		{% for comicBook in comicBooks %}
+			{% set counter = counter + 1 %}
+			{% if counter == 2 %}
+				<div class="container-fluid d-flex d-md-none col-md-6">
+					<ul>
+						<div class="row mb-">
+							<li class="col-3 col-md-3 d-flex align-items-center justify-content-center justify-content-md-end">
+								<img src="{{comicBook.cover}}" class="img-fluid-search " alt="">
+							</li>
+							<div class="col-8 row col-sm-8 col-md-7 p-2">
+								<div class="infos-bd-truncated align-self-center">
+									<li>
+										<span class="bd-description fs-4 mb-md-2">
+											{{comicBook.title}}
+											{{comicBook.author_name}}
+											| T
+											{{comicBook.volume}}<span></li>
+											<li>
+												<small class="fs-6">{{comicBook.pitch}}</li>
+											</li>
+										</div>
+									</li>
+								</div>
+							</div>
+						</div>
+					</ul>
+				</div>
+			{% endif %}
+		{% endfor %}
+
+		<div class="container-fluid">
+			<ul>
+				{% for comicBook in comicBooks %}
+					{% set counter = counter + 1 %}
+					{% if counter > 2 %}
+
+						<div class="row mb-3">
+							<li class="col-3 col-md-3 d-flex align-items-center justify-content-center justify-content-md-end">
+								<a href="details?id={{comicBook.id}}" class="text-decoration-none"><img src="{{comicBook.cover}}" class="img-fluid-search " alt=""></a>
+							</li>
+							<div class="col-8 col-sm-8 col-md-7 mb-3 p-2">
+								<div class="infos-bd-truncated align-self-center">
+									<li>
+										<span class="bd-description fs-4 mb-md-2">
+											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}}</a>
+											{{comicBook.author_name}}
+											| T
+											{{comicBook.volume}}<span></li>
+											<li>
+												<small class="fs-6">{{comicBook.pitch}}</li>
+											</li>
+										</div>
+									</li>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+
+			<!--button top of the page -->
+
+			<div class=" d-flex justify-content-end fixed-bottom mb-5" id="scrollUp">
+				<a href="#"><img id="scrollup_img" src="assets/images/bouton-retour-haut.png" onclick="scroll(0, 100);"/></a>
+			</div>
+
+		{% endblock %}
+		{% block javascript %}
+
+			<script src="/assets/JS/script.js"></script>
+
+		{% endblock %}
