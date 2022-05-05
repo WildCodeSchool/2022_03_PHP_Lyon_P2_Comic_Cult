@@ -64,11 +64,14 @@ class UserController extends AbstractController
     public function details($id): string
     {
         $adminManager = new AdminManager();
+        $userManager = new UserManager();
         $comics = $adminManager->selectOneById($id);
         $comicsAuthor = $adminManager->selectAllAuthorsInJunction();
+        $completionList = $userManager->selectTwentyLastCompletions();
         return $this->twig->render('User/details.html.twig', array(
             'comics' => $comics,
-            'comicAuthors' => $comicsAuthor
+            'comicAuthors' => $comicsAuthor,
+            'completionList' => $completionList
         ));
     }
 
