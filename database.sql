@@ -191,7 +191,7 @@ CREATE TABLE keywords_search (
 
 CREATE TABLE auto_completion (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    string VARCHAR(255) NOT NULL);
+    user_research VARCHAR(255) NOT NULL);
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------

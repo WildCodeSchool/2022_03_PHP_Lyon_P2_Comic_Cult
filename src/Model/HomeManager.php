@@ -26,7 +26,7 @@ class HomeManager extends AbstractManager
 
     public function sendCompletion(string $keywordsString): void
     {
-        $query = 'INSERT INTO `auto_completion` (string) VALUES (:keywordsString);';
+        $query = 'INSERT INTO `auto_completion` (user_research) VALUES (:keywordsString);';
         $secondStatement = $this->pdo->prepare($query);
         $secondStatement->bindValue(':keywordsString', $keywordsString, \PDO::PARAM_STR);
         $secondStatement->execute();

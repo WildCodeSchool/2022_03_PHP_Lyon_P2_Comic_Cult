@@ -103,16 +103,9 @@ class UserManager extends AbstractManager
 
     public function selectTwentyLastCompletions(): array
     {
-        (int)$maxIdCompletion = $this->pdo->query('SELECT MAX(id) FROM auto_completion')->fetch();
-
-        if ($maxIdCompletion['MAX(id)'] <= 20) {
-            $query = 'SELECT DISTINCT string FROM auto_completion;';
-
-            return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-        }
-        $query = 'SELECT string, MAX(id) as id FROM auto_completion
-                    GROUP BY string
-                    ORDER BY id DESC
+        $query = 'SELECT user_research, MAX(id) as id_max FROM auto_completion
+                    GROUP BY user_research
+                    ORDER BY id_max DESC
                     LIMIT 20;';
 
         return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
