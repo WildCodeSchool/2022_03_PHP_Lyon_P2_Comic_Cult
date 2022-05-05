@@ -144,7 +144,7 @@ class AdminManager extends AbstractManager
 
             return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
-  
+
     /**
      * Delete comic book from database
      */
