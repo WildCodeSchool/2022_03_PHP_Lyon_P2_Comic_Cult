@@ -3,14 +3,12 @@
 #spaceAdminLogin{
     font-size: 25px;
     padding: 10px;
-    font-family: sans-serif;
  }
  
  #spaceAdminMdp{
      font-size: 25px;
      padding-bottom: 10px;
-     font-family: sans-serif;
- 
+
  }
  
  
@@ -21,3 +19,30 @@
      text-align: center;
      background-color:#e6e6e6;
  }
+
+ #staticBackdrop{
+     font-family: var(--main_font);
+     color : black;
+ }
+
+ #spaceAdminConnexion{
+    font-family: var(--main_font);
+    color : black;
+    border: 2px solid var(--main_border_color);
+ }
+
+ #buttonSubmit{
+    border: 2px solid var(--main_border_color);
+    border-radius: calc(30px + 1vw);
+ }
+
+ #buttonClose{
+    border: 2px solid var(--main_border_color);
+    border-radius: calc(30px + 1vw);
+ }
+
+ #staticBackdropLabel{
+     font-size: 30px;
+ }
+
+ 
