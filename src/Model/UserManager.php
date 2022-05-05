@@ -5,7 +5,7 @@ namespace App\Model;
 class UserManager extends AbstractManager
 {
     public const TABLE = 'user';
-
+    public const CONTACT_TABLE = 'contact';
 
     /**
      * list of user's keywords sent from home page.
@@ -82,7 +82,16 @@ class UserManager extends AbstractManager
         $statement = $this->pdo->query($query);
         $comicBooks = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
-
         return $comicBooks;
+    }
+
+    public function selectTwentyLastCompletions(): array
+    {
+        $query = 'SELECT user_research, MAX(id) as id_max FROM auto_completion
+                    GROUP BY user_research
+                    ORDER BY id_max DESC
+                    LIMIT 20;';
+
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
