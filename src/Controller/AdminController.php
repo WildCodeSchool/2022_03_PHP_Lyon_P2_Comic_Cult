@@ -288,7 +288,7 @@ class AdminController extends AbstractController
         }
     }
 
-    public function details($id): string
+    /*public function details($id): string
     {
         $adminManager = new AdminManager();
         $comics = $adminManager->selectOneById($id);
@@ -297,5 +297,5 @@ class AdminController extends AbstractController
             'comics' => $comics,
             'comicAuthors' => $comicsAuthor
         ));
-    }
+    }*/
 }
