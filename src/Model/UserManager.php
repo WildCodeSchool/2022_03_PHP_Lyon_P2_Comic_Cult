@@ -5,7 +5,7 @@ namespace App\Model;
 class UserManager extends AbstractManager
 {
     public const TABLE = 'user';
-
+    public const CONTACT_TABLE = 'contact';
 
     /**
      * list of user's keywords sent from home page.
@@ -69,6 +69,22 @@ class UserManager extends AbstractManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Insert new message in database
+     */
+    public function insert(array $userMessages): int
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . self::CONTACT_TABLE . " (firstname, lastname, email, message)
+        VALUES (:firstname, :lastname, :email, :message)");
+        $statement->bindValue('firstname', $userMessages['firstname'], \PDO::PARAM_STR);
+        $statement->bindValue('lastname', $userMessages['lastname'], \PDO::PARAM_STR);
+        $statement->bindValue('email', $userMessages['email'], \PDO::PARAM_STR);
+        $statement->bindValue('message', $userMessages['message'], \PDO::PARAM_STR);
+
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
+    }
+
     public function listByCategory(): array
     {
         $query = 'SELECT DISTINCT comic_book.*, author.first_name, author.first_name_keyword,
@@ -81,7 +97,6 @@ class UserManager extends AbstractManager
                     WHERE INSTR(category.category_keyword, keywords_search.keyword)';
         $statement = $this->pdo->query($query);
         $comicBooks = $statement->fetchAll(\PDO::FETCH_ASSOC);
-
 
         return $comicBooks;
     }
