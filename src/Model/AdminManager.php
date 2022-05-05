@@ -135,6 +135,16 @@ class AdminManager extends AbstractManager
         }
     }
 
+    public function selectAuthorInJunctionById(int $id): array
+    {
+            $query = 'SELECT author.first_name, author.last_name, author.editor
+                        FROM comic_book_author
+                        LEFT JOIN author ON author.id=comic_book_author.author_id
+                        WHERE comic_book_author.comic_book_id=' . $id . ';';
+
+            return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     /**
      * Delete comic book from database
      */

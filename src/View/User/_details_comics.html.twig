@@ -1,11 +1,28 @@
 <div class="container-fluid">
-	<div class="justify-content-center mt-5  d-none d-md-flex p-md-0">
-		<div class="bulle col-xl-6 col-lg-8 col-md-11 row mt-md-5 mt-xl-0">
-			<div class="col-xl-5 p-sm-5 p-md-0 col-md-6 div_img_details p-0">
-				<div class="h-100 w-100 p-2">
-					<img class="img_details img-fluid h-100" src="{{comics.cover}}" alt="" srcset="">
+		<div class="justify-content-center mt-xl-5 mt-lg-3 md-3 d-none d-md-flex p-md-0">
+			<div class="bulle col-xl-6 col-lg-8 col-md-11 row mt-md-5 mt-xl-0">
+				<div class="col-xl-5 p-sm-5 p-md-0 col-md-6 div_img_details p-0">
+					<div class="h-100 w-100 p-2">
+						<img class="img_details img-fluid h-100" src="{{comics.cover}}" alt="" srcset="">
+					</div>
 				</div>
-			</div>
+		
+				<div class="col-lg-6 col-xl-7 col-md-6 mb-lg-3 details_card_body p-2">
+					<div class="detail_title">
+						<h1 class="p-2 fs-3">{{comics.title}}</h1>
+					</div>
+					<div class="detail_description text-truncate">
+						<h3 class="p-2 fs-4">
+							Une BD de 
+							<span class="author_name_details">
+						{% for author in authors %}
+							{% if comic.id == author.comic_book_id %}
+								{{ author.first_name ~ ' ' ~ author.last_name }}</br>
+							{% endif %}
+						{% endfor %}
+							</span>
+						</h3>
+					</div>
 
 			<div class="col-lg-6 col-xl-7 col-md-6 mb-lg-3 details_card_body p-2">
 				<div class="detail_title">
@@ -57,37 +74,24 @@
 
 <!-- mobile section -->
 
-<div class="justify-content-center d-flex d-md-none flex-direction-column">
-	<div class=" col-10 col-sm-1O  mt-2">
-		<div class=" p-0">
-			<img class="img-fluid w-100 img_sm_details" src="{{comics.cover}}" alt="" srcset="">
-		</div>
-
-		<div class="p-0 bulle mt-4" id="bubble">
-			<div class="accordion justify-content-center">
-				<div class="accordion-element active">
-					<h1 class="accordion-header justify-content-center d-flex p-2">Informations  ▼
-					</h1>
-					<div class=" accordion-content fs-3">
-						<p class="text-truncate p-0 px-2">
-							<span class="detail_title_mobile text-truncate detail_title fs-1">{{comics.title}}</span>
-							<br>
-							Par
-							<span class="detail_author_mobile author_name_details fs-3">{{comics.author_name}}
-								{{comicsAuthor.lastname}}
-							</span><br>
-							<span class="detail_global_infos_mobile fs-4 category_details">{{comics.category}}
-								<br></span>
-							<span class="detail_global_infos_mobile detail_tome_date fs-4">{{comics.date_of_release}}
-								| tome n°{{comics.volume}}
-								|
-								{{comics.nb_pages}}
-								pages
-								<br></span>
-							<span class="detail_global_infos_mobile detail_isbn fs-5">isbn :
-								{{comics.isbn}}<span></p>
-							</div>
-						</p>
+			<div class="p-0 bulle mt-4" id="bubble">
+				<div class="accordion justify-content-center">
+					<div class="accordion-element active">
+						<h1 class="accordion-header justify-content-center d-flex p-2">Informations  ▼ </h1>
+						<div class=" accordion-content fs-3">
+							<p class = "text-truncate p-0 px-2"> 
+								<span class="detail_title_mobile text-truncate detail_title fs-2">{{comics.title}}</span> <br>
+								Par <span class="detail_author_mobile author_name_details fs-4">
+									{% for author in authors %}
+										{% if comic.id == author.comic_book_id %}
+											{{ author.first_name ~ " " ~ author.last_name }}</br>
+										{% endif %}
+									{% endfor %}
+								 </span>
+								<span class="detail_global_infos_mobile fs-4 category_details">{{comics.category}} <br></span>
+								<span class="detail_global_infos_mobile detail_tome_date fs-6">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
+							</p>
+						</div>
 					</div>
 					<div class="accordion-element">
 						<h1 class="accordion-header accordion-header-resume justify-content-center d-flex p-2">Résumé  ▼</h1>

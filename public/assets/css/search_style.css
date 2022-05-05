@@ -109,6 +109,14 @@ body {
     color: #EED706;
 }
 
+.title_list {
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
 .infos-bd-truncated li>span>a {
     color: #EED706;
 }
@@ -154,6 +162,7 @@ body {
       height: calc(35px + 1vw);
       display: none;
 }
+
   
 /* Footer*/
 
