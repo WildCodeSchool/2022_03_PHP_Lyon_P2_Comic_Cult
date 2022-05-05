@@ -17,6 +17,7 @@ class UserController extends AbstractController
         $utilityService = new UtilityService();
         $keywords = $userManager->keywordsList();
         $completionList = $userManager->selectTwentyLastCompletions();
+
         $comicByAuthor = $userManager->listByAuthor();
         $comicByCategory = $userManager->listByCategory();
         $comicByTitleAndPitch = $userManager->listByKeywords();
