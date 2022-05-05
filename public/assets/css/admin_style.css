@@ -116,9 +116,14 @@ body {
     width: 25%;
 }
 
-.delete_message_column {
-    width: 1%;
+.message_column {
+    width: 60%;
 }
+
+.delete_message_column {
+    width: 5%;
+}
+
 
 /* Scroll btn JS */
 

@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig'%}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/user_style.css">
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+	{% include "User/_user_header.html.twig" %}
+
+	<a class="white_link" href="/"><img id="return_button_confirm" src="/assets/images/bouton-retour.png" alt=""></a>
+
+	<div>
+		<p class="redirection d-flex justify-content-center text-warning">Merci pour votre message ! Nous vous répondrons dans les meilleurs délais !</p>
+	</div>
+	{% include 'Home/_footer.html.twig' %}
+
+{% endblock %}

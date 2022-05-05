@@ -55,12 +55,16 @@ class UserController extends AbstractController
 
             // TODO validations (length, format...)
 
-            if (strlen($userMessages['firstname']) > 80) {
-                $errors[] = 'Le prénom renseigné ne doit pas dépasser 80 cractères.';
+            if (empty($userMessages['firstname']) || empty($userMessages['lastname']) || empty($userMessages['email']) || empty($userMessages['message'])) {
+                $errors[] = 'Tous les champs doivent être renseignés.';
             }
 
-            if (strlen($userMessages['lastname']) > 100) {
-                $errors[] = 'Le nom de famille renseigné ne doit pas dépasser 100 cractères.';
+            if (strlen($userMessages['firstname']) > 30) {
+                $errors[] = 'Le prénom renseigné ne doit pas dépasser 30 caractères.';
+            }
+
+            if (strlen($userMessages['lastname']) > 40) {
+                $errors[] = 'Le nom de famille renseigné ne doit pas dépasser 40 caractères.';
             }
 
             if (!filter_var($userMessages['email'], FILTER_VALIDATE_EMAIL)) {
@@ -72,6 +76,7 @@ class UserController extends AbstractController
                 $contactManager = new ContactManager();
                 $contactManager->insert($userMessages);
             }
+            return $this->twig->render('User/confirm.html.twig');
         }
         return $this->twig->render('User/contact.html.twig', ['errors' => $errors]);
     }

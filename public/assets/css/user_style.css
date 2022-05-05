@@ -107,7 +107,9 @@ body {
     background-color:#e6e6e6;
 }
 
-#return_button_user_contact {
+#return_button_user_contact,
+#return_button_confirm
+{
     width: 60px;
     height: auto;
     margin-top: 0px;
@@ -129,6 +131,7 @@ body {
     background-color: #dbdbdb;
     border-radius: 8%;
     width: 90%;
+    min-height: 40%;
 }
 
 .card-img-top {
@@ -150,11 +153,13 @@ body {
     font-size: 85px;
     color: white;
     justify-content: center;
+    max-height: 10%;
 }
 
 .form_title {
     font-size: 65px;
     color: white;
+    max-height: 10%;
 }
 
 .form-label {
@@ -175,4 +180,8 @@ body {
 
 .split-container {
     border-left: solid 3px var(--main_border_color);
+}
+
+.redirection {
+    font-size: 35px;
 }
