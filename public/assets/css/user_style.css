@@ -81,26 +81,3 @@ body {
     color: var(--second_font_color);
 }
 
-/* button admin connexion modal */
-
-#spaceAdminLogin{
-   font-size: 25px;
-   padding: 10px;
-   font-family: sans-serif;
-}
-
-#spaceAdminMdp{
-    font-size: 25px;
-    padding-bottom: 10px;
-    font-family: sans-serif;
-
-}
-
-
-#spaceAdminConnexion{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color:#e6e6e6;
-}
