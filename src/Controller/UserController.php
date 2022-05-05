@@ -16,6 +16,7 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $utilityService = new UtilityService();
         $keywords = $userManager->keywordsList();
+        $completionList = $userManager->selectTwentyLastCompletions();
         $comicByAuthor = $userManager->listByAuthor();
         $comicByCategory = $userManager->listByCategory();
         $comicByTitleAndPitch = $userManager->listByKeywords();
@@ -37,7 +38,9 @@ class UserController extends AbstractController
         );
         // Use this method to delete duplicates (for ex: One comic may have 2 or 3 authors).
         $finalList = $utilityService->arrayUnique($finalList, 'title');
-        return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
+
+        return $this->twig->render('User/list.html.twig', array('comicBooks' => $finalList,
+                                                                    'completionList' => $completionList));
     }
 
     /**
