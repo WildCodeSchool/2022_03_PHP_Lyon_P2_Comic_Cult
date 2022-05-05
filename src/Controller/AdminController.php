@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Model\AdminManager;
 use App\Model\AuthorManager;
 use App\Model\GenreManager;
-use App\Model\AbstractManager;
+use App\Model\ContactManager;
 use App\Service\AddComicService;
 use Exception;
 use App\Service\AddAuthorService;
@@ -255,5 +255,36 @@ class AdminController extends AbstractController
 
         return $this->twig->render('Admin/edit_author.html.twig', array('errors' => $errors,
                                     'comicAuthor' => $authorById));
+    }
+
+    /**
+     * List messages
+     */
+    public function messagesList(): string
+    {
+        $contactManager = new ContactManager();
+        $userMessages = $contactManager->selectAll();
+
+        return $this->twig->render('Admin/contact.html.twig', ['userMessages' => $userMessages]);
+    }
+
+    /**
+     * Delete a message
+     */
+
+    public function messageDelete(): void
+    {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = trim($_POST['id']);
+            $adminManager = new AdminManager();
+            $adminManager->messageDelete((int)$id);
+
+            header('Location:/admin/contact');
+        }
     }
 }

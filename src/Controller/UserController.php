@@ -41,13 +41,33 @@ class UserController extends AbstractController
         return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
     }
 
+    /**
+     * Add a new message
+     */
+    public function add(): ?string
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $userMessages = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            // if validation is ok, insert and redirection
+            $userMessageManager = new UserManager();
+            $userMessageManager->insert($userMessages);
+        }
+        return $this->twig->render('User/contact.html.twig');
+    }
+
     public function details($id): string
     {
         $adminManager = new AdminManager();
         $comics = $adminManager->selectOneById($id);
-        $comicsAuthor = $adminManager-> selectAllAuthorsInJunction();
-        return $this->twig->render('User/details.html.twig', array('comics' => $comics,
-                                                                    'comicAuthors' => $comicsAuthor));
+        $comicsAuthor = $adminManager->selectAllAuthorsInJunction();
+        return $this->twig->render('User/details.html.twig', array(
+            'comics' => $comics,
+            'comicAuthors' => $comicsAuthor
+        ));
     }
 
     public function login()
