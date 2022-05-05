@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\AdminManager;
 use App\Model\UserManager;
 use App\Service\UtilityService;
+use App\Model\ContactManager;
 
 class UserController extends AbstractController
 {
@@ -46,17 +47,33 @@ class UserController extends AbstractController
      */
     public function add(): ?string
     {
+        $errors = [];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $userMessages = array_map('trim', $_POST);
 
             // TODO validations (length, format...)
 
-            // if validation is ok, insert and redirection
-            $userMessageManager = new UserManager();
-            $userMessageManager->insert($userMessages);
+            if (strlen($userMessages['firstname']) > 80) {
+                $errors[] = 'Le prénom renseigné ne doit pas dépasser 80 cractères.';
+            }
+
+            if (strlen($userMessages['lastname']) > 100) {
+                $errors[] = 'Le nom de famille renseigné ne doit pas dépasser 100 cractères.';
+            }
+
+            if (!filter_var($userMessages['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors[] = 'Veuillez renseigner une adresse mail valide.';
+            }
+
+            if (empty($errors)) {
+                // if validation is ok, insert and redirection
+                $contactManager = new ContactManager();
+                $contactManager->insert($userMessages);
+            }
         }
-        return $this->twig->render('User/contact.html.twig');
+        return $this->twig->render('User/contact.html.twig', ['errors' => $errors]);
     }
 
     public function details($id): string
