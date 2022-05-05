@@ -23,7 +23,7 @@ return [
     'admin/edit' => ['AdminController', 'edit', ['id']],
     'admin/delete' => ['AdminController', 'delete',],
     'admin/author' => ['AdminController', 'authorList'],
-    'admin/details' => ['AdminController','details', ['id'],],
+    'admin/details' => ['DetailController','details', ['id'],],
     'admin/author/add' => ['AdminController', 'addAuthor'],
     'admin/author/edit' => ['AdminController', 'authorEdit', ['id']],
     'admin/author/delete' => ['AdminController', 'deleteAuthor'],
