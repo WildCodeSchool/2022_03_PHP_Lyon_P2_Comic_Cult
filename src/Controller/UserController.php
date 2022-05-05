@@ -37,7 +37,7 @@ class UserController extends AbstractController
         );
         // Use this method to delete duplicates (for ex: One comic may have 2 or 3 authors).
         $finalList = $utilityService->arrayUnique($finalList, 'title');
-        return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
+        return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList,]);
     }
 
     public function details($id): string

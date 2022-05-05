@@ -67,17 +67,16 @@
 						<h1 class="accordion-header justify-content-center d-flex p-2">Informations  ▼ </h1>
 						<div class=" accordion-content fs-3">
 							<p class = "text-truncate p-0 px-2"> 
-								<span class="detail_title_mobile text-truncate detail_title fs-1">{{comics.title}}</span> <br>
-								Par <span class="detail_author_mobile author_name_details fs-3">
+								<span class="detail_title_mobile text-truncate detail_title fs-2">{{comics.title}}</span> <br>
+								Par <span class="detail_author_mobile author_name_details fs-4">
 									{% for author in authors %}
 										{% if comic.id == author.comic_book_id %}
-											{{ author.first_name ~ ' ' ~ author.last_name }}</br>
+											{{ author.first_name ~ " " ~ author.last_name }}</br>
 										{% endif %}
 									{% endfor %}
-								 </span><br>
+								 </span>
 								<span class="detail_global_infos_mobile fs-4 category_details">{{comics.category}} <br></span>
-								<span class="detail_global_infos_mobile detail_tome_date fs-4">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
-								<span class="detail_global_infos_mobile detail_isbn fs-5">isbn : {{comics.isbn}}<span>
+								<span class="detail_global_infos_mobile detail_tome_date fs-6">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
 							</p>
 						</div>
 					</div>

@@ -33,7 +33,7 @@
 								<h3 class=" fs-5">
 									Une BD de
 									<span class="author_name_details">
-										{{comicBook.author_name}}
+										{{ comicBook.first_name ~ " " ~ comicBook.last_name}}</br>
 									</span>
 								</h3>
 							</div>
@@ -80,7 +80,7 @@
 								<h3 class=" fs-5">
 									Une BD de
 									<span class="author_name_details">
-										{{comicBook.author_name}}
+										{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
 									</span>
 								</h3>
 							</div>
@@ -128,8 +128,8 @@
 								<div class="infos-bd-truncated align-self-center">
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
-											{{comicBook.title}}
-											{{comicBook.author_name}}
+											{{comicBook.title}} |
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
 											| T
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
@@ -189,8 +189,8 @@
 								<div class="infos-bd-truncated align-self-center">
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
-											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}}</a>
-											{{comicBook.author_name}}
+											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}} | </a>
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
 											| T
 											{{comicBook.volume}}<span></li>
 											<li>
