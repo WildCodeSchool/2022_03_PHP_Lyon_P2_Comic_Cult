@@ -184,6 +184,14 @@ CREATE TABLE contact (
 
 CREATE TABLE keywords_search (
 	keyword VARCHAR(80));
+    
+------------------------------------------------------
+-- REQUEST FOR 'auto_completion' TABLE CREATION     --
+------------------------------------------------------
+
+CREATE TABLE auto_completion (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    string VARCHAR(255) NOT NULL);
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
