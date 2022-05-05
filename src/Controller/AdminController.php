@@ -287,4 +287,15 @@ class AdminController extends AbstractController
             header('Location:/admin/contact');
         }
     }
+
+    public function details($id): string
+    {
+        $adminManager = new AdminManager();
+        $comics = $adminManager->selectOneById($id);
+        $comicsAuthor = $adminManager->selectAllAuthorsInJunction();
+        return $this->twig->render('Admin/details.html.twig', array(
+            'comics' => $comics,
+            'comicAuthors' => $comicsAuthor
+        ));
+    }
 }
