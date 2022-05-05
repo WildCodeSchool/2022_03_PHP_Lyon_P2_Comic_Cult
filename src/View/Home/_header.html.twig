@@ -1,41 +1,37 @@
-
 <header class="home_header position-relative mt-4 me-4">
+	<div class="position-absolute top-0 end-0 ">
+		<a href="admin/list" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img id="admin_icon" src="/assets/images/admin_icon.png"></a>
 
-    
-    <div class="position-absolute top-0 end-0 ">
-            <a href="admin/list" class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img id="admin_icon" src="/assets/images/admin_icon.png"></a>
-
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Connexion à l'espace Adminstrateur</h5>
+		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Connexion à l'espace Adminstrateur</h5>
 
 
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="auth" method="POST">
+							<div class="container" id="spaceAdminConnexion">
 
+								<label class="container" id="spaceAdminLogin" for="Name">Log in</label>
+								<input type="text" name="user_name" required>
 
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body" >
-                            <form  action="auth" method="POST">
-                                <div class= "container" id="spaceAdminConnexion">
-                            
-                                <label class="container" id="spaceAdminLogin" for="Name">Log in</label>
-                                <input type="text" name="user_name" required>
+								<label class="container " for="Name" id="spaceAdminMdp">
+									Mot de passe</label>
+								<input type="password" name="password" required>
 
-                                <label class="container " for="Name" id="spaceAdminMdp"> Mot de passe</label>
-                                <input type="password" name= "password" required>
+								<button class="btn btn-dark btn-lg m-4" id="buttonSubmit">SUBMIT</button>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-dark" data-bs-dismiss="modal" id="buttonClose">fermer</button>
 
-                                <button class = "btn btn-dark btn-lg m-4" id="buttonSubmit" >SUBMIT</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal" id="buttonClose" >fermer</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </header>
