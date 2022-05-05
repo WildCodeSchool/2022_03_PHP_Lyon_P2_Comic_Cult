@@ -21,7 +21,8 @@ header {
     font-size: 20px;
 }
 #edit_btn,
-#delete_btn {
+#delete_btn,
+#view_btn {
     font-family: var(--main_font);
     color: var(--main_font_color);
     font-size: 20px;
@@ -43,6 +44,7 @@ tbody, th, td {
     border-color: var(--main_border_color);
     font-size: 22px;
     text-align: center;
+    vertical-align: middle;
 }
 .table_line
 {
@@ -56,8 +58,13 @@ tbody, th, td {
     width: 25%;
 }
 .add_suppr_column {
-    width: 8%;
+    width: 1%;
 }
+
+.detail_column {
+    width: 1%;
+}
+
 #return_button {
     width: 60px;
     height: auto;
@@ -93,4 +100,37 @@ body {
     margin: -35px 5px  0px 0px;
     align-items: center;
     float: right;
+}
+
+/* Contacts messages page */
+
+.firstname_column {
+    width: 15%;
+}
+
+.lastname_column {
+    width: 15%;
+}
+
+.email_column {
+    width: 25%;
+}
+
+.delete_message_column {
+    width: 1%;
+}
+
+/* Scroll btn JS */
+
+#scrollUp {
+    position: fixed;
+    opacity: 0.9;
+    bottom : 1vh;
+    right: 1vh;
+}
+  
+#scrollup_img {
+      width: calc(35px + 1vw);
+      height: calc(35px + 1vw);
+      display: none;
 }

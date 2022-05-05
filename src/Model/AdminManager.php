@@ -6,6 +6,8 @@ class AdminManager extends AbstractManager
 {
     public const TABLE = 'comic_book';
     public const TABLE2 = 'comic_book_author';
+    public const CONTACT_TABLE = 'contact';
+
 
     /**
      * Delete comic book from database
@@ -141,5 +143,16 @@ class AdminManager extends AbstractManager
                         WHERE comic_book_author.comic_book_id=' . $id . ';';
 
             return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
+  
+    /**
+     * Delete comic book from database
+     */
+    public function messageDelete(int $id): void
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM " . static::CONTACT_TABLE . " WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }
