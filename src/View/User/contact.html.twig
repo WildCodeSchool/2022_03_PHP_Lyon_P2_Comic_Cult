@@ -49,6 +49,15 @@
 		<div class="split-container d-flex flex-column col-md-1"></div>
 		<div class="form-container row col-md-4 col-sm-12">
 			<h1 class="form_title d-flex justify-content-center mt-5">Formulaire de contact</h1>
+			{% if errors is not empty %}
+				<div>
+					<ul>
+						{% for error in errors %}
+							<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
 			<form method="POST" class="contact-form mt-5 mb-3 px-5">
 				<label for="firstname" class="form-label pt-3 ps-5">Prénom :</label>
 				<input type="text" class="form-control" name="firstname" id="firstname" required maxlength="80" placeholder="Gaston">
