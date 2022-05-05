@@ -16,29 +16,32 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $utilityService = new UtilityService();
         $keywords = $userManager->keywordsList();
+        $completionList = $userManager->selectTwentyLastCompletions();
 
-        $comicByTitleAndPitch = $userManager->listByKeywords();
         $comicByAuthor = $userManager->listByAuthor();
         $comicByCategory = $userManager->listByCategory();
+        $comicByTitleAndPitch = $userManager->listByKeywords();
 
         // Use this function to merge an array in an other one.
-        $comicBooks = array_merge($comicByTitleAndPitch, $comicByAuthor, $comicByCategory);
+        $comicBooks = array_merge($comicByAuthor, $comicByCategory, $comicByTitleAndPitch);
         // Use this new method to sort comics by an attribute.
         $splitAuthorFirstName = $utilityService->sortByWords($keywords, $comicBooks, 'first_name');
         $splitAuthorLastName = $utilityService->sortByWords($keywords, $comicBooks, 'last_name');
+        $plitCategory = $utilityService->sortByWords($keywords, $comicBooks, 'category');
         $splitTitle = $utilityService->sortByWords($keywords, $comicBooks, 'title');
         $splitKeywords = $utilityService->sortByWords($keywords, $comicBooks, 'keywords');
-        $plitCategory = $utilityService->sortByWords($keywords, $comicBooks, 'category');
         $finalList = array_merge(
-            $splitAuthorFirstName,
             $splitAuthorLastName,
+            $splitAuthorFirstName,
+            $plitCategory,
             $splitTitle,
-            $splitKeywords,
-            $plitCategory
+            $splitKeywords
         );
         // Use this method to delete duplicates (for ex: One comic may have 2 or 3 authors).
         $finalList = $utilityService->arrayUnique($finalList, 'title');
-        return $this->twig->render('User/list.html.twig', ['comicBooks' => $finalList]);
+
+        return $this->twig->render('User/list.html.twig', array('comicBooks' => $finalList,
+                                                                    'completionList' => $completionList));
     }
 
     /**
@@ -62,11 +65,14 @@ class UserController extends AbstractController
     public function details($id): string
     {
         $adminManager = new AdminManager();
+        $userManager = new UserManager();
         $comics = $adminManager->selectOneById($id);
         $comicsAuthor = $adminManager->selectAllAuthorsInJunction();
+        $completionList = $userManager->selectTwentyLastCompletions();
         return $this->twig->render('User/details.html.twig', array(
             'comics' => $comics,
-            'comicAuthors' => $comicsAuthor
+            'comicAuthors' => $comicsAuthor,
+            'completionList' => $completionList
         ));
     }
 
