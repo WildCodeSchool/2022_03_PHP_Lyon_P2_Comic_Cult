@@ -69,22 +69,6 @@ class UserManager extends AbstractManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Insert new message in database
-     */
-    public function insert(array $userMessages): int
-    {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::CONTACT_TABLE . " (firstname, lastname, email, message)
-        VALUES (:firstname, :lastname, :email, :message)");
-        $statement->bindValue('firstname', $userMessages['firstname'], \PDO::PARAM_STR);
-        $statement->bindValue('lastname', $userMessages['lastname'], \PDO::PARAM_STR);
-        $statement->bindValue('email', $userMessages['email'], \PDO::PARAM_STR);
-        $statement->bindValue('message', $userMessages['message'], \PDO::PARAM_STR);
-
-        $statement->execute();
-        return (int)$this->pdo->lastInsertId();
-    }
-
     public function listByCategory(): array
     {
         $query = 'SELECT DISTINCT comic_book.*, author.first_name, author.first_name_keyword,
@@ -99,5 +83,15 @@ class UserManager extends AbstractManager
         $comicBooks = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $comicBooks;
+    }
+
+    public function selectTwentyLastCompletions(): array
+    {
+        $query = 'SELECT user_research, MAX(id) as id_max FROM auto_completion
+                    GROUP BY user_research
+                    ORDER BY id_max DESC
+                    LIMIT 20;';
+
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
