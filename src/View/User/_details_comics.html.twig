@@ -15,7 +15,11 @@
 						<h3 class="p-2 fs-4">
 							Une BD de 
 							<span class="author_name_details">
-								{{comics.author_name}}
+						{% for author in authors %}
+							{% if comic.id == author.comic_book_id %}
+								{{ author.first_name ~ ' ' ~ author.last_name }}</br>
+							{% endif %}
+						{% endfor %}
 							</span>
 						</h3>
 					</div>
@@ -64,7 +68,13 @@
 						<div class=" accordion-content fs-3">
 							<p class = "text-truncate p-0 px-2"> 
 								<span class="detail_title_mobile text-truncate detail_title fs-1">{{comics.title}}</span> <br>
-								Par <span class="detail_author_mobile author_name_details fs-3">{{comics.author_name}} {{comicsAuthor.lastname}} </span><br>
+								Par <span class="detail_author_mobile author_name_details fs-3">
+									{% for author in authors %}
+										{% if comic.id == author.comic_book_id %}
+											{{ author.first_name ~ ' ' ~ author.last_name }}</br>
+										{% endif %}
+									{% endfor %}
+								 </span><br>
 								<span class="detail_global_infos_mobile fs-4 category_details">{{comics.category}} <br></span>
 								<span class="detail_global_infos_mobile detail_tome_date fs-4">{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages <br></span>
 								<span class="detail_global_infos_mobile detail_isbn fs-5">isbn : {{comics.isbn}}<span>
