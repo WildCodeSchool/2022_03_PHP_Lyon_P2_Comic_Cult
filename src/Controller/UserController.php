@@ -55,10 +55,6 @@ class UserController extends AbstractController
 
             // TODO validations (length, format...)
 
-            if (empty($userMessages['firstname']) || empty($userMessages['lastname']) || empty($userMessages['email']) || empty($userMessages['message'])) {
-                $errors[] = 'Tous les champs doivent être renseignés.';
-            }
-
             if (strlen($userMessages['firstname']) > 30) {
                 $errors[] = 'Le prénom renseigné ne doit pas dépasser 30 caractères.';
             }
