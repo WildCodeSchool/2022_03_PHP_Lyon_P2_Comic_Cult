@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig'%}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/search_style.css">
+	<link rel="stylesheet" href="/assets/css/details_style.css">
+    <link rel="stylesheet" href="/assets/css/admin_style.css">
+	<link rel="icon" href="" type="image/svg+xml">
+
+{% endblock %}
+
+{% block title %}
+	{{ parent() }}
+	- BD details for admins
+{% endblock %}
+
+{% block content %}
+
+        {% include "Admin/_header.html.twig" %}
+		{% include "User/_details_comics.html.twig" %}
+
+
+{% block javascript %}
+
+		<script src="/assets/JS/script.js"></script>
+
+{% endblock %}
+
+	<!--format mobile/incorporation de JS-->
+
+{% endblock %}

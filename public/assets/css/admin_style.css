@@ -120,6 +120,11 @@ body {
     width: 1%;
 }
 
+/*  View btn  */
+
+#view_btn > a {
+  color : #c9c3c3 !important;
+}
 /* Scroll btn JS */
 
 #scrollUp {
