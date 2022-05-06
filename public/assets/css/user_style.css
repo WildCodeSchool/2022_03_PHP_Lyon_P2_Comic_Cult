@@ -85,34 +85,6 @@ body {
     color: var(--second_font_color);
 }
 
-/* Button admin connexion modal */
-
-#spaceAdminLogin{
-   font-size: 25px;
-   padding: 10px;
-   font-family: sans-serif;
-}
-
-#spaceAdminMdp{
-    font-size: 25px;
-    padding-bottom: 10px;
-    font-family: sans-serif;
-}
-
-#spaceAdminConnexion{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color:#e6e6e6;
-}
-
-#return_button_user_contact {
-    width: 60px;
-    height: auto;
-    margin-top: 0px;
-    margin-left: 10px;
-}
 
 /* Contact page css */
 

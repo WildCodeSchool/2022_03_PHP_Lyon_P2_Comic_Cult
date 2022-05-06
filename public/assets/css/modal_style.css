@@ -1,0 +1,48 @@
+/* button admin connexion modal */
+
+#spaceAdminLogin{
+    font-size: 25px;
+    padding: 10px;
+ }
+ 
+ #spaceAdminMdp{
+     font-size: 25px;
+     padding-bottom: 10px;
+
+ }
+ 
+ 
+ #spaceAdminConnexion{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+     background-color:#e6e6e6;
+ }
+
+ #staticBackdrop{
+     font-family: var(--main_font);
+     color : black;
+ }
+
+ #spaceAdminConnexion{
+    font-family: var(--main_font);
+    color : black;
+    border: 2px solid var(--main_border_color);
+ }
+
+ #buttonSubmit{
+    border: 2px solid var(--main_border_color);
+    border-radius: calc(30px + 1vw);
+ }
+
+ #buttonClose{
+    border: 2px solid var(--main_border_color);
+    border-radius: calc(30px + 1vw);
+ }
+
+ #staticBackdropLabel{
+     font-size: 30px;
+ }
+
+ 
