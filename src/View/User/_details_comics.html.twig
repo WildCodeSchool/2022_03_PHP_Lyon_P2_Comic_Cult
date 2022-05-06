@@ -24,55 +24,42 @@
 						</h3>
 					</div>
 
-			<div class="col-lg-6 col-xl-7 col-md-6 mb-lg-3 details_card_body p-2">
-				<div class="detail_title">
-					<h1 class="p-2 fs-3">{{comics.title}}</h1>
-				</div>
-				<div class="detail_description text-truncate">
-					<h3 class="p-2 fs-4">
-						Une BD de
-						<span class="author_name_details">
-							{{comics.author_name}}
-						</span>
-					</h3>
-				</div>
+					<div class="detail_tome_date">
+						<h2 class="px-2 fs-5 category_details">
+							{{comics.category}}
+						</h2>
+					</div>
 
-				<div class="detail_tome_date">
-					<h2 class="px-2 fs-5 category_details">
-						{{comics.category}}
-					</h2>
-				</div>
+					<div class="detail_tome_date">
+						<h2 class="px-2 fs-5">
+							<i class="fas fa-calendar-alt"></i>{{comics.date_of_release}} | tome n°{{comics.volume}} | {{comics.nb_pages}} pages
+						</h2>
+					</div>
 
-				<div class="detail_tome_date">
-					<h2 class="px-2 fs-5">
-						<i class="fas fa-calendar-alt"></i>
-						{{comics.date_of_release}}
-						| tome n°{{comics.volume}}
-						|
-						{{comics.nb_pages}}
-						pages
-					</h2>
-				</div>
+					<div class="detail_isbn">
+						<h2 class=" px-2 fs-5">
+							{{comics.isbn}}
+						</h2> 
+						<hr>
+					</div>
 
-				<div class="detail_isbn">
-					<h2 class=" px-2 fs-5">
-						{{comics.isbn}}
-					</h2>
-					<hr>
-				</div>
-
-				<div class="">
-					<h3 class="px-2 fs-md-5 mb-3 mb-lg-0 fs-5 pitch_details">
-						Résumé :<br><br>
-						{{comics.pitch}}
-					</h3>
+					<div class="">
+						<h3 class="px-2 fs-md-5 mb-3 mb-lg-0 fs-5 pitch_details">
+							Résumé :<br><br> {{comics.pitch}}
+						</h3>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<!-- mobile section -->
+	<!-- mobile section -->
+	
+	<div class="justify-content-center d-flex d-md-none flex-direction-column">
+		<div class=" col-10 col-sm-1O  mt-2">
+			<div class=" p-0">
+				<img class="img-fluid w-100 img_sm_details" src="{{comics.cover}}" alt="" srcset="">
+			</div>
 
 			<div class="p-0 bulle mt-4" id="bubble">
 				<div class="accordion justify-content-center">
@@ -104,8 +91,4 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class"container border">
-	<button 
 </div>
