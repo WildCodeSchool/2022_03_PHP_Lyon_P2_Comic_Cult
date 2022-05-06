@@ -184,6 +184,14 @@ CREATE TABLE contact (
 
 CREATE TABLE keywords_search (
 	keyword VARCHAR(80));
+    
+------------------------------------------------------
+-- REQUEST FOR 'auto_completion' TABLE CREATION     --
+------------------------------------------------------
+
+CREATE TABLE auto_completion (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    user_research VARCHAR(255) NOT NULL);
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
@@ -219,7 +227,7 @@ INSERT INTO comic_cult.category (category,category_keyword) VALUES
 	 ('Jeunesse','jeunesse');
 INSERT INTO comic_cult.category (category,category_keyword) VALUES
 	 ('Médical','medical'),
-	 ('Poltique','politique'),
+	 ('Politique','politique'),
 	 ('Graphique','graphique'),
 	 ('Sentimental','sentimental'),
 	 ('Underground','undeground');

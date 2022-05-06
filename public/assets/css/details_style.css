@@ -1,5 +1,9 @@
 /* Bubble visual section */
 
+.list_img_details {
+    border-radius: 20px;
+    }
+
 .img_details {
     border-radius: 20px;
 }

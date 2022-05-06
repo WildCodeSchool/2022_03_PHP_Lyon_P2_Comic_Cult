@@ -1,20 +1,19 @@
 {% extends 'layout.html.twig'%}
 {% block stylesheet %}<link rel="stylesheet" href="/assets/css/search_style.css">
 	<link rel="stylesheet" href="/assets/css/details_style.css">
+    <link rel="stylesheet" href="/assets/css/admin_style.css">
 	<link rel="icon" href="" type="image/svg+xml">
-	<link rel="stylesheet" href="/assets/css/modal_style.css"> 
-
 
 {% endblock %}
 
 {% block title %}
 	{{ parent() }}
-	- BD details
+	- BD details for admins
 {% endblock %}
 
 {% block content %}
-		{% include "User/_search_bar_details.html.twig" %}
-		{% include "Home/_footer.html.twig" %}
+
+        {% include "Admin/_header.html.twig" %}
 		{% include "User/_details_comics.html.twig" %}
 
 

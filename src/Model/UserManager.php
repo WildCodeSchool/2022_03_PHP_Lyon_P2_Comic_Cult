@@ -84,4 +84,14 @@ class UserManager extends AbstractManager
 
         return $comicBooks;
     }
+
+    public function selectTwentyLastCompletions(): array
+    {
+        $query = 'SELECT user_research, MAX(id) as id_max FROM auto_completion
+                    GROUP BY user_research
+                    ORDER BY id_max DESC
+                    LIMIT 20;';
+
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
