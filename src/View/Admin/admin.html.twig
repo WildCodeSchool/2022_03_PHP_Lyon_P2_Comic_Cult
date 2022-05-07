@@ -43,11 +43,8 @@
 										<button type="submit" id="delete_btn" class="btn btn-dark" onclick="return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
 									</form>
 								</td>
-								<td>
-									<form action="" method="POST">
-										<input type="hidden" name="id" value="{{ comic.id }}">
-										<button type="submit" id="view_btn" class="btn btn-dark"><a class="text-decoration-none text-white" href= "details?id={{ comic.id }}"> afficher </a></button>
-									</form>
+								<td class="align-middle">
+									<a href="details?id={{ comic.id }}"><input type="submit" id="edit_btn" class="btn btn-dark" value="afficher"></a>
 								</td>
 							</tr>
 						{% endfor %}
