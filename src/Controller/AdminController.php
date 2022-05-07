@@ -233,6 +233,10 @@ class AdminController extends AbstractController
 
     public function authorEdit($id)
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
 
         $authorManager = new AuthorManager();
         $cleanComicAuthor = new AddAuthorService();
@@ -261,6 +265,11 @@ class AdminController extends AbstractController
      */
     public function messagesList(): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $contactManager = new ContactManager();
         $userMessages = $contactManager->selectAll();
 

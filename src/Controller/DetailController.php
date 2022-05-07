@@ -8,6 +8,11 @@ class DetailController extends AbstractController
 {
     public function details($id): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $adminManager = new AdminManager();
         $comics = $adminManager->selectOneById($id);
         $authors = $adminManager-> selectAuthorInJunctionById($id);
