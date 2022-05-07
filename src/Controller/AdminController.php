@@ -244,7 +244,6 @@ class AdminController extends AbstractController
             $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
             $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
             $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
-            var_dump($comicAuthor);
 
             $errors = $cleanComicAuthor->getCheckErrors();
             if (empty($cleanComicAuthor->getCheckErrors())) {
