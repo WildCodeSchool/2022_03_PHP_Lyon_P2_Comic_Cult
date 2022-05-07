@@ -132,9 +132,9 @@
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
 											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}} | </a>
-											{{comicBook.title}} |
-											{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
-											| T
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}} |
+											{{comicBook.category}} | T
+											{{comicBook.volume}}</span>
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
 											</li>
@@ -163,10 +163,9 @@
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
 											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}} | </a>
-											{{comicBook.title}}
-											{{comicBook.author_name}}
-											| T
-											{{comicBook.volume}}<span></li>
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}} |
+											{{comicBook.category}} | T
+											{{comicBook.volume}}</span>
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
 											</li>
@@ -195,9 +194,9 @@
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
 											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}} | </a>
-											{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
-											| T
-											{{comicBook.volume}}<span></li>
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}} |
+											{{comicBook.category}} | T
+											{{comicBook.volume}}</span>
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
 											</li>
