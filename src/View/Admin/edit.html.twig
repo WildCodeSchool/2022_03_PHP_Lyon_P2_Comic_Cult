@@ -100,7 +100,7 @@
                     <div class="form-group row mt-3">
                         <label for="pitch" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé <span class="asterisk">*</span></label>
                         <div class="col-sm-8 col-lg-10 col-md-8">
-                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4">{{ comicBook.pitch }}</textarea>
+                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4" required>{{ comicBook.pitch }}</textarea>
                     </div>
                 </div>
                 
@@ -129,6 +129,12 @@
             <div class="row text-center">
                 <h1> LES CHAMPS <small class="asterisk">(*)</small> SONT OBLIGATOIRES.</h1>
             </div>
+        </div>
+
+        <div class="container text-center">
+            {% for error in errors %}
+                <p class="text-warning fs-6 lh-1">{{ error }}</p>
+            {% endfor %}
         </div>
 
     {% endblock %}
