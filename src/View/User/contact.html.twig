@@ -11,44 +11,44 @@
 	{% include "User/_user_header.html.twig" %}
 	<a class="white_link position-absolute mt-3" href="/"><img id="return_button_user_contact" src="/assets/images/bouton-retour.png" alt=""></a>
 	<main class="contact-page container-fluid row">
-		<div class="img-container d-flex justify-content-center mb-3 row col-md-7 col-sm-12">
-			<h1 class="team_title d-flex mt-4">L'équipe</h1>
-			<div class="d-flex justify-content-center row col-md-6">
+		<div class="img-container row col-md-6 col-sm-12">
+			<h1 class="team_title d-flex mt-3">L'équipe</h1>
+			<div class="d-flex justify-content-center mb-5 row col-md-6">
 				<div class="card mb-2">
-					<div class="d-flex justify-content-end"><img src="/assets/images/avatar.jpg" class="card-img-top mt-3" alt=""></div>
+					<div class="d-flex justify-content-end"><img src="/assets/images/naji.png" class="card-img-top mt-3" alt=""></div>
 					<div class="card-body">
 						<h5 class="card-title">Naji M.</h5>
-						<p class="card-text">Texte de présentation à personnaliser.</p>
+						<p class="card-text d-flex justify-content-center">Le baroudeur de youtube ! Une question sur une ressource ? Naji peut vous répondre.</p>
 					</div>
 				</div>
 				<div class="card mb-2">
-					<div class="d-flex justify-content-end"><img src="/assets/images/dh.png" class="card-img-top mt-3" alt=""></div>
+					<div class="d-flex justify-content-end"><img src="/assets/images/david.png" class="card-img-top mt-3" alt=""></div>
 					<div class="card-body">
 						<h5 class="card-title">David H.</h5>
-						<p class="card-text">Lecteur assidu depuis de nombreuses années, je suis comme Obélix tombé dedans quand j'étais petit !</p>
+						<p class="card-text d-flex justify-content-center">La bd, c'est comme pour Obélix, il est tombé dedans quand il étais petit.</p>
 					</div>
 				</div>
 			</div>
-			<div class="d-flex justify-content-center row col-md-6">
+			<div class="d-flex justify-content-center mb-5 row col-md-6">
 				<div class="card mb-2">
-					<div class="d-flex justify-content-end"><img src="/assets/images/avatar.jpg" class="card-img-top mt-3" alt=""></div>
+					<div class="d-flex justify-content-end"><img src="/assets/images/vincent.png" class="card-img-top mt-3" alt=""></div>
 					<div class="card-body">
 						<h5 class="card-title">Vincent D.</h5>
-						<p class="card-text">Texte de présentation à personnaliser.</p>
+						<p class="card-text d-flex justify-content-center">La technique du moteur de recherche et les bases de données n'ont plus de secret pour Vincent !</p>
 					</div>
 				</div>
 				<div class="card mb-2">
-					<div class="d-flex justify-content-end"><img src="/assets/images/avatar.jpg" class="card-img-top mt-3" alt=""></div>
+					<div class="d-flex justify-content-end"><img src="/assets/images/yannis.png" class="card-img-top mt-3" alt=""></div>
 					<div class="card-body">
 						<h5 class="card-title">Yannis C.</h5>
-						<p class="card-text">Texte de présentation à personnaliser.</p>
+						<p class="card-text d-flex justify-content-center">Le spécialiste de bootstrap 5. Peut vous créer 5 div à la seconde !</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="split-container d-flex flex-column col-md-1"></div>
-		<div class="form-container row col-md-4 col-sm-12">
-			<h1 class="form_title d-flex justify-content-center mt-5 mb-3">Formulaire de contact</h1>
+		<div class="form-container row col-md-5 col-sm-12">
+			<h1 class="form_title d-flex mt-3 mb-5">Contact</h1>
 			{% if errors is not empty %}
 				<div>
 					<ul>
@@ -58,16 +58,16 @@
 					</ul>
 				</div>
 			{% endif %}
-			<form method="POST" class="contact-form mt-5 mb-3 px-5">
+			<form method="POST" class="contact-form px-4">
 				<label for="firstname" class="form-label pt-3 ps-5">Prénom :</label>
 				<input type="text" class="form-control" name="firstname" id="firstname" required placeholder="* Champ obligatoire">
 				<label for="lastname" class="form-label pt-3 ps-5">Nom :</label>
 				<input type="text" class="form-control" name="lastname" id="lastname" required placeholder="* Champ obligatoire">
 				<label for="email" class="form-label pt-3 ps-5">Email :</label>
 				<input type="text" class="form-control" name="email" id="email" required placeholder="* Champ obligatoire">
-				<textarea class="form-control mt-5 mb-2" name="message" id="message" required placeholder="* Champ obligatoire" style="height: 200px"></textarea>
+				<textarea class="form-control mt-5 mb-2" name="message" id="message" required placeholder="* Champ obligatoire" style="height: 20%"></textarea>
 				<div class="d-flex justify-content-end">
-					<button name="send_message" type="submit" class="btn send_btn btn-dark">Envoyer</button>
+					<button name="send_message" type="submit" class="btn send_btn btn-dark mt-3">Envoyer</button>
 				</div>
 			</form>
 		</div>
