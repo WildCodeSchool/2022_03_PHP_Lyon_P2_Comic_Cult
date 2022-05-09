@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block title %}
-	{{ parent() }}
-	- Search BD
+	Résultats {{ parent() }}
 {% endblock %}
 
 {% block content %}
@@ -36,6 +35,7 @@
 									<span class="author_name_details">
 										{{ comicBook.first_name ~ " " ~ comicBook.last_name}}</br>
 									</span>
+									<span class ="fs-6 category_details">{{comicBook.category}}</span>
 								</h3>
 							</div>
 
@@ -47,6 +47,7 @@
 									{{comicBook.nb_pages}}
 									pages
 								</h2>
+								
 							</div>
 							<hr>
 							<div class="pitch_section_list">
@@ -81,8 +82,9 @@
 								<h3 class=" fs-5">
 									Une BD de
 									<span class="author_name_details">
-										{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
+										{{ comicBook.first_name ~ " " ~ comicBook.last_name}}</br>
 									</span>
+									<span class ="fs-6 category_details">{{comicBook.category}}</span>
 								</h3>
 							</div>
 
@@ -123,15 +125,16 @@
 					<ul>
 						<div class="row  p-0 d-md-none">
 							<li class="col-3 col-md-3 p-0 d-flex align-items-center justify-content-center justify-content-md-end">
-								<img src="{{comicBook.cover}}" class="img-fluid-search h-100 " alt="">
+								<a href="details?id={{comicBook.id}}" class="text-decoration-none"><img src="{{comicBook.cover}}" class="img-fluid-search " alt=""></a>
 							</li>
 							<div class="col-8 row col-sm-8 col-md-7 mb-3 p-2">
 								<div class="infos-bd-truncated align-self-center">
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
-											{{comicBook.title}} |
-											{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
-											| T
+											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}} | </a>
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}} |
+											{{comicBook.category}} | T
+											{{comicBook.volume}}</span>
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
 											</li>
@@ -153,16 +156,16 @@
 					<ul>
 						<div class="row mb-">
 							<li class="col-3 col-md-3 d-flex align-items-center justify-content-center justify-content-md-end">
-								<img src="{{comicBook.cover}}" class="img-fluid-search " alt="">
+								<a href="details?id={{comicBook.id}}" class="text-decoration-none"><img src="{{comicBook.cover}}" class="img-fluid-search " alt=""></a>
 							</li>
 							<div class="col-8 row col-sm-8 col-md-7 p-2">
 								<div class="infos-bd-truncated align-self-center">
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
-											{{comicBook.title}}
-											{{comicBook.author_name}}
-											| T
-											{{comicBook.volume}}<span></li>
+											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}} | </a>
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}} |
+											{{comicBook.category}} | T
+											{{comicBook.volume}}</span>
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
 											</li>
@@ -191,9 +194,9 @@
 									<li>
 										<span class="bd-description fs-4 mb-md-2">
 											<a href="details?id={{comicBook.id}}" class="text-decoration-none">{{comicBook.title}} | </a>
-											{{ comicBook.first_name ~ " " ~ comicBook.last_name}}
-											| T
-											{{comicBook.volume}}<span></li>
+											{{ comicBook.first_name ~ " " ~ comicBook.last_name}} |
+											{{comicBook.category}} | T
+											{{comicBook.volume}}</span>
 											<li>
 												<small class="fs-6">{{comicBook.pitch}}</li>
 											</li>

@@ -2,13 +2,12 @@
 
 #spaceAdminLogin{
     font-size: 25px;
-    padding: 10px;
+    padding: 20px 0 5px;
  }
  
  #spaceAdminMdp{
      font-size: 25px;
-     padding-bottom: 10px;
-
+     padding: 20px 0 5px;
  }
  
  
@@ -17,32 +16,45 @@
      flex-direction: column;
      align-items: center;
      text-align: center;
-     background-color:#e6e6e6;
+     background-color:var(--main_bg_color);
  }
 
  #staticBackdrop{
      font-family: var(--main_font);
-     color : black;
+     color : var(--third_font_color);
  }
 
  #spaceAdminConnexion{
     font-family: var(--main_font);
-    color : black;
+    color : var(--main_font_color);
     border: 2px solid var(--main_border_color);
  }
 
  #buttonSubmit{
-    border: 2px solid var(--main_border_color);
-    border-radius: calc(30px + 1vw);
+    border: 1px solid var(--main_border_color);
+    border-radius: 10px;
  }
 
  #buttonClose{
-    border: 2px solid var(--main_border_color);
-    border-radius: calc(30px + 1vw);
+    border: 1px solid var(--main_border_color);
+    border-radius: 10px;
  }
 
  #staticBackdropLabel{
-     font-size: 30px;
+     font-size: 25px;
+ }
+
+ .modalInput {
+    width: 50%;
+    background-color: var(--main_font_color);
+    border-radius: calc(30px + 1vw);
+    border: 2px solid var(--main_border_color);
+    text-align: center;
+    letter-spacing: 1px;
+ }
+
+ .modal-header, .modal-body, .modal-footer {
+     background-color: var(--main_font_color);
  }
 
  

@@ -55,7 +55,7 @@ class AddComicService extends UtilityService
     public function comicBookNumberValidate(array $comicBook): void
     {
         if (!empty($comicBook['volume']) && !filter_var($comicBook['volume'], FILTER_VALIDATE_INT)) {
-            $this->checkErrors[] = 'Le nombre de tomes doit être composé de chiffres.';
+            $this->checkErrors[] = 'Le numéro du volume doit être composé de chiffres.';
         }
         if (!empty($comicBook['nb_pages']) && !filter_var($comicBook['nb_pages'], FILTER_VALIDATE_INT)) {
             $this->checkErrors[] = 'Le nombre de pages ne peut pas être écrit avec des lettres.';
@@ -72,13 +72,13 @@ class AddComicService extends UtilityService
         $maxFileSize = 2000000;
 
         if ((!in_array($extension, $authorizedExtensions))) {
-            $this->checkErrors[] = 'Veuillez sélectionner une image de type Jpg ou Jpeg ou Png !';
+            $this->checkErrors[] = 'Veuillez sélectionner une image de type JGG, JPEG ou PNG.';
         }
         if (
             file_exists($coverToUpload['cover']['tmp_name'])
             && filesize($coverToUpload['cover']['tmp_name']) > $maxFileSize
         ) {
-            $this->checkErrors[] = "Votre fichier doit faire moins de 2M !";
+            $this->checkErrors[] = "Votre fichier doit faire moins de 2 Mo.";
         }
     }
 }

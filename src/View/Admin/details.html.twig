@@ -7,13 +7,18 @@
 {% endblock %}
 
 {% block title %}
-	{{ parent() }}
-	- BD details for admins
+	Admin - Détails BD {{ parent() }}
+
 {% endblock %}
 
 {% block content %}
 
         {% include "Admin/_header.html.twig" %}
+
+		<div class="container-fluid return">
+    		<a class="white_link" href="/admin/list"><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
+		</div>
+		
 		{% include "User/_details_comics.html.twig" %}
 
 
@@ -22,7 +27,5 @@
 		<script src="/assets/JS/script.js"></script>
 
 {% endblock %}
-
-	<!--format mobile/incorporation de JS-->
 
 {% endblock %}

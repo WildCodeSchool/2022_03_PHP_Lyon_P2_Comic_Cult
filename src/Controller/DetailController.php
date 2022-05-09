@@ -8,12 +8,17 @@ class DetailController extends AbstractController
 {
     public function details($id): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $adminManager = new AdminManager();
         $comics = $adminManager->selectOneById($id);
-        $comicsAuthor = $adminManager->selectAllAuthorsInJunction();
+        $authors = $adminManager-> selectAuthorInJunctionById($id);
         return $this->twig->render('Admin/details.html.twig', array(
             'comics' => $comics,
-            'comicAuthors' => $comicsAuthor
+            'authors' => $authors
         ));
     }
 }

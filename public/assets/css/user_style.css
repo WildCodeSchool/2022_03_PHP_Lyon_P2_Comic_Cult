@@ -181,17 +181,11 @@ body {
     font-size: 35px;
 }
 
-.website_title {
-    font-size: calc(22px + 2vw);
-    font-family: var(--main_font);
-    color: #D80505;
-}
-
-.website_title span {
-    font-size: calc(18px + 2vw);
-    color: #EED706;
-}
-
-.website_title span:last-child {
-    color: #6AA3F9;
+#return_button_user_contact,
+#return_button_confirm
+{
+    width: 60px;
+    height: auto;
+    margin-top: 0px;
+    margin-left: 10px;
 }
