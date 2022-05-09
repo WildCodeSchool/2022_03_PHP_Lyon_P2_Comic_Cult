@@ -2,12 +2,12 @@
 	<header class="container-fluid position-relative header_search order-md-1">
 		<div class="row">
 			<div class=" col-md-3 col-xl-2 col-10 d-flex justify-content-start justify-content-lg-start">
-				<a href="/search"><h1 class="website_title ">B<span>d</span>
+				<a href="#" onclick="history.back()"><h1 class="website_title ">B<span>d</span>
 					C<span>ult'</span></a>
 				</h1>
 			</div>
 			<div class="position-absolute">
-		<a href="admin/list" class="position-absolute top-0 end-0 btn btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img id="admin_icon" src="/assets/images/admin_icon.png"></a>
+		<a href="admin/list" class="position-absolute top-0 end-0 btn btn-lg mt-4 me-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img id="admin_icon" src="/assets/images/admin_icon.png"></a>
 
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -23,11 +23,11 @@
 							<div class="container" id="spaceAdminConnexion">
 
 								<label class="container" id="spaceAdminLogin" for="Name">Log in</label>
-								<input type="text" name="user_name" required>
+								<input class="modalInput" type="text" name="user_name" required>
 
 								<label class="container " for="Name" id="spaceAdminMdp">
 									Mot de passe</label>
-								<input type="password" name="password" required>
+								<input class="modalInput" type="password" name="password" required>
 
 								<button class="btn btn-dark btn-lg m-4" id="buttonSubmit">SUBMIT</button>
 							</div>
@@ -41,16 +41,20 @@
 			</div>
 		</div>
 	</div>
-			<div class="col-xl-8 col-md-7 ">
-				<form action="/" class="search_bar w-85 ps-3 pe-2 d-flex mt-2 mt-md-3 mb-4 mb-md-0 mb-lg-3 mb-xl-5 mt-lg-4 justify-content-center order-md-2" method="POST">
-					<input class="search_input w-100 me-2 d-flex" type="search" list="completionList" autocomplete="off" name="keywords" placeholder="Rechercher une BD..." aria-label="Search" required>
-					<datalist id="completionList">
-                		{% for completion in completionList %}
-                		    <option>{{ completion.user_research }}</option>
-                		{% endfor %}
-            		</datalist>
-					<button class="search_button" type="submit"><img id="snag_icon" src="/assets/images/snag_icon.png" alt=""></button>
-				</form>
-			</div>
+		<div class="col-xl-8 col-md-7 ">
+			<form action="/" class="search_bar w-85 ps-3 pe-2 d-flex mt-2 mt-md-3 mb-4 mb-md-0 mb-lg-3 mb-xl-5 mt-lg-4 justify-content-center order-md-2" method="POST">
+				<input class="search_input w-100 me-2 d-flex" type="search" list="completionList" autocomplete="off" name="keywords" placeholder="Rechercher une BD..." aria-label="Search" required>
+				<datalist id="completionList">
+            		{% for completion in completionList %}
+            		    <option>{{ completion.user_research }}</option>
+            		{% endfor %}
+        		</datalist>
+				<button class="search_button" type="submit"><img id="snag_icon" src="/assets/images/snag_icon.png" alt=""></button>
+			</form>
 		</div>
+	</div>
+	{% if emptySearch %}
+		<p class="text-center text-warning">{{ emptySearch }}</p>
+	{% endif %}
+	
 	</header>

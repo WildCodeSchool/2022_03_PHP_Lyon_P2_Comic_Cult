@@ -2,7 +2,7 @@
 {% block stylesheet %}
 	<link rel="stylesheet" href="/assets/css/admin_style.css">
 {% endblock %}
-{% block title %}Admin{{ parent() }}
+{% block title %}Admin - Liste BD{{ parent() }}
 {% endblock %}
 {% block content %}
 	{% include "Admin/_header.html.twig" %}
@@ -43,18 +43,15 @@
 										<button type="submit" id="delete_btn" class="btn btn-dark" onclick="return confirm('Voulez-vous supprimer cette BD ?')">suppr.</button>
 									</form>
 								</td>
-								<td>
-									<form action="" method="POST">
-										<input type="hidden" name="id" value="{{ comic.id }}">
-										<button type="submit" id="view_btn" class="btn btn-dark"><a class="text-decoration-none text-white" href= "details?id={{ comic.id }}"> afficher </a></button>
-									</form>
+								<td class="align-middle">
+									<a href="details?id={{ comic.id }}"><input type="submit" id="edit_btn" class="btn btn-dark" value="afficher"></a>
 								</td>
 							</tr>
 						{% endfor %}
 					</tbody>
 				</table>
 			</div>
-			<div class=" d-flex justify-content-end fixed-bottom mb-5" id="scrollUp">
+			<div class=" d-flex justify-content-end fixed-bottom mb-5 pe-5" id="scrollUp">
 				<a href="#top"><img id="scrollup_img" src="/assets/images/bouton-retour-haut.png" onclick="scroll(0, 100);"/></a>
 			</div>
 		</div>

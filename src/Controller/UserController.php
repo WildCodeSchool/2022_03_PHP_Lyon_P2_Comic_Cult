@@ -40,7 +40,14 @@ class UserController extends AbstractController
         );
         // Use this method to delete duplicates (for ex: One comic may have 2 or 3 authors).
         $finalList = $utilityService->arrayUnique($finalList, 'title');
+
+        $emptySearch = null;
+        if (empty($finalList)) {
+            $emptySearch = 'Aucun résultat trouvé pour cette recherche.';
+        }
+
         return $this->twig->render('User/list.html.twig', array('comicBooks' => $finalList,
+                                                                    'emptySearch' => $emptySearch,
                                                                     'completionList' => $completionList));
     }
 

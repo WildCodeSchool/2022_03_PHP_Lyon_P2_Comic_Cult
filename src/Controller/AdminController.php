@@ -233,6 +233,10 @@ class AdminController extends AbstractController
 
     public function authorEdit($id)
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
 
         $authorManager = new AuthorManager();
         $cleanComicAuthor = new AddAuthorService();
@@ -244,12 +248,11 @@ class AdminController extends AbstractController
             $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
             $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
             $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
-            var_dump($comicAuthor);
 
             $errors = $cleanComicAuthor->getCheckErrors();
             if (empty($cleanComicAuthor->getCheckErrors())) {
                 $authorManager->updateAuthor($comicAuthor, $id);
-                header('Location:/admin/author/');
+                header('Location:/admin/author');
             }
         }
 
@@ -262,6 +265,11 @@ class AdminController extends AbstractController
      */
     public function messagesList(): string
     {
+        if (!$this->user) {
+            echo 'Unauthorized access';
+            header('Location: /');
+        }
+
         $contactManager = new ContactManager();
         $userMessages = $contactManager->selectAll();
 

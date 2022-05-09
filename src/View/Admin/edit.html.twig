@@ -2,7 +2,7 @@
 {% block stylesheet %}<link rel="stylesheet" href="/assets/css/admin_style.css">{% endblock %}
 
 {% block title %}
-   Modifier BD {{ parent() }}
+   Admin - Modification BD{{ parent() }}
 {% endblock %}
 
 
@@ -10,6 +10,9 @@
 {% block content %}
     {% include "Admin/_header.html.twig" %}
 
+    <div class="container-fluid return">
+        <a class="white_link" href="/admin/author"><img id="return_button" src="/assets/images/bouton-retour.png" alt=""></a>
+    </div>
 
     <div class="container-fluid">
         <div class="row p-3 mt-5 text-center">
@@ -100,7 +103,7 @@
                     <div class="form-group row mt-3">
                         <label for="pitch" class="label_form_add_BD col-sm-2 col-md-2 col-lg-1 control-label text-right">Résumé <span class="asterisk">*</span></label>
                         <div class="col-sm-8 col-lg-10 col-md-8">
-                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4">{{ comicBook.pitch }}</textarea>
+                        <textarea class="form-control input-bg" name="pitch" id="resume_text_area" rows="4" required>{{ comicBook.pitch }}</textarea>
                     </div>
                 </div>
                 
@@ -129,6 +132,12 @@
             <div class="row text-center">
                 <h1> LES CHAMPS <small class="asterisk">(*)</small> SONT OBLIGATOIRES.</h1>
             </div>
+        </div>
+
+        <div class="container text-center">
+            {% for error in errors %}
+                <p class="text-warning fs-6 lh-1">{{ error }}</p>
+            {% endfor %}
         </div>
 
     {% endblock %}

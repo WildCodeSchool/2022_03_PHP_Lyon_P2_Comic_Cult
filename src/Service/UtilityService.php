@@ -18,7 +18,7 @@ class UtilityService
         $wordsToReplace = ['un', 'une', 'des', 'le', 'la', 'les', 'au', 'aux', 'du',
                             'mon', 'notre', 'votre', 'nos', 'vos', 'leur', 'leurs',
                             'ai', 'avons', 'avez', 'ont', 'suis', 'es', 'êtes', 'sont',
-                            'a', 'l', 'd', 's', 'm'];
+                            'a', 'l', 'd', 's', 'm', 'et', 'mais', 'ou', 'donc', 'ni'];
 
         $stringToClear = strtolower($stringToClear);
         $stringToClear = str_replace($characterToReplace, ' ', $stringToClear);
