@@ -252,7 +252,7 @@ class AdminController extends AbstractController
             $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
 
             $errors = $cleanComicAuthor->getCheckErrors();
-            if (empty($cleanComicAuthor->getCheckErrors())) {
+            if (empty($errors)) {
                 $authorManager->updateAuthor($comicAuthor, $id);
                 header('Location:/admin/author');
             }
