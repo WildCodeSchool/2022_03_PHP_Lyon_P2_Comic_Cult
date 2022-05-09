@@ -60,12 +60,12 @@
 			{% endif %}
 			<form method="POST" class="contact-form px-4">
 				<label for="firstname" class="form-label pt-3 ps-5">Prénom :</label>
-				<input type="text" class="form-control" name="firstname" id="firstname" required placeholder="* Champ obligatoire">
+				<input type="text" class="form-control" name="firstname" id="firstname" required maxlength="30" placeholder="* Champ obligatoire">
 				<label for="lastname" class="form-label pt-3 ps-5">Nom :</label>
-				<input type="text" class="form-control" name="lastname" id="lastname" required placeholder="* Champ obligatoire">
+				<input type="text" class="form-control" name="lastname" id="lastname" required maxlength="40" placeholder="* Champ obligatoire">
 				<label for="email" class="form-label pt-3 ps-5">Email :</label>
-				<input type="text" class="form-control" name="email" id="email" required placeholder="* Champ obligatoire">
-				<textarea class="form-control mt-5 mb-2" name="message" id="message" required placeholder="* Champ obligatoire" style="height: 20%"></textarea>
+				<input type="text" class="form-control" name="email" id="email" required maxlength="80"placeholder="* Champ obligatoire">
+				<textarea class="form-control mt-5 mb-2" name="message" id="message" required maxlength="300" placeholder="* Champ obligatoire" style="height: 20%"></textarea>
 				<div class="d-flex justify-content-end">
 					<button name="send_message" type="submit" class="btn send_btn btn-dark mt-3">Envoyer</button>
 				</div>
