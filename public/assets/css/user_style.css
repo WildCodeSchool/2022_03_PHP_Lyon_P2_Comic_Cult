@@ -136,7 +136,7 @@ body {
 .card-img-top {
     width: 70%;
     border-radius: 5px;
-    border: 1px solid var(--main_border_color);
+    border: 2px solid black;
 }
 
 .card-text {
