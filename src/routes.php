@@ -24,5 +24,4 @@ return [
     'admin/author/delete' => ['AdminController', 'deleteAuthor'],
     'admin/contact' => ['AdminController', 'messagesList',],
     'admin/message/delete' => ['AdminController', 'messageDelete',],
-    'confirm' => ['UserController',],
 ];
