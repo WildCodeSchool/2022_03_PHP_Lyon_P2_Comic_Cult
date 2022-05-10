@@ -213,12 +213,13 @@ class AdminController extends AbstractController
             $comicAuthor = array_map('trim', $_POST);
             $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
             $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
+            $cleanComicAuthor->comicAuthorDateVerify($comicAuthor);
             $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
             $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
 
             $errors = $cleanComicAuthor->getCheckErrors();
 
-            if (empty($cleanComicAuthor->getCheckErrors())) {
+            if (empty($errors)) {
                 $authorManager->insertAuthor($comicAuthor);
                 header('Location:/admin/author');
             }
@@ -246,11 +247,12 @@ class AdminController extends AbstractController
             $comicAuthor = array_map('trim', $_POST);
             $cleanComicAuthor->comicAuthorEmptyVerify($comicAuthor);
             $cleanComicAuthor->comicAuthorStringVerify($comicAuthor);
+            $cleanComicAuthor->comicAuthorDateVerify($comicAuthor);
             $comicAuthor['first_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['first_name']);
             $comicAuthor['last_name_keyword'] = $cleanComicAuthor->clearString($comicAuthor['last_name']);
 
             $errors = $cleanComicAuthor->getCheckErrors();
-            if (empty($cleanComicAuthor->getCheckErrors())) {
+            if (empty($errors)) {
                 $authorManager->updateAuthor($comicAuthor, $id);
                 header('Location:/admin/author');
             }

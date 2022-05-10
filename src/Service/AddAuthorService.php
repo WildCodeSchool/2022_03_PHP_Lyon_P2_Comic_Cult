@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Service\UtilityService;
+use DateTime;
 
 class AddAuthorService extends UtilityService
 {
@@ -35,6 +36,15 @@ class AddAuthorService extends UtilityService
 
         if (strlen($comicAuthor['editor']) > 100) {
             $this->checkErrors[] = 'Le nom de l\'éditeur ne doit pas dépasser 100 caractères.';
+        }
+    }
+
+    public function comicAuthorDateVerify(array $comicAuthor): void
+    {
+        $dateOfTheDay = new DateTime('today');
+        $dateOfTheDay = $dateOfTheDay->format('Y-m-d');
+        if ($comicAuthor['birth_date'] >= $dateOfTheDay) {
+            $this->checkErrors[] = 'La date de naissance ne peut pas être au-delà de la date du jour.';
         }
     }
 }
