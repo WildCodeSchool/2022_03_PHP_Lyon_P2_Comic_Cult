@@ -37,7 +37,7 @@
 								<td class="table_line align-middle">
 									{{ userMessage.message }}
 								</td>
-								<td class="align-middle">
+								<td>
 									<form action="message/delete" method="POST">
 										<input type="hidden" name="id" value="{{ userMessage.id }}">
 										<button type="submit" id="delete_btn" class="btn btn-dark" onclick="return confirm('Voulez-vous supprimer ce message ?')">suppr.</button>

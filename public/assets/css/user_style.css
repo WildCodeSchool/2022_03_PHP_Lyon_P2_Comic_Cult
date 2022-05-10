@@ -85,11 +85,40 @@ body {
     color: var(--second_font_color);
 }
 
+/* Button admin connexion modal */
+
+#spaceAdminLogin{
+   font-size: 25px;
+   padding: 10px;
+   font-family: sans-serif;
+}
+
+#spaceAdminMdp{
+    font-size: 25px;
+    padding-bottom: 10px;
+    font-family: sans-serif;
+}
+
+#spaceAdminConnexion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color:#e6e6e6;
+}
+
+#return_button_user_contact,
+#return_button_confirm
+{
+    width: 60px;
+    height: auto;
+    margin-top: 0px;
+    margin-left: 10px;
+}
 
 /* Contact page css */
 
 .contact-page {
-    justify-content: center;
     height: 94vh;
 }
 
@@ -101,15 +130,16 @@ body {
     background-color: #dbdbdb;
     border-radius: 8%;
     width: 90%;
+    height: 50%;
 }
 
 .card-img-top {
-    width: 30%;
+    width: 40%;
 }
 
 .card-text {
     font-family: var(--second_font);
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bolder;
 }
 
@@ -118,19 +148,17 @@ body {
     font-size: 25px;
 }
  
-.team_title {
-    font-size: 85px;
+.team_title,
+.form_title
+{
+    font-size: 55px;
     color: white;
     justify-content: center;
-}
-
-.form_title {
-    font-size: 65px;
-    color: white;
+    height: 5%;
 }
 
 .form-label {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .form-control {
@@ -147,6 +175,10 @@ body {
 
 .split-container {
     border-left: solid 3px var(--main_border_color);
+}
+
+.redirection {
+    font-size: 35px;
 }
 
 #return_button_user_contact,

@@ -54,35 +54,30 @@ class UserController extends AbstractController
     /**
      * Add a new message
      */
-    public function add(): ?string
+    public function add()
     {
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $userMessages = array_map('trim', $_POST);
-
-            // TODO validations (length, format...)
-
-            if (strlen($userMessages['firstname']) > 80) {
-                $errors[] = 'Le prénom renseigné ne doit pas dépasser 80 cractères.';
+            $userMessages = array_map("trim", $_POST);
+            if (strlen($userMessages['firstname']) > 30) {
+                $errors[] = 'Le prénom renseigné ne doit pas dépasser 30 caractères.';
             }
-
-            if (strlen($userMessages['lastname']) > 100) {
-                $errors[] = 'Le nom de famille renseigné ne doit pas dépasser 100 cractères.';
+            if (strlen($userMessages['lastname']) > 40) {
+                $errors[] = 'Le nom de famille renseigné ne doit pas dépasser 40 caractères.';
             }
-
             if (!filter_var($userMessages['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = 'Veuillez renseigner une adresse mail valide.';
             }
-
             if (empty($errors)) {
-                // if validation is ok, insert and redirection
                 $contactManager = new ContactManager();
                 $contactManager->insert($userMessages);
+
+                return $this->twig->render('User/confirm.html.twig');
             }
+            return $this->twig->render('User/contact.html.twig', ['errors' => $errors]);
         }
-        return $this->twig->render('User/contact.html.twig', ['errors' => $errors]);
+        return $this->twig->render('User/contact.html.twig');
     }
 
     public function details($id): string

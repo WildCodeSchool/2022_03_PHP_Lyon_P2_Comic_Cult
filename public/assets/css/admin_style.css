@@ -116,15 +116,21 @@ body {
     width: 25%;
 }
 
-.delete_message_column {
-    width: 1%;
+.message_column {
+    width: 60%;
 }
+
+.delete_message_column {
+    width: 5%;
+}
+
 
 /*  View btn  */
 
 #view_btn > a {
   color : #c9c3c3 !important;
 }
+
 /* Scroll btn JS */
 
 #scrollUp {
