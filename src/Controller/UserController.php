@@ -58,27 +58,18 @@ class UserController extends AbstractController
     {
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST')
-        {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userMessages = array_map("trim", $_POST);
-
-            if (strlen($userMessages['firstname']) > 30)
-            {
+            if (strlen($userMessages['firstname']) > 30) {
                 $errors[] = 'Le prénom renseigné ne doit pas dépasser 30 caractères.';
             }
-
-            if (strlen($userMessages['lastname']) > 40)
-            {
+            if (strlen($userMessages['lastname']) > 40) {
                 $errors[] = 'Le nom de famille renseigné ne doit pas dépasser 40 caractères.';
             }
-
-            if (!filter_var($userMessages['email'], FILTER_VALIDATE_EMAIL))
-            {
+            if (!filter_var($userMessages['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = 'Veuillez renseigner une adresse mail valide.';
             }
-
-            if (empty($errors))
-            {
+            if (empty($errors)) {
                 $contactManager = new ContactManager();
                 $contactManager->insert($userMessages);
 
