@@ -128,18 +128,20 @@ body {
 
 .card {
     background-color: #dbdbdb;
-    border-radius: 8%;
+    border-radius: 10px;
     width: 90%;
     height: 50%;
 }
 
 .card-img-top {
-    width: 40%;
+    width: 70%;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 .card-text {
     font-family: var(--second_font);
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bolder;
 }
 
@@ -151,7 +153,7 @@ body {
 .team_title,
 .form_title
 {
-    font-size: 55px;
+    font-size: 40px;
     color: white;
     justify-content: center;
     height: 5%;
@@ -168,7 +170,7 @@ body {
 }
 
 .contact-form {
-    border-radius: 8%;
+    border-radius: 10px;
     background-color: #dbdbdb;
     height: 70vh;
 }
@@ -184,7 +186,7 @@ body {
 #return_button_user_contact,
 #return_button_confirm
 {
-    width: 60px;
+    width: 40px;
     height: auto;
     margin-top: 0px;
     margin-left: 10px;
